@@ -1,6 +1,8 @@
 ﻿using System.Configuration;
 using System.Data;
 using System.Windows;
+using UTAD.ToDoList.WPF.Models;
+using UTAD.ToDoList.WPF.Models.Shared;
 
 namespace UTAD.ToDoList.WPF
 {
@@ -9,6 +11,12 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class App : Application
     {
+
+
+        public App()
+        {
+
+        }
     }
 
 }
