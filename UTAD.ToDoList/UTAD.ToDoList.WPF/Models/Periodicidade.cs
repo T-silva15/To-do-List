@@ -5,7 +5,6 @@ namespace UTAD.ToDoList.WPF.Models
     public class Periodicidade : BaseModel
     {
         public string tipo {  get; set; }
-        public IList<String> DiasSemana { get; set; }
-
+        public IList<String> diasSemana { get; set; }
     }
 }
