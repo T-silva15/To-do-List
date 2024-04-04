@@ -1,4 +1,5 @@
-﻿using System.Windows.Media.Imaging;
+﻿using System.Windows.Media;
+using System.Windows.Media.Imaging;
 
 namespace UTAD.ToDoList.WPF.Models
 {
@@ -12,14 +13,13 @@ namespace UTAD.ToDoList.WPF.Models
         // fotografia do perfil (bitmap)
         public BitmapImage fotografia { get; set; }
 
-
+        
         // construtor por defeito
         public Perfil() 
-        {
+        {   
             nome = string.Empty;
             email = string.Empty;
-            // imagem por defeito não implementada completamente    
-            // fotografia = BitmapImage.Create(BitmapImage.CreateOptions.None, BitmapCacheOption.OnLoad, null, null);
+            fotografia = new BitmapImage();
         }
 
         // construtor com parâmetros
