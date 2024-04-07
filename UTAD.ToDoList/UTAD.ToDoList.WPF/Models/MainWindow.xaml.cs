@@ -1,4 +1,6 @@
-﻿using System.Text;
+﻿using Microsoft.Win32;
+using System.Diagnostics;
+using System.Text;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,6 +10,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using UTAD.ToDoList.WPF.Models;
+
 
 namespace UTAD.ToDoList.WPF
 {
@@ -16,9 +20,13 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        private App App { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
+
+            App = (App)App.Current;
         }
     }
 }

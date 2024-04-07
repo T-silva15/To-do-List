@@ -5,7 +5,6 @@ namespace UTAD.ToDoList.WPF.Models
     public class Tarefa : BaseModel
     {
         public string titulo { get; set; }
-        public string descricao { get; set; }
         public DateOnly dataInicio {  get; set; }
         public DateOnly dataTermino { get; set; }
 
@@ -14,6 +13,7 @@ namespace UTAD.ToDoList.WPF.Models
         public bool estado { get; set; }
 
         // atributos opcionais
+        public string? descricao { get; set; }
         public Periodicidade? periodicidade { get; set; }
         public Alerta? alertaAntecipacao { get; set; }
         public Alerta? alertaExecucao { get; set; }
@@ -32,7 +32,8 @@ namespace UTAD.ToDoList.WPF.Models
             alertaExecucao = new Alerta();
         }
         // construtor com parâmetros
-        public Tarefa(string _titulo, string _descricao, DateOnly _dataInicio, DateOnly _dataTermino, int _nivelImportancia, bool _estado, Periodicidade _periodicidade, Alerta _alertaAntecipacao, Alerta _alertaExecucao)
+        public Tarefa(string _titulo, string _descricao, DateOnly _dataInicio, DateOnly _dataTermino, int _nivelImportancia, bool _estado, 
+            Periodicidade _periodicidade, Alerta _alertaAntecipacao, Alerta _alertaExecucao)
         {
             titulo = _titulo;
             descricao = _descricao;
@@ -46,3 +47,4 @@ namespace UTAD.ToDoList.WPF.Models
         }
     }
 }
+

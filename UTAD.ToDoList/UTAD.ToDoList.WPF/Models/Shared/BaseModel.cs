@@ -1,7 +1,4 @@
-﻿using System.CodeDom;
-using System.Windows.Media;
-
-namespace UTAD.ToDoList.WPF.Models.Shared
+﻿namespace UTAD.ToDoList.WPF.Models.Shared
 {
     public abstract class BaseModel
     {

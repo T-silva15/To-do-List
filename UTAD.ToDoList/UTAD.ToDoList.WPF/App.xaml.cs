@@ -11,11 +11,12 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class App : Application
     {
-
+        // propriedades das views
+        
 
         public App()
         {
-
+            // inicialização das views
         }
     }
 

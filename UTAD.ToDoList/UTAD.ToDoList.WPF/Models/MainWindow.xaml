@@ -5,8 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800" Background="#050214">
     <Grid>
-
+        <Label Content="To-Do List" Foreground="White" FontSize="18" FontFamily="Nun" HorizontalAlignment="Left" Margin="276,20,0,0" VerticalAlignment="Top" Width="91"/>
+        <Label Content="DashBoard" Foreground="#C10C99" FontSize="18" FontFamily="Nun" HorizontalAlignment="Left" Margin="363,21,0,0" VerticalAlignment="Top" Width="96"/>
     </Grid>
 </Window>
