@@ -2,12 +2,12 @@
 {
     public abstract class BaseModel
     {
-        public string id { get; set; }
+        public string Id { get; set; }
 
         protected BaseModel()
         {
-            if(string.IsNullOrEmpty(id))
-                id = Guid.NewGuid().ToString();
+            if(string.IsNullOrEmpty(Id))
+                Id = Guid.NewGuid().ToString();
         }
     }
 }

@@ -4,46 +4,44 @@ namespace UTAD.ToDoList.WPF.Models
 {
     public class Tarefa : BaseModel
     {
-        public string titulo { get; set; }
-        public DateOnly dataInicio {  get; set; }
-        public DateOnly dataTermino { get; set; }
+        public string Titulo { get; set; }
+        public DateOnly DataInicio {  get; set; }
+        public DateOnly DataTermino { get; set; }
 
         // nível de importância (0 - Sem Nível | 1 - Pouco Importante | 2 - Normal | 3 - Importante | 4 - Prioritária)
-        public int nivelImportancia { get; set; }
-        public bool estado { get; set; }
+        public enum NivelImportancia { Pouco_Importante, Normal, Important, Prioritaria}
+        public bool Estado { get; set; }
 
         // atributos opcionais
-        public string? descricao { get; set; }
-        public Periodicidade? periodicidade { get; set; }
-        public Alerta? alertaAntecipacao { get; set; }
-        public Alerta? alertaExecucao { get; set; }
+        public string? Descricao { get; set; }
+        public Periodicidade? Periodicidade { get; set; }
+        public Alerta? AlertaAntecipacao { get; set; }
+        public Alerta? AlertaExecucao { get; set; }
 
         // construtor por defeito
         public Tarefa()
         {
-            titulo = string.Empty;
-            descricao = string.Empty;
-            dataInicio = DateOnly.MinValue;
-            dataTermino = DateOnly.MaxValue;
-            nivelImportancia = 0;
-            estado = false;
-            periodicidade = new Periodicidade();
-            alertaAntecipacao = new Alerta();
-            alertaExecucao = new Alerta();
+            Titulo = string.Empty;
+            Descricao = string.Empty;
+            DataInicio = DateOnly.MinValue;
+            DataTermino = DateOnly.MaxValue;
+            Estado = false;
+            Periodicidade = new Periodicidade();
+            AlertaAntecipacao = new Alerta();
+            AlertaExecucao = new Alerta();
         }
         // construtor com parâmetros
-        public Tarefa(string _titulo, string _descricao, DateOnly _dataInicio, DateOnly _dataTermino, int _nivelImportancia, bool _estado, 
-            Periodicidade _periodicidade, Alerta _alertaAntecipacao, Alerta _alertaExecucao)
+        public Tarefa(string _Titulo, string _Descricao, DateOnly _DataInicio, DateOnly _DataTermino, int _NivelImportancia, bool _Estado, 
+            Periodicidade _Periodicidade, Alerta _AlertaAntecipacao, Alerta _AlertaExecucao)
         {
-            titulo = _titulo;
-            descricao = _descricao;
-            dataInicio = _dataInicio;
-            dataTermino = _dataTermino;
-            nivelImportancia = _nivelImportancia;
-            estado = _estado;
-            periodicidade = _periodicidade;
-            alertaAntecipacao = _alertaAntecipacao;
-            alertaExecucao = _alertaExecucao;
+            Titulo = _Titulo;
+            Descricao = _Descricao;
+            DataInicio = _DataInicio;
+            DataTermino = _DataTermino;
+            Estado = _Estado;
+            Periodicidade = _Periodicidade;
+            AlertaAntecipacao = _AlertaAntecipacao;
+            AlertaExecucao = _AlertaExecucao;
         }
     }
 }

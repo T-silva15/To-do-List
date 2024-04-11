@@ -4,21 +4,8 @@ namespace UTAD.ToDoList.WPF.Models
 {
     public class Periodicidade : BaseModel
     {
-        public string tipo {  get; set; }
-        public IList<String> diasSemana { get; set; }
-
-        // construtor por defeito
-        public Periodicidade()
-        {
-            tipo = string.Empty;
-            diasSemana = new List<String>();
-        }
-
-        // construtor com parâmetros
-        public Periodicidade(string _tipo, IList<string> _diasSemana)
-        {
-            tipo = _tipo;
-            diasSemana = _diasSemana;
-        }
+        public int Ocorrencia { get; set; } = 0;
+        public enum Tipo { dia, semana, mes, ano }
+        public enum DiasSemana { segunda, terca, quarta, quinta, sexta, sabado, domingo }
     }
 }

@@ -7,27 +7,27 @@ namespace UTAD.ToDoList.WPF.Models
     {
 
 
-        public string nome { get; set; }
-        public string email { get; set; }
+        public string Nome { get; set; }
+        public string Email { get; set; }
 
-        // fotografia do perfil (bitmap)
-        public BitmapImage fotografia { get; set; }
+        // Fotografia do perfil (bitmap)
+        public BitmapImage Fotografia { get; set; }
 
         
         // construtor por defeito
         public Perfil() 
         {   
-            nome = string.Empty;
-            email = string.Empty;
-            fotografia = new BitmapImage();
+            Nome = string.Empty;
+            Email = string.Empty;
+            Fotografia = new BitmapImage();
         }
 
         // construtor com parâmetros
-        public Perfil(string _name, string _email, BitmapImage _fotografia)
+        public Perfil(string _name, string _Email, BitmapImage _Fotografia)
         {
-            nome = _name;
-            email = _email;
-            fotografia= _fotografia;
+            Nome = _name;
+            Email = _Email;
+            Fotografia= _Fotografia;
         }
     }
 }
