@@ -20,12 +20,11 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class MainWindow : Window
     {
-        private App App { get; set; }
+        public App App { get; set; }
 
         public MainWindow()
         {
             InitializeComponent();
-
             App = (App)App.Current;
         }
     }

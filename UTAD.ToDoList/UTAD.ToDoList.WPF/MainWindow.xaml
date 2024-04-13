@@ -1,13 +1,14 @@
-﻿<Window x:Class="UTAD.ToDoList.WPF.MainWindow"
+﻿<Window
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
+        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800" Background="#050214">
+        Title="MainWindow" WindowState="Maximized" ResizeMode="CanResize" Icon="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\todo.ico" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Background="#050214" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="To-Do List" Foreground="White" FontSize="18" FontFamily="Nun" HorizontalAlignment="Left" Margin="276,20,0,0" VerticalAlignment="Top" Width="91"/>
-        <Label Content="DashBoard" Foreground="#C10C99" FontSize="18" FontFamily="Nun" HorizontalAlignment="Left" Margin="363,21,0,0" VerticalAlignment="Top" Width="96"/>
+        <Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins-Regular" Margin="322,53,512,631" Width="190" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/>
+        <Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins-Regular" Margin="540,53,258,639" Width="225" RenderTransformOrigin="0.385,0.476" Height="68" MinHeight="68" MinWidth="225"/>
     </Grid>
 </Window>
