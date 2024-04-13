@@ -11,6 +11,9 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class App : Application
     {
+        public MainWindow MainWindow { get; set; }
+        public ViewLogin ViewLogin { get; set; }
+        public ViewRegisto ViewRegisto { get; set; }
         // propriedades das views
         
 

@@ -8,4 +8,33 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Fonts\Poppins-Bold.ttf" />
+    <None Remove="Fonts\Poppins-Italic.ttf" />
+    <None Remove="Fonts\Poppins-Light.ttf" />
+    <None Remove="Fonts\Poppins-Regular.ttf" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Poppins-Bold.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Poppins-Light.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Fonts\Poppins-Regular.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="25.1.39" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Fonts\Poppins-Italic.ttf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
 </Project>
