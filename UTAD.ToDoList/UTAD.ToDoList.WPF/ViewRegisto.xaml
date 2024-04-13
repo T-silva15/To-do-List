@@ -1,0 +1,12 @@
+﻿<Window x:Class="UTAD.ToDoList.WPF.ViewRegisto"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
+        mc:Ignorable="d"
+        Title="To-Do List Registo" Height="768" Width="1024" MinHeight="768" MinWidth="1024" ResizeMode="CanResize" Background="#050214" WindowStartupLocation="CenterScreen">
+    <Grid>
+        
+    </Grid>
+</Window>
