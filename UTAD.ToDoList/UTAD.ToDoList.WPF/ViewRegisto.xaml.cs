@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,6 +22,21 @@ namespace UTAD.ToDoList.WPF
         {
             InitializeComponent();
             App = (App)Application.Current;
+        }
+        private void btnInserirImagem_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog openFileDialog = new();
+
+            // filtro de ficheiros de imagem
+            openFileDialog.Filter = "Ficheiros de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            
+            // após selecionar a imagem, muda imagem da view e guarda no objeto perfil
+            if (openFileDialog.ShowDialog() == true)
+            {
+                BitmapImage img = new BitmapImage(new Uri(openFileDialog.FileName));
+                ftPerfil.Source = img;
+                // App.Perfil.Fotografia = img;
+            }
         }
     }
 }

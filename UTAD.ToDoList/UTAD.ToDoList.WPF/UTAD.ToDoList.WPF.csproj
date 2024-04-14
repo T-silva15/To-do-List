@@ -37,4 +37,10 @@
     </Resource>
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="Images\Insert_photo.png">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

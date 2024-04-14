@@ -23,7 +23,7 @@ namespace UTAD.ToDoList.WPF
 
         public ViewLogin()
         {
-            App = (App)App.Current;
+            App = (App)Application.Current;
             InitializeComponent();
         }
 
@@ -33,5 +33,9 @@ namespace UTAD.ToDoList.WPF
             App.ViewRegisto.Show();
         }
 
+        private void btnRegistar_Copy_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
