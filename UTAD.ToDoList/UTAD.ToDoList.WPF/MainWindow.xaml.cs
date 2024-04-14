@@ -25,7 +25,7 @@ namespace UTAD.ToDoList.WPF
         public MainWindow()
         {
             InitializeComponent();
-            App = (App)App.Current;
+            App = (App)Application.Current;
         }
     }
 }
