@@ -113,7 +113,7 @@
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Message_fill.png" Height="17" Margin="134,460,0,0" VerticalAlignment="Top" Width="17"/>
         <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,481,0,0" Height="14" Width="709" />
 
-        <Button x:Name="btnRegistar_Copy"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins-Regular" FontSize="24"  Content="Registar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="496" Margin="140,578,0,0"/>
+        <Button x:Name="btnRegistar"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins-Regular" FontSize="24"  Content="Registar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="496" Margin="140,578,0,0" Click="btnRegistar_Click"/>
         <Button x:Name="btnInserirImagem" Style="{DynamicResource NormalButtonHoverColor}" Background="Transparent" Foreground="#6E6E6E" Content="Inserir Imagem" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" Margin="792,483,0,0" Click="btnInserirImagem_Click" FontFamily="Poppins" BorderBrush="#FF6A6969" />
 
         <Image x:Name="ftPerfil" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Camera_Fill.png" HorizontalAlignment="Left" Height="242" Margin="721,227,0,0" VerticalAlignment="Top" Width="247"/>
