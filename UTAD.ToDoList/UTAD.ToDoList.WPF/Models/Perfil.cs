@@ -3,10 +3,9 @@ using System.Windows.Media.Imaging;
 
 namespace UTAD.ToDoList.WPF.Models
 {
+    [Serializable]
     public class Perfil
     {
-
-
         public string Nome { get; set; }
         public string Email { get; set; }
 
