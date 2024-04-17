@@ -6,9 +6,75 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" ResizeMode="CanResize" Icon="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\todo.ico" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Background="#050214" WindowStartupLocation="CenterScreen">
+        Title="MainWindow" WindowState="Maximized" ResizeMode="CanResize" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowStartupLocation="CenterScreen">
     <Grid>
         <Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins-Regular" Margin="322,53,512,631" Width="190" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/>
         <Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins-Regular" Margin="540,53,258,639" Width="225" RenderTransformOrigin="0.385,0.476" Height="68" MinHeight="68" MinWidth="225"/>
+
+        <Separator HorizontalAlignment="Left" Margin="-22,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
+            <Separator.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="90"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Separator.RenderTransform>
+
+            <Separator.Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Separator}">
+                                <Grid>
+                                    <Rectangle Width="601" Height="1">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                <GradientStop Color="Transparent" Offset="0"/>
+                                                <GradientStop Color="#7e7e7e" Offset="0.5"/>
+                                                <GradientStop Color="Transparent" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="18" Margin="345,145,0,0" TextWrapping="Wrap" Text="Prioritárias" Foreground="White" FontFamily="Poppins" FontSize="16"/>
+        <Image HorizontalAlignment="Left" Width="18" Height="18" Margin="322,148,0,0" VerticalAlignment="Top">
+            <Image.Source>
+                <BitmapImage UriSource="Images/fire_fill.png"/>
+            </Image.Source>
+        </Image>
+        <Separator HorizontalAlignment="Left" Margin="404,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="498">
+            <Separator.Style>
+                <Style TargetType="{x:Type Separator}">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type Separator}">
+                                <Grid>
+                                    <Rectangle Width="601" Height="1">
+                                        <Rectangle.Fill>
+                                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
+                                                <GradientStop Color="Transparent" Offset="0"/>
+                                                <GradientStop Color="#7e7e7e" Offset="0.5"/>
+                                                <GradientStop Color="Transparent" Offset="1"/>
+                                            </LinearGradientBrush>
+                                        </Rectangle.Fill>
+                                    </Rectangle>
+                                </Grid>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </Separator.Style>
+        </Separator>
+
     </Grid>
+
+
 </Window>

@@ -35,7 +35,9 @@ namespace UTAD.ToDoList.WPF
 
         private void btnRegistar_Copy_Click(object sender, RoutedEventArgs e)
         {
-
+            App.MainWindow = new MainWindow();
+            App.MainWindow.Show();
+            this.Close();
         }
     }
 }
