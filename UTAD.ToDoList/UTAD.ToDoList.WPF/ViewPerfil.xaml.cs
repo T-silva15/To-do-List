@@ -30,5 +30,10 @@ namespace UTAD.ToDoList.WPF
         {
 
         }
+
+        private void btnAlterarImagem_Click(object sender, RoutedEventArgs e)
+        {
+            this.Close();
+        }
     }
 }
