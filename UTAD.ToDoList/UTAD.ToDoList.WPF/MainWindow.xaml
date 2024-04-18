@@ -28,10 +28,6 @@
     </Window.Resources>
 
     <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="247*"/>
-            <RowDefinition Height="129*"/>
-        </Grid.RowDefinitions>
         <!--Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins SemiBold" Margin="298,29,517,655" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/-->
         <!--Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins SemiBold" Margin="512,29,269,649" RenderTransformOrigin="0.385,0.476" MinHeight="68" MinWidth="225"/-->
 
