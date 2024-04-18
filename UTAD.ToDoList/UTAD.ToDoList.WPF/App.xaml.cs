@@ -15,13 +15,14 @@ namespace UTAD.ToDoList.WPF
         public Perfil Perfil { get; set; }
 
         // propriedades das views
-        public MainWindow MainWindow { get; set; }
+        public new MainWindow MainWindow { get; set; }
         public ViewLogin ViewLogin { get; set; }
         public ViewRegisto ViewRegisto { get; set; }
+        public ViewPerfil ViewPerfil { get; set; }
         
 
         public App()
-        {
+        { 
             // inicialização das views
 
             // Syncfusion License

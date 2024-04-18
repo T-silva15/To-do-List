@@ -2,13 +2,13 @@
 
 namespace UTAD.ToDoList.WPF.Models
 {
+    [Serializable]
     public class Tarefa : BaseModel
     {
         public string Titulo { get; set; }
         public DateOnly DataInicio {  get; set; }
         public DateOnly DataTermino { get; set; }
 
-        // nível de importância (0 - Sem Nível | 1 - Pouco Importante | 2 - Normal | 3 - Importante | 4 - Prioritária)
         public enum NivelImportancia { Pouco_Importante, Normal, Important, Prioritaria}
         public bool Estado { get; set; }
 

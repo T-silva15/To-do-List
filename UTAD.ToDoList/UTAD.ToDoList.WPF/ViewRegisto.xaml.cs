@@ -35,8 +35,15 @@ namespace UTAD.ToDoList.WPF
             {
                 BitmapImage img = new BitmapImage(new Uri(openFileDialog.FileName));
                 ftPerfil.Source = img;
-                // App.Perfil.Fotografia = img;
             }
+        }
+
+        private void btnRegistar_Click(object sender, RoutedEventArgs e)
+        {
+            App.Perfil = new Models.Perfil();
+            App.Perfil.Nome = tbNome.Text;
+            App.Perfil.Email = tbEmail.Text;
+            App.Perfil.Fotografia = (BitmapImage)ftPerfil.Source;
         }
     }
 }
