@@ -15,17 +15,24 @@ namespace UTAD.ToDoList.WPF
         public Perfil Perfil { get; set; }
 
         // propriedades das views
-        public MainWindow MainWindow { get; set; }
+        public new MainWindow MainWindow { get; set; }
         public ViewLogin ViewLogin { get; set; }
         public ViewRegisto ViewRegisto { get; set; }
+        public ViewPerfil ViewPerfil { get; set; }
         
 
         public App()
-        {
+        { 
             // inicialização das views
 
             // Syncfusion License
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtfeHRSQ2ddUk1/Wkc=");
+            MainWindow = new MainWindow();
+            ViewLogin = new ViewLogin();
+            ViewRegisto = new ViewRegisto();
+            ViewPerfil = new ViewPerfil();
+            // inicialização do modelo
+            Perfil = new Perfil();
         }
     }
 
