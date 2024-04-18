@@ -16,7 +16,13 @@
     <None Remove="Images\All Icon.png" />
     <None Remove="Images\Completed Icon.png" />
     <None Remove="Images\Fire_fill.png" />
+    <None Remove="Images\Importante.png" />
+    <None Remove="Images\NewTask Icon.png" />
+    <None Remove="Images\Normal.png" />
     <None Remove="Images\Pending Icon.png" />
+    <None Remove="Images\Perfil Icon.png" />
+    <None Remove="Images\Pouco_Importante.png" />
+    <None Remove="Images\Prioritaria.png" />
     <None Remove="Images\todo.ico" />
   </ItemGroup>
 
@@ -42,8 +48,13 @@
     </Resource>
     <Resource Include="Images\All Icon.png" />
     <Resource Include="Images\Completed Icon.png" />
-    <Resource Include="Images\Fire_fill.png" />
+    <Resource Include="Images\Importante.png" />
+    <Resource Include="Images\NewTask Icon.png" />
+    <Resource Include="Images\Normal.png" />
     <Resource Include="Images\Pending Icon.png" />
+    <Resource Include="Images\Perfil Icon.png" />
+    <Resource Include="Images\Pouco_Importante.png" />
+    <Resource Include="Images\Prioritaria.png" />
     <Resource Include="Images\todo.ico" />
   </ItemGroup>
 

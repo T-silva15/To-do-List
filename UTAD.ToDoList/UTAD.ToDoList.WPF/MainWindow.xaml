@@ -20,16 +20,19 @@
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#FFC10C99"/>
                     <Setter Property="Foreground" Value="Black"/>
+                    <Setter Property="Background" Value="#C10C99"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <Grid>
-        <Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins-Regular" Margin="322,29,512,655" Width="190" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/>
-        <Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins-Regular" Margin="540,29,258,655" Width="225" RenderTransformOrigin="0.385,0.476" Height="68" MinHeight="68" MinWidth="225"/>
+        <!--Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins SemiBold" Margin="298,29,517,655" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/-->
+        <!--Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins SemiBold" Margin="512,29,269,649" RenderTransformOrigin="0.385,0.476" MinHeight="68" MinWidth="225"/-->
+
+        <TextBlock Text="To-Do List" Margin="298,29,0,0" FontSize="40" FontFamily="Poppins SemiBold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        <TextBlock Text="DashBoard" Margin="512,29,0,0" FontSize="40" FontFamily="Poppins Bold" Foreground="#C10C99" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
 
         <!-- Calendário -->
         <syncfusion:CalendarEdit Date="1/1/2020" HorizontalAlignment="Left" Height="200" Margin="40,169,0,0" VerticalAlignment="Top" Width="200"/>
@@ -45,8 +48,11 @@
         <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,469,0,0" VerticalAlignment="Top"/>
 
         <!-- Outros -->
-        <Button Content="Nova Tarefa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,520,0,0" Background="Transparent" Foreground="White" BorderThickness="0" FontFamily="Poppins-Regular"/>
-        <Button Content="Perfil" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="40,540,0,0" Background="Transparent" Foreground="White" BorderThickness="0" FontFamily="Poppins-Regular"/>
+        <Button Content="Nova Tarefa" Margin="58,520,0,0"/>
+        <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,519,0,0" VerticalAlignment="Top"/>
+
+        <Button Content="Perfil" Margin="58,540,0,0"/>
+        <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,539,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->
         <Separator HorizontalAlignment="Left" Margin="-22,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">
@@ -84,8 +90,8 @@
 
         <!-- Tarefas -->
         <!-- Prioritárias -->
-        <Image Source="Images/fire_fill.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="322,172,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="345,169,0,0" TextWrapping="Wrap" Text="Prioritária" Foreground="White" FontFamily="Poppins" FontSize="16"/>
+        <Image Source="Images/Prioritaria.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="320,168,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.077"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="345,169,0,0" TextWrapping="Wrap" Text="Prioritária" Foreground="#E85671" FontFamily="Poppins" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="404,181,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="498">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -111,8 +117,8 @@
         </Separator>
 
         <!-- Importante -->
-        <Image Source="Images/fire_fill.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="322,272,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Height="23" Margin="345,269,0,0" TextWrapping="Wrap" Text="Importante" Foreground="White" FontFamily="Poppins" FontSize="16"/>
+        <Image Source="Images/Importante.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="320,268,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Height="23" Margin="345,269,0,0" TextWrapping="Wrap" Text="Importante" Foreground="#FE8A5F" FontFamily="Poppins" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="436,281,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="466">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -138,8 +144,8 @@
         </Separator>
 
         <!-- Normal -->
-        <Image Source="Images/fire_fill.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="322,371,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="345,369,0,0" TextWrapping="Wrap" Text="Normal" Foreground="White" FontFamily="Poppins" FontSize="16"/>
+        <Image Source="Images/Normal.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="320,368,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="345,369,0,0" TextWrapping="Wrap" Text="Normal" Foreground="#849EEA" FontFamily="Poppins" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="404,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="498">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -165,8 +171,8 @@
         </Separator>
 
         <!-- Pouco Importante -->
-        <Image Source="Images/fire_fill.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="322,472,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="23" Margin="345,469,0,0" TextWrapping="Wrap" Text="Pouco Importante" Foreground="White" FontFamily="Poppins" FontSize="16"/>
+        <Image Source="Images/Pouco_Importante.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="320,468,0,0" VerticalAlignment="Top"/>
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="23" Margin="345,469,0,0" TextWrapping="Wrap" Text="Pouco Importante" Foreground="#87FF81" FontFamily="Poppins" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="490,481,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="412">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -190,7 +196,7 @@
                 </Style>
             </Separator.Style>
         </Separator>
-
+        
     </Grid>
 
 
