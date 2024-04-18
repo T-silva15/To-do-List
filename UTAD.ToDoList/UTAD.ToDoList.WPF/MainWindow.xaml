@@ -12,16 +12,23 @@
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Nunito-Regular"/>
+            <Setter Property="FontFamily" Value="Nunito Regular"/>
             <Setter Property="BorderThickness" Value="0"/>
 
-            <Setter Property="HorizontalAlignment" Value="Left"/>
-            <Setter Property="VerticalAlignment" Value="Top"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                        </Border>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
 
             <Style.Triggers>
                 <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Foreground" Value="Black"/>
                     <Setter Property="Background" Value="#C10C99"/>
+                    <Setter Property="Foreground" Value="Black"/>
                 </Trigger>
             </Style.Triggers>
         </Style>
@@ -38,21 +45,21 @@
         <syncfusion:CalendarEdit Date="1/1/2020" HorizontalAlignment="Left" Height="200" Margin="40,169,0,0" VerticalAlignment="Top" Width="200"/>
 
         <!-- Filtros -->
-        <Button Content="Todas" Margin="58,430,0,0"/>
+        <Button Content="Todas" Margin="58,430,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/All Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,429,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Completas" Margin="58,450,0,0"/>
+        <Button Content="Completas" Margin="58,450,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,449,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Pendentes" Margin="58,470,0,0" Background="Transparent"/>
+        <Button Content="Pendentes" Margin="58,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,469,0,0" VerticalAlignment="Top"/>
 
         <!-- Outros -->
-        <Button Content="Nova Tarefa" Margin="58,26,0,0" Grid.Row="1"/>
-        <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,25,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button Content="Nova Tarefa" Margin="58,505,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,504,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Perfil" Margin="58,46,0,0" Grid.Row="1"/>
-        <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,45,0,0" VerticalAlignment="Top" Grid.Row="1"/>
+        <Button x:Name="btnNova_Tarefa" Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnNova_Tarefa_Click"/>
+        <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,524,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->
         <Separator HorizontalAlignment="Left" Margin="-22,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">

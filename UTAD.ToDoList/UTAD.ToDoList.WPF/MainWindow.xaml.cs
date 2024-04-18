@@ -33,5 +33,12 @@ namespace UTAD.ToDoList.WPF
             App.ViewPerfil = new ViewPerfil();
             App.ViewPerfil.Show();
         }
+
+        private void btnNova_Tarefa_Click(object sender, RoutedEventArgs e)
+        {
+            App.ViewNovaTarefa = new ViewNovaTarefa();
+            App.ViewNovaTarefa.Show();
+            this.Close();
+        }
     }
 }

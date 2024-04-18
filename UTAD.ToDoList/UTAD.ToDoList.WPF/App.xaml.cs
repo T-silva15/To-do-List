@@ -19,6 +19,7 @@ namespace UTAD.ToDoList.WPF
         public ViewLogin ViewLogin { get; set; }
         public ViewRegisto ViewRegisto { get; set; }
         public ViewPerfil ViewPerfil { get; set; }
+        public ViewNovaTarefa ViewNovaTarefa { get; set; }
         
 
         public App()
@@ -31,6 +32,7 @@ namespace UTAD.ToDoList.WPF
             ViewLogin = new ViewLogin();
             ViewRegisto = new ViewRegisto();
             ViewPerfil = new ViewPerfil();
+            ViewNovaTarefa = new ViewNovaTarefa();
             // inicialização do modelo
             Perfil = new Perfil();
         }
