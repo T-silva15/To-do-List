@@ -27,6 +27,12 @@ namespace UTAD.ToDoList.WPF
 
             // Syncfusion License
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtfeHRSQ2ddUk1/Wkc=");
+            MainWindow = new MainWindow();
+            ViewLogin = new ViewLogin();
+            ViewRegisto = new ViewRegisto();
+            ViewPerfil = new ViewPerfil();
+            // inicialização do modelo
+            Perfil = new Perfil();
         }
     }
 
