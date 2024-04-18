@@ -6,6 +6,34 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
+        Title="Dashboard" WindowState="Maximized" ResizeMode="CanResize" Icon="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\todo.ico" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Background="#050214" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.50*" />
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="To-Do List " FontWeight="Bold" Foreground="#FFFFFF" FontSize="35" FontFamily="Poppins" Grid.Column="1" Margin="20,30" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Span FontSize="35" FontFamily="Poppins"  Foreground="#C10C99">Dashboard</Span>
+        </TextBlock>
+        <Line X1="0" Y1="600" X2="0" Y2="-10" StrokeDashOffset="0.4" StrokeThickness="5" Grid.Column="1" Margin="11,92,0,56" HorizontalAlignment="Left" Width="2">
+            <Line.Stroke>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="#D3D3D3" Offset="0.5"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Line.Stroke>
+        </Line>
+
+        <Button x:Name="BtnNovaTarefa" Panel.ZIndex="0" Grid.Column="0" Background="Transparent" HorizontalContentAlignment="Left" BorderBrush="Transparent" Foreground="#FFFFFF" Content="       Nova Tarefa" FontFamily="Poppins" Margin="71,0,0,118" HorizontalAlignment="Left" Width="102" Height="23" VerticalAlignment="Bottom"/>
+        <Button x:Name="BtnPerfil" Panel.ZIndex="0" Grid.Column="0" Background="Transparent" HorizontalContentAlignment="Left" BorderBrush="Transparent" Foreground="#FFFFFF" Content="       Perfil" FontFamily="Poppins" Margin="71,0,0,86" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="103" Click="BtnPerfil_Click"/>
+        <Image Grid.Column="0" HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Setting_fill.png" Margin="74,0,0,89" Width="17" Height="17" VerticalAlignment="Bottom"/>
+        <Image Grid.Column="0" HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Add_round_fill.png" Margin="74,0,0,121" Width="17" Height="17" VerticalAlignment="Bottom"/>
+=========
         Title="MainWindow" ResizeMode="CanResize" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowStartupLocation="CenterScreen">
 
     <Window.Resources>
@@ -168,7 +196,6 @@
                     </Setter>
                 </Style>
             </Separator.Style>
-        </Separator>
 
         <!-- Pouco Importante -->
         <Image Source="Images/Pouco_Importante.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="320,468,0,0" VerticalAlignment="Top"/>
@@ -196,6 +223,7 @@
                 </Style>
             </Separator.Style>
         </Separator>
+>>>>>>>>> Temporary merge branch 2
 
     </Grid>
 
