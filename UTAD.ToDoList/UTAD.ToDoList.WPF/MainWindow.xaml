@@ -6,9 +6,33 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" WindowState="Maximized" ResizeMode="CanResize" Icon="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\todo.ico" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Background="#050214" WindowStartupLocation="CenterScreen">
+        Title="Dashboard" WindowState="Maximized" ResizeMode="CanResize" Icon="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\todo.ico" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Background="#050214" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins-Regular" Margin="322,53,512,631" Width="190" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/>
-        <Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins-Regular" Margin="540,53,258,639" Width="225" RenderTransformOrigin="0.385,0.476" Height="68" MinHeight="68" MinWidth="225"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.50*" />
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="1*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Text="To-Do List " FontWeight="Bold" Foreground="#FFFFFF" FontSize="35" FontFamily="Poppins" Grid.Column="1" Margin="20,30" VerticalAlignment="Top" HorizontalAlignment="Left">
+            <Span FontSize="35" FontFamily="Poppins"  Foreground="#C10C99">Dashboard</Span>
+        </TextBlock>
+        <Line X1="0" Y1="600" X2="0" Y2="-10" StrokeDashOffset="0.4" StrokeThickness="5" Grid.Column="1" Margin="11,92,0,56" HorizontalAlignment="Left" Width="2">
+            <Line.Stroke>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="0,1">
+                    <GradientStop Color="Transparent" Offset="0"/>
+                    <GradientStop Color="#D3D3D3" Offset="0.5"/>
+                    <GradientStop Color="Transparent" Offset="1"/>
+                </LinearGradientBrush>
+            </Line.Stroke>
+        </Line>
+
+        <Button x:Name="BtnNovaTarefa" Panel.ZIndex="0" Grid.Column="0" Background="Transparent" HorizontalContentAlignment="Left" BorderBrush="Transparent" Foreground="#FFFFFF" Content="       Nova Tarefa" FontFamily="Poppins" Margin="71,0,0,118" HorizontalAlignment="Left" Width="102" Height="23" VerticalAlignment="Bottom"/>
+        <Button x:Name="BtnPerfil" Panel.ZIndex="0" Grid.Column="0" Background="Transparent" HorizontalContentAlignment="Left" BorderBrush="Transparent" Foreground="#FFFFFF" Content="       Perfil" FontFamily="Poppins" Margin="71,0,0,86" Height="23" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="103" Click="BtnPerfil_Click"/>
+        <Image Grid.Column="0" HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Setting_fill.png" Margin="74,0,0,89" Width="17" Height="17" VerticalAlignment="Bottom"/>
+        <Image Grid.Column="0" HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Add_round_fill.png" Margin="74,0,0,121" Width="17" Height="17" VerticalAlignment="Bottom"/>
+
     </Grid>
 </Window>

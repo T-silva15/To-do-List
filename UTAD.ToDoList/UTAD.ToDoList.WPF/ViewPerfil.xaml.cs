@@ -1,6 +1,8 @@
-﻿using Microsoft.Win32;
-using System.Diagnostics;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -8,30 +10,25 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
-using UTAD.ToDoList.WPF.Models;
-
 
 namespace UTAD.ToDoList.WPF
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for ViewPerfil.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class ViewPerfil : Window
     {
         public App App { get; set; }
-
-        public MainWindow()
+        public ViewPerfil()
         {
-            InitializeComponent();
             App = (App)Application.Current;
+            InitializeComponent();
         }
 
-        private void BtnPerfil_Click(object sender, RoutedEventArgs e)
+        private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
-            App.ViewPerfil = new ViewPerfil();
-            App.ViewPerfil.Show();
+
         }
     }
 }
