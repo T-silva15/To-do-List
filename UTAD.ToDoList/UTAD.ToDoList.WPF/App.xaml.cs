@@ -23,6 +23,9 @@ namespace UTAD.ToDoList.WPF
         public App()
         {
             // inicialização das views
+
+            // Syncfusion License
+            Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtfeHRSQ2ddUk1/Wkc=");
         }
     }
 

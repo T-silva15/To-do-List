@@ -13,7 +13,10 @@
     <None Remove="Fonts\Poppins-Italic.ttf" />
     <None Remove="Fonts\Poppins-Light.ttf" />
     <None Remove="Fonts\Poppins-Regular.ttf" />
+    <None Remove="Images\All Icon.png" />
+    <None Remove="Images\Completed Icon.png" />
     <None Remove="Images\Fire_fill.png" />
+    <None Remove="Images\Pending Icon.png" />
     <None Remove="Images\todo.ico" />
   </ItemGroup>
 
@@ -37,7 +40,10 @@
     <Resource Include="Fonts\Poppins-Italic.ttf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\All Icon.png" />
+    <Resource Include="Images\Completed Icon.png" />
     <Resource Include="Images\Fire_fill.png" />
+    <Resource Include="Images\Pending Icon.png" />
     <Resource Include="Images\todo.ico" />
   </ItemGroup>
 
