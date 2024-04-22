@@ -38,7 +38,6 @@ namespace UTAD.ToDoList.WPF
         {
             App.ViewNovaTarefa = new ViewNovaTarefa();
             App.ViewNovaTarefa.Show();
-            this.Close();
         }
     }
 }

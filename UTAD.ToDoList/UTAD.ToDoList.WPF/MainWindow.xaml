@@ -55,10 +55,10 @@
         <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,469,0,0" VerticalAlignment="Top"/>
 
         <!-- Outros -->
-        <Button Content="Nova Tarefa" Margin="58,505,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="58,505,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,504,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnNova_Tarefa" Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Click="btnNova_Tarefa_Click"/>
+        <Button Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,524,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->
