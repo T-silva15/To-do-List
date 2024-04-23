@@ -20,7 +20,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
-        
+
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -108,7 +108,7 @@
         </Style>
     </Window.Resources>
 
-    <Border BorderThickness="1" BorderBrush="Black" CornerRadius="50" Padding="6" Background="#050214">
+    <Border BorderThickness="1" CornerRadius="50" Background="#050214" Margin="8" BorderBrush="#363E34">
         <Grid Margin="7,-7,-7,7">
             <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="90,74,814,460" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 
@@ -127,7 +127,6 @@
 
             <Button x:Name="btnVoltar" Style="{DynamicResource RoundedButtonStyle}" Background="#38373B" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="134,507,0,0" Click="btnVoltar_Click"/>
             <Button x:Name="btnSalvar" Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Salvar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="354,507,0,0" Click="btnSalvar_Click"/>
-
         </Grid>
     </Border>
 </Window>

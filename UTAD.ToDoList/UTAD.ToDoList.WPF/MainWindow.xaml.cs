@@ -30,6 +30,7 @@ namespace UTAD.ToDoList.WPF
             //Loaded += Loading_Animation;
         }
 
+        // esta animação não está a funcionar
         private void Loading_Animation(object sender, RoutedEventArgs e)
         {
             DoubleAnimation widthAnimation = new DoubleAnimation
@@ -52,9 +53,8 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
-            App.ViewPerfil = new ViewPerfil();
-            App.ViewPerfil.Show();
-            this.Hide();
+            App.ViewPerfil = ViewPerfil.Instance;
+            App.ViewPerfil.ShowDialog(); // bloqueia o utilizador de mexer no Dashboard
         }
 
         private void btnNova_Tarefa_Click(object sender, RoutedEventArgs e)
