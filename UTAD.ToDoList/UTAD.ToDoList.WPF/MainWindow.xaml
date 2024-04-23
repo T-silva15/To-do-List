@@ -33,11 +33,20 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
+    
+    <!--
+        <Window.Triggers>
+            <EventTrigger RoutedEvent="Loaded">
+                <BeginStoryboard>
+                    <Storyboard Duration="00:00:3" Storyboard.TargetProperty="Opacity">
+                        <DoubleAnimation From="0" To="1"/>
+                    </Storyboard>
+                </BeginStoryboard>
+            </EventTrigger>
+        </Window.Triggers>
+    -->
 
     <Grid>
-        <!--Label Content="To-Do List" Foreground="White" FontSize="40"  FontFamily="Poppins SemiBold" Margin="298,29,517,655" RenderTransformOrigin="-1.187,0.634" Height="68" MinHeight="68" MinWidth="190"/-->
-        <!--Label Content="DashBoard" Foreground="#C10C99" FontSize="40" FontFamily="Poppins SemiBold" Margin="512,29,269,649" RenderTransformOrigin="0.385,0.476" MinHeight="68" MinWidth="225"/-->
-
         <TextBlock Text="To-Do List" Margin="298,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
         <TextBlock Text="DashBoard" Margin="512,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
 
@@ -58,7 +67,7 @@
         <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="58,505,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,504,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+        <Button x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
         <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,524,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->

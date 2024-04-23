@@ -5,7 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         mc:Ignorable="d"
-        Title="Perfil" Height="768" Width="1024" MinHeight="768" MinWidth="1024" ResizeMode="CanMinimize" Background="#050214" WindowStartupLocation="CenterScreen">
+        Title="Perfil"
+        WindowStartupLocation="CenterScreen"
+        Height="600" Width="1024" ResizeMode="CanMinimize"
+        AllowsTransparency="True" Background="Transparent" WindowStyle="None">
+
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -16,6 +20,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
         <SolidColorBrush x:Key="Button.Static.Background" Color="#FFDDDDDD"/>
         <SolidColorBrush x:Key="Button.Static.Border" Color="#FF707070"/>
         <SolidColorBrush x:Key="Button.MouseOver.Background" Color="#FFBEE6FD"/>
@@ -25,6 +30,7 @@
         <SolidColorBrush x:Key="Button.Disabled.Background" Color="#FFF4F4F4"/>
         <SolidColorBrush x:Key="Button.Disabled.Border" Color="#FFADB2B5"/>
         <SolidColorBrush x:Key="Button.Disabled.Foreground" Color="#FF838383"/>
+
         <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -62,6 +68,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
         <Style x:Key="NormalButtonHoverColor" TargetType="{x:Type Button}">
             <Setter Property="FocusVisualStyle" Value="{StaticResource FocusVisual}"/>
             <Setter Property="Background" Value="{StaticResource Button.Static.Background}"/>
@@ -100,22 +107,27 @@
             </Setter>
         </Style>
     </Window.Resources>
-        <Grid>
-            <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Poppins" Margin="131,115,709,561" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 
-            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,323,709,354" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Nome"/></TextBlock>
-            <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,346,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="484" Height="30" VerticalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Edit_fill.png" Height="17" Margin="134,352,0,0" VerticalAlignment="Top" Width="17"/>
-            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,373,0,0" Height="14" Width="709" />
+    <Border BorderThickness="1" BorderBrush="Black" CornerRadius="50" Padding="6" Background="#050214">
+        <Grid Margin="7,-7,-7,7">
+            <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="90,74,814,460" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 
-            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,431,709,246" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Email"/></TextBlock>
-            <TextBox x:Name="tbEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,454,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="484" Height="30" VerticalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Message_fill.png" Height="17" Margin="134,460,0,0" VerticalAlignment="Top" Width="17"/>
-            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,481,0,0" Height="14" Width="709" />
+            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="131,234,836,329" TextWrapping="Wrap"><Run Language="pt-pt" Text="Nome"/></TextBlock>
+            <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,262,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Source="Images\Pen.png" Height="17" Margin="134,268,0,0" VerticalAlignment="Top" Width="17"/>
+            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,289,0,0" Height="14" Width="430"/>
 
-            <Button x:Name="btnSalvar"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="24"  Content="Registar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="496" Margin="140,578,0,0" Click="btnSalvar_Click"/>
-            <Button x:Name="btnAlterarImagem" Style="{DynamicResource NormalButtonHoverColor}" Background="Transparent" Foreground="#6E6E6E" Content="Inserir Imagem" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" Margin="792,483,0,0" Click="btnAlterarImagem_Click" FontFamily="Poppins" BorderBrush="#FF6A6969" />
+            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="131,351,836,219" TextWrapping="Wrap"><Run Language="pt-pt" Text="Email"/></TextBlock>
+            <TextBox x:Name="tbEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,372,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Source="Images\Message.png" Height="17" Margin="134,378,0,0" VerticalAlignment="Top" Width="17"/>
+            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,400,0,0" Height="14" Width="430"/>
 
-            <Image x:Name="ftPerfil" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Camera_Fill.png" HorizontalAlignment="Left" Height="242" Margin="721,227,0,0" VerticalAlignment="Top" Width="247"/>
+            <Image x:Name="ftPerfil" Source="Images\Camera.png" HorizontalAlignment="Left" Height="204" Margin="714,0,0,0" VerticalAlignment="Center" Width="204"/>
+            <Button x:Name="btnAlterarImagem" Style="{DynamicResource NormalButtonHoverColor}" Background="Transparent" Foreground="#6E6E6E" Content="Inserir Imagem" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" Margin="766,407,0,0" Click="btnAlterarImagem_Click" FontFamily="Nunito" BorderBrush="#FF6A6969"/>
+
+            <Button x:Name="btnVoltar" Style="{DynamicResource RoundedButtonStyle}" Background="#38373B" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="134,507,0,0" Click="btnVoltar_Click"/>
+            <Button x:Name="btnSalvar" Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Salvar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="354,507,0,0" Click="btnSalvar_Click"/>
+
         </Grid>
+    </Border>
 </Window>

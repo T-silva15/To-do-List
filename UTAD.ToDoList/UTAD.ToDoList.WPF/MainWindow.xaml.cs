@@ -7,6 +7,7 @@ using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
+using System.Windows.Media.Animation;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
@@ -26,12 +27,34 @@ namespace UTAD.ToDoList.WPF
         {
             InitializeComponent();
             App = (App)Application.Current;
+            //Loaded += Loading_Animation;
+        }
+
+        private void Loading_Animation(object sender, RoutedEventArgs e)
+        {
+            DoubleAnimation widthAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = this.Width,
+                Duration = TimeSpan.FromSeconds(5)
+            };
+
+            DoubleAnimation heightAnimation = new DoubleAnimation
+            {
+                From = 0,
+                To = this.Height,
+                Duration = TimeSpan.FromSeconds(5)
+            };
+
+            this.BeginAnimation(UIElement.OpacityProperty, widthAnimation);
+            this.BeginAnimation(UIElement.OpacityProperty, heightAnimation);
         }
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
             App.ViewPerfil = new ViewPerfil();
             App.ViewPerfil.Show();
+            this.Hide();
         }
 
         private void btnNova_Tarefa_Click(object sender, RoutedEventArgs e)

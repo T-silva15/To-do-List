@@ -35,5 +35,11 @@ namespace UTAD.ToDoList.WPF
         {
             this.Close();
         }
+
+        private void btnVoltar_Click(object sender, RoutedEventArgs e)
+        {
+            App.MainWindow.Show();
+            this.Close();
+        }
     }
 }

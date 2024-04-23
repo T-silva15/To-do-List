@@ -10,11 +10,15 @@
 
   <ItemGroup>
     <None Remove="Images\All Icon.png" />
+    <None Remove="Images\Camera.png" />
+    <None Remove="Images\Camera_Fill.png" />
     <None Remove="Images\Completed Icon.png" />
     <None Remove="Images\Fire_fill.png" />
     <None Remove="Images\Importante.png" />
+    <None Remove="Images\Message.png" />
     <None Remove="Images\NewTask Icon.png" />
     <None Remove="Images\Normal.png" />
+    <None Remove="Images\Pen.png" />
     <None Remove="Images\Pending Icon.png" />
     <None Remove="Images\Perfil Icon.png" />
     <None Remove="Images\Pouco_Importante.png" />
@@ -28,8 +32,11 @@
 
   <ItemGroup>
     <Resource Include="Images\All Icon.png" />
+    <Resource Include="Images\Camera.png" />
     <Resource Include="Images\Completed Icon.png" />
+    <Resource Include="Images\Pen.png" />
     <Resource Include="Images\Importante.png" />
+    <Resource Include="Images\Message.png" />
     <Resource Include="Images\NewTask Icon.png" />
     <Resource Include="Images\Normal.png" />
     <Resource Include="Images\Pending Icon.png" />
