@@ -110,7 +110,7 @@
 
     <Border BorderThickness="1" CornerRadius="50" Background="#050214" Margin="8" BorderBrush="#363E34">
         <Grid Margin="7,-7,-7,7">
-            <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="91,84,813,446" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
+            <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="90,85,813,446" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 
             <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="131,234,832,329" TextWrapping="Wrap"><Run Language="pt-pt" Text="Nome"/></TextBlock>
             <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,262,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>

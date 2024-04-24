@@ -33,7 +33,7 @@
             </Style.Triggers>
         </Style>
     </Window.Resources>
-    
+
     <!--
         <Window.Triggers>
             <EventTrigger RoutedEvent="Loaded">
@@ -54,21 +54,21 @@
         <syncfusion:CalendarEdit Date="1/1/2020" HorizontalAlignment="Left" Height="200" Margin="40,169,0,0" VerticalAlignment="Top" Width="200"/>
 
         <!-- Filtros -->
-        <Button Content="Todas" Margin="58,430,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Source="Images/All Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,429,0,0" VerticalAlignment="Top"/>
+        <Button Content="Todas" Margin="67,430,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="32"/>
+        <Image Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="40,430,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Completas" Margin="58,450,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,449,0,0" VerticalAlignment="Top"/>
+        <Button Content="Completas" Margin="67,456,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="58"/>
+        <Image Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="40,456,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Pendentes" Margin="58,470,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,469,0,0" VerticalAlignment="Top"/>
+        <Button Content="Pendentes" Margin="67,482,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="57"/>
+        <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="40,482,0,0" VerticalAlignment="Top"/>
 
         <!-- Outros -->
-        <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="58,505,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,504,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="67,528,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="65"/>
+        <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="40,528,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="58,525,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="18" Height="18" Margin="40,524,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="67,554,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="29"/>
+        <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="40,554,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->
         <Separator HorizontalAlignment="Left" Margin="-22,389,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5">

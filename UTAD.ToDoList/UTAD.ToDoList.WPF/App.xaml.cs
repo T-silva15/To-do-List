@@ -20,7 +20,7 @@ namespace UTAD.ToDoList.WPF
         public ViewRegisto ViewRegisto { get; set; }
         public ViewPerfil ViewPerfil { get; set; }
         public ViewNovaTarefa ViewNovaTarefa { get; set; }
-        
+        public ViewEditarTarefa ViewEditarTarefa { get; set; }
 
         public App()
         { 
@@ -33,6 +33,7 @@ namespace UTAD.ToDoList.WPF
             ViewRegisto = new ViewRegisto();
             ViewPerfil = new ViewPerfil();
             ViewNovaTarefa = new ViewNovaTarefa();
+            ViewEditarTarefa = new ViewEditarTarefa();
             // inicialização do modelo
             Perfil = new Perfil();
         }
