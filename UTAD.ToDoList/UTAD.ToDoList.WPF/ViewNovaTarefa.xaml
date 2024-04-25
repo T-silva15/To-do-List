@@ -44,9 +44,9 @@
             <Syncfusion:SfScheduler.HeaderTemplate>
                 <DataTemplate>
                     <Grid Background="#050214">
-                        <Button Command="{Binding MoveToPreviousViewCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Syncfusion:SfScheduler}}}" HorizontalAlignment="Left" Content="&lt;"/>
-                        <TextBlock Text="{Binding DisplayDate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Syncfusion:SfScheduler}}, StringFormat='MMMM yyyy'}" HorizontalAlignment="Center" Foreground="White" Width="252"/>
-                        <Button Command="{Binding MoveToNextViewCommand, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Syncfusion:SfScheduler}}}" HorizontalAlignment="Right" Content="&gt;"/>
+                        <Button Command="{Binding MoveToPreviousMonthCommand}" HorizontalAlignment="Left" Content="&lt;"/>
+                        <TextBlock Text="{Binding DisplayDate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Syncfusion:SfScheduler}}, StringFormat='MMMM yyyy'}" FontFamily="Nunito Bold" FontSize="17" HorizontalAlignment="Center" Foreground="White" Width="252" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Command="{Binding MoveToNextMonthCommand}" HorizontalAlignment="Right" Content="&gt;"/>
                     </Grid>
                 </DataTemplate>
             </Syncfusion:SfScheduler.HeaderTemplate>
