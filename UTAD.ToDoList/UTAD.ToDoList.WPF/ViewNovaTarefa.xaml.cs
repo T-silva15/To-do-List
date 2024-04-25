@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Syncfusion.UI.Xaml.Scheduler;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,9 +20,20 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class ViewNovaTarefa : Window
     {
+
         public ViewNovaTarefa()
         {
             InitializeComponent();
+        }
+
+        private void ButtonForward_Click(object sender, RoutedEventArgs e)
+        {
+            schedule.Forward();
+        }
+
+        private void ButtonBackward_Click(object sender, RoutedEventArgs e)
+        {
+            schedule.Forward();
         }
     }
 }

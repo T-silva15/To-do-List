@@ -17,7 +17,7 @@
         <TextBlock Text="Nova" Margin="50,50,636,315" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap"/>
         <TextBlock Text="Tarefa" Margin="142,70,582,334" Height="30" Width="75" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
 
-        <Syncfusion:SfScheduler SelectedDate="{Binding SelectedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,50,0,0" ViewType="Month" Width="433" Height="346">
+        <Syncfusion:SfScheduler x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,50,0,0" ViewType="Month" Width="433" Height="346">
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings>
                     <Syncfusion:MonthViewSettings.MonthCellTemplate>
@@ -44,9 +44,9 @@
             <Syncfusion:SfScheduler.HeaderTemplate>
                 <DataTemplate>
                     <Grid Background="#050214">
-                        <Button Command="{Binding MoveToPreviousMonthCommand}" HorizontalAlignment="Left" Content="&lt;"/>
-                        <TextBlock Text="{Binding DisplayDate, RelativeSource={RelativeSource Mode=FindAncestor, AncestorType={x:Type Syncfusion:SfScheduler}}, StringFormat='MMMM yyyy'}" FontFamily="Nunito Bold" FontSize="17" HorizontalAlignment="Center" Foreground="White" Width="252" TextAlignment="Center" VerticalAlignment="Center"/>
-                        <Button Command="{Binding MoveToNextMonthCommand}" HorizontalAlignment="Right" Content="&gt;"/>
+                        <Button Command="{Binding MoveToPreviousMonthCommand}" HorizontalAlignment="Left" Content="&lt; " Click="ButtonBackward_Click"/>
+                        <TextBlock Text="{Binding}" FontFamily="Nunito Bold" FontSize="17" HorizontalAlignment="Center" Foreground="White" Width="252" TextAlignment="Center" VerticalAlignment="Center"/>
+                        <Button Command="{Binding MoveToNextMonthCommand}" HorizontalAlignment="Left" Content="&gt;" Margin="415,0,0,0" Height="26" VerticalAlignment="Top" Click="ButtonForward_Click"/>
                     </Grid>
                 </DataTemplate>
             </Syncfusion:SfScheduler.HeaderTemplate>
