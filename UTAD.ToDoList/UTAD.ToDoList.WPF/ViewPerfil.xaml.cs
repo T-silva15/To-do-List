@@ -19,7 +19,6 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class ViewPerfil : Window
     {
-        private static ViewPerfil instance;
 
         public App App { get; set; }
 
@@ -29,18 +28,7 @@ namespace UTAD.ToDoList.WPF
             InitializeComponent();
         }
 
-        // apenas deixa "criar" uma janela de perfil
-        public static ViewPerfil Instance
-        {
-            get
-            {
-                if (instance == null)
-                {
-                    instance = new ViewPerfil();
-                }
-                return instance;
-            }
-        }
+
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
@@ -55,6 +43,13 @@ namespace UTAD.ToDoList.WPF
         private void btnVoltar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+        }
+
+        private void ViewPerfil_Loaded(object sender, RoutedEventArgs e)
+        {
+            tbNome.Text = App.Perfil.Nome;
+            tbEmail.Text = App.Perfil.Email;
+            ftPerfil.Source = new BitmapImage(new Uri(App.Perfil.Fotografia));
         }
     }
 }

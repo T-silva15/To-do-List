@@ -1,8 +1,10 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
+using System.Text.Json;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -12,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UTAD.ToDoList.WPF.Models;
 
 namespace UTAD.ToDoList.WPF
 {
@@ -25,6 +28,8 @@ namespace UTAD.ToDoList.WPF
         }
         private void btnInserirImagem_Click(object sender, RoutedEventArgs e)
         {
+            App.Perfil = new Perfil();
+
             OpenFileDialog openFileDialog = new();
 
             // filtro de ficheiros de imagem
@@ -35,15 +40,34 @@ namespace UTAD.ToDoList.WPF
             {
                 BitmapImage img = new BitmapImage(new Uri(openFileDialog.FileName));
                 ftPerfil.Source = img;
+                App.Perfil.Fotografia = openFileDialog.FileName;
             }
         }
 
         private void btnRegistar_Click(object sender, RoutedEventArgs e)
         {
-            App.Perfil = new Models.Perfil();
             App.Perfil.Nome = tbNome.Text;
             App.Perfil.Email = tbEmail.Text;
-            App.Perfil.Fotografia = (BitmapImage)ftPerfil.Source;
+            
+            // caminho da pasta do utilizador
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+            // caminho do ficheiro do utilizador, cria a pasta se não existir
+            Directory.CreateDirectory(path);
+
+            path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
+
+            // serializa o objeto perfil para json
+            string jsonString = JsonSerializer.Serialize(App.Perfil);
+
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                // Write some text to the file
+                writer.WriteLine(jsonString);
+            }
+
+            this.Close();
+            
         }
     }
 }

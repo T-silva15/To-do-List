@@ -2,7 +2,6 @@
 
 namespace UTAD.ToDoList.WPF.Models
 {
-    [Serializable]
     public class Tarefa : BaseModel
     {
         public string Titulo { get; set; }

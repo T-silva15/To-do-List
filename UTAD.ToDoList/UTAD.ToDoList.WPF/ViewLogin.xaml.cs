@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UTAD.ToDoList.WPF.Models;
 
 namespace UTAD.ToDoList.WPF
 {
@@ -27,17 +28,30 @@ namespace UTAD.ToDoList.WPF
             InitializeComponent();
         }
 
-        private void btnRegistar_Click(object sender, RoutedEventArgs e)
+        private void BtnRegistar_Click(object sender, RoutedEventArgs e)
         {
             App.ViewRegisto = new ViewRegisto();
             App.ViewRegisto.Show();
         }
 
-        private void btnRegistar_Copy_Click(object sender, RoutedEventArgs e)
+        private void BtnLoginClick(object sender, RoutedEventArgs e)
         {
-            App.MainWindow = new MainWindow();
-            App.MainWindow.Show();
-            this.Close();
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+
+            path = System.IO.Path.Combine(path, tbNome.Text) + ".json";
+
+            if (System.IO.File.Exists(path))
+            {
+                string? jsonString = System.IO.File.ReadAllText(path);
+                App.Perfil = System.Text.Json.JsonSerializer.Deserialize<Perfil>(jsonString);
+
+                App.MainWindow.Show();
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Utilizador não encontrado");
+            }
         }
     }
 }

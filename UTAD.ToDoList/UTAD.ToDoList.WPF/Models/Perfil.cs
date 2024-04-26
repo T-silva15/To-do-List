@@ -9,8 +9,9 @@ namespace UTAD.ToDoList.WPF.Models
         public string Nome { get; set; }
         public string Email { get; set; }
 
-        // Fotografia do perfil (bitmap)
-        public BitmapImage Fotografia { get; set; }
+        // Fotografia do perfil (caminho para a foto)
+        public string Fotografia { get; set; }
+        public List<Tarefa> ListaTarefas { get; set; }
 
         
         // construtor por defeito
@@ -18,15 +19,17 @@ namespace UTAD.ToDoList.WPF.Models
         {   
             Nome = string.Empty;
             Email = string.Empty;
-            Fotografia = new BitmapImage();
+            Fotografia = string.Empty;
+            ListaTarefas = new List<Tarefa>();
         }
 
         // construtor com parâmetros
-        public Perfil(string _name, string _Email, BitmapImage _Fotografia)
+        public Perfil(string _name, string _Email, string _Fotografia, List<Tarefa> _ListaTarefas)
         {
             Nome = _name;
             Email = _Email;
             Fotografia= _Fotografia;
+            ListaTarefas = _ListaTarefas;
         }
     }
 }

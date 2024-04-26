@@ -53,7 +53,7 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
-            App.ViewPerfil = ViewPerfil.Instance;
+            App.ViewPerfil = new ViewPerfil();
             App.ViewPerfil.ShowDialog(); // bloqueia o utilizador de mexer no Dashboard
         }
 

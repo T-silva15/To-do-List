@@ -20,9 +20,11 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class ViewNovaTarefa : Window
     {
+        public Application App;
 
         public ViewNovaTarefa()
         {
+            App = (App)Application.Current;
             InitializeComponent();
         }
 
