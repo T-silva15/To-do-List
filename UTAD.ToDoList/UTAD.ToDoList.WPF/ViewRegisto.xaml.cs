@@ -61,22 +61,7 @@ namespace UTAD.ToDoList.WPF
             App.Perfil.Email = tbEmail.Text;
             App.Perfil.Password = App.ConvertToPlainText(tbPassword.SecurePassword);
             
-            // caminho da pasta do utilizador
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
-            // caminho do ficheiro do utilizador, cria a pasta se não existir
-            Directory.CreateDirectory(path);
-
-            path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
-
-            // serializa o objeto perfil para json
-            string jsonString = JsonSerializer.Serialize(App.Perfil);
-
-
-            using (StreamWriter writer = new StreamWriter(path))
-            {
-                // Write some text to the file
-                writer.WriteLine(jsonString);
-            }
+            App.Perfil.GuardarPerfil();
 
             this.Close();
             

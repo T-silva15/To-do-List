@@ -1,4 +1,6 @@
-﻿using System.Windows.Media;
+﻿using System.IO;
+using System.Text.Json;
+using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
 namespace UTAD.ToDoList.WPF.Models
@@ -31,6 +33,19 @@ namespace UTAD.ToDoList.WPF.Models
             Email = _Email;
             Fotografia= _Fotografia;
             ListaTarefas = _ListaTarefas;
+        }
+
+        public void GuardarPerfil()
+        {
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+            path = System.IO.Path.Combine(path, Nome) + ".json";
+            string jsonString = JsonSerializer.Serialize(this);
+            
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                // Write some text to the file
+                writer.WriteLine(jsonString);
+            }
         }
     }
 }

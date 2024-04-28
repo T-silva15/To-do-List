@@ -36,21 +36,24 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnLoginClick(object sender, RoutedEventArgs e)
         {
+            // verifica se os campos estão preenchidos
             if (tbNome.Text == "" || App.ConvertToPlainText(tbPassword.SecurePassword) == "")
             {
                 MessageBox.Show("Preencha todos os campos!", "Erro de Preenchimento", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
 
+            // caminho para o ficheiro do perfil
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
             path = System.IO.Path.Combine(path, tbNome.Text) + ".json";
 
+            // verifica se o ficheiro existe
             if (System.IO.File.Exists(path))
-            {
-                
+            { 
                 string? jsonString = System.IO.File.ReadAllText(path);
                 App.Perfil = System.Text.Json.JsonSerializer.Deserialize<Perfil>(jsonString);
-
+                
+                // verifica se a password está correta
                 if ((App.ConvertToPlainText(tbPassword.SecurePassword)) == App.Perfil.Password)
                 {
                     App.MainWindow.Show();
