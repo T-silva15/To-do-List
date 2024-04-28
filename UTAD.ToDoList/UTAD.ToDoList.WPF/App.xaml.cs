@@ -1,5 +1,8 @@
 ﻿using System.Configuration;
 using System.Data;
+using System.Runtime.InteropServices;
+using System.Security;
+using System.Security.Cryptography;
 using System.Windows;
 using UTAD.ToDoList.WPF.Models;
 using UTAD.ToDoList.WPF.Models.Shared;
@@ -22,7 +25,7 @@ namespace UTAD.ToDoList.WPF
         public ViewEditarTarefa ViewEditarTarefa { get; set; }
 
         public App()
-        { 
+        {
             // inicialização das views
 
             // Syncfusion License
@@ -35,6 +38,20 @@ namespace UTAD.ToDoList.WPF
             // inicialização do modelo
             Perfil = new Perfil();
         }
-    }
 
+        // função que converte uma SecureString para string (usada para converter a password para texto)
+        public string ConvertToPlainText(SecureString secureString)
+        {
+            IntPtr ptr = IntPtr.Zero;
+            try
+            {
+                ptr = Marshal.SecureStringToGlobalAllocUnicode(secureString);
+                return Marshal.PtrToStringUni(ptr);
+            }
+            finally
+            {
+                Marshal.ZeroFreeGlobalAllocUnicode(ptr);
+            }
+        }
+    }
 }

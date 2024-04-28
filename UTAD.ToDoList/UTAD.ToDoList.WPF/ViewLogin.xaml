@@ -73,8 +73,8 @@
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Pen.png" Height="17" Margin="134,352,0,0" VerticalAlignment="Top" Width="17"/>
         <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,373,0,0" Height="14" Width="709" />
 
-        <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,431,709,246" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Email"/></TextBlock>
-        <TextBox x:Name="tbEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,454,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="484" Height="30" VerticalContentAlignment="Center"/>
+        <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,431,709,246" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Password"/></TextBlock>
+        <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,454,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" Width="484" Height="30" VerticalContentAlignment="Center" ToolTip="Password" PasswordChar="*"/>
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Message.png" Height="17" Margin="134,460,0,0" VerticalAlignment="Top" Width="17"/>
         <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,481,0,0" Height="14" Width="709" />
         <Button x:Name="btnLogin"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="24"  Content="Efetuar Login" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="496" Margin="140,578,0,0" Click="BtnLoginClick" />

@@ -49,7 +49,15 @@ namespace UTAD.ToDoList.WPF
         {
             tbNome.Text = App.Perfil.Nome;
             tbEmail.Text = App.Perfil.Email;
-            ftPerfil.Source = new BitmapImage(new Uri(App.Perfil.Fotografia));
+            tbPassword.Text = App.Perfil.Password;
+            if (App.Perfil.Fotografia != "")
+            {
+                ftPerfil.Source = new BitmapImage(new Uri(App.Perfil.Fotografia));
+            }
+            else
+            {
+                ftPerfil.Source = new BitmapImage(new Uri("C:\\code\\LABPSW\\UTAD.ToDoList\\UTAD.ToDoList.WPF\\Images\\Camera.png"));
+            }
         }
     }
 }

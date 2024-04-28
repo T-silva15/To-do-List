@@ -42,12 +42,22 @@ namespace UTAD.ToDoList.WPF
                 ftPerfil.Source = img;
                 App.Perfil.Fotografia = openFileDialog.FileName;
             }
+            else
+            {
+                App.Perfil.Fotografia = null;
+            }
         }
 
         private void btnRegistar_Click(object sender, RoutedEventArgs e)
         {
+            if (tbNome.Text == "" || tbEmail.Text == "" || App.ConvertToPlainText(tbPassword.SecurePassword) == "")
+            {
+                MessageBox.Show("Preencha todos os campos!", "Erro de Preenchimento", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             App.Perfil.Nome = tbNome.Text;
             App.Perfil.Email = tbEmail.Text;
+            App.Perfil.Password = App.ConvertToPlainText(tbPassword.SecurePassword);
             
             // caminho da pasta do utilizador
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");

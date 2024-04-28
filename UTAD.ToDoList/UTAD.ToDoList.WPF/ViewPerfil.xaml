@@ -112,21 +112,25 @@
         <Grid Margin="7,-7,-7,7" Loaded="ViewPerfil_Loaded">
             <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="90,85,813,446" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 
-            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="131,234,832,329" TextWrapping="Wrap"><Run Language="pt-pt" Text="Nome"/></TextBlock>
-            <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,262,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Source="Images\Pen.png" Margin="134,267,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
-            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,289,0,0" Height="14" Width="430"/>
+            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="132,180,831,383" TextWrapping="Wrap"><Run Language="pt-pt" Text="Nome"/></TextBlock>
+            <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="157,208,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Source="Images\Pen.png" Margin="135,213,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
+            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,235,0,0" Height="14" Width="430"/>
 
-            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="131,351,835,214" TextWrapping="Wrap"><Run Language="pt-pt" Text="Email"/></TextBlock>
-            <TextBox x:Name="tbEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,372,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Source="Images\Message.png" Margin="134,377,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
-            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,400,0,0" Height="14" Width="430"/>
+            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="132,275,834,290" TextWrapping="Wrap"><Run Language="pt-pt" Text="Email"/></TextBlock>
+            <TextBox x:Name="tbEmail" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="157,296,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Source="Images\Message.png" Margin="135,301,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
+            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,324,0,0" Height="14" Width="430"/>
 
             <Image x:Name="ftPerfil" Source="Images\Camera.png" HorizontalAlignment="Left" Height="204" Margin="712,0,0,0" VerticalAlignment="Center" Width="204"/>
             <Button x:Name="btnAlterarImagem" Style="{DynamicResource NormalButtonHoverColor}" Background="Transparent" Foreground="#6E6E6E" Content="Inserir Imagem" HorizontalAlignment="Left" VerticalAlignment="Top" Height="25" Width="100" Margin="764,407,0,0" Click="btnAlterarImagem_Click" FontFamily="Nunito" BorderBrush="#FF6A6969"/>
 
             <Button x:Name="btnVoltar" Style="{DynamicResource RoundedButtonStyle}" Background="#38373B" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Voltar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="127,476,0,0" Click="btnVoltar_Click"/>
             <Button x:Name="btnSalvar" Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Nunito" FontSize="20" Content="Salvar" HorizontalAlignment="Left" VerticalAlignment="Top" Height="56" Width="200" Margin="347,476,0,0" Click="btnSalvar_Click"/>
+            <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="132,361,800,205" TextWrapping="Wrap"><Run Language="pt-pt" Text="Password"/></TextBlock>
+            <TextBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="157,381,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
+            <Image HorizontalAlignment="Left" Source="/Images/Message.png" Margin="135,387,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
+            <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,409,0,0" Height="14" Width="430"/>
         </Grid>
     </Border>
 </Window>

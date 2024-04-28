@@ -8,9 +8,10 @@ namespace UTAD.ToDoList.WPF.Models
     {
         public string Nome { get; set; }
         public string Email { get; set; }
+        public string Password { get; set; }
 
         // Fotografia do perfil (caminho para a foto)
-        public string Fotografia { get; set; }
+        public string? Fotografia { get; set; }
         public List<Tarefa> ListaTarefas { get; set; }
 
         

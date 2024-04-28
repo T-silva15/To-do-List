@@ -42,11 +42,20 @@ namespace UTAD.ToDoList.WPF
 
             if (System.IO.File.Exists(path))
             {
+                
                 string? jsonString = System.IO.File.ReadAllText(path);
                 App.Perfil = System.Text.Json.JsonSerializer.Deserialize<Perfil>(jsonString);
 
-                App.MainWindow.Show();
-                this.Close();
+                if ((App.ConvertToPlainText(tbPassword.SecurePassword)) == App.Perfil.Password)
+                {
+                    App.MainWindow.Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Password incorreta!");
+                    return;
+                }
             }
             else
             {
