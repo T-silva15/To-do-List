@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         mc:Ignorable="d"
-        Title="Login" Height="768" Width="1024" MinHeight="768" MinWidth="1024" ResizeMode="CanMinimize" Background="#050214" WindowStartupLocation="CenterScreen">
+        Title="Login" Height="768" Width="1024" ResizeMode="CanMinimize" Background="#050214" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -65,8 +65,8 @@
     </Window.Resources>
     <Grid>
         <TextBlock VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Text="Login" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Poppins" Margin="131,115,749,561" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
-        <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,180,685,496" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Text="Primeira Utilização? "/><LineBreak/><Run/><LineBreak/><Run Text="Então"/></TextBlock>
-        <Button x:Name="BtnRegistar"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="13" FontWeight="Bold" Content="Registe-se Aqui!" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="120" MinHeight="40" MaxHeight="40" MinWidth="120" MaxWidth="120" Margin="195,221,0,0" Click="BtnRegistar_Click"/>
+        <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,195,685,0" TextWrapping="Wrap" MinHeight="75" MinWidth="80" Height="76" VerticalAlignment="Top"><Run Text="Primeira Utilização? "/><LineBreak/><Run/><LineBreak/><Run Text="Então"/></TextBlock>
+        <Button x:Name="BtnRegistar"  Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="13" FontWeight="Bold" Content="Registe-se Aqui!" HorizontalAlignment="Left" VerticalAlignment="Top" Height="40" Width="120" MinHeight="40" MaxHeight="40" MinWidth="120" MaxWidth="120" Margin="185,236,0,0" Click="BtnRegistar_Click"/>
 
         <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,323,709,386" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Nome"/></TextBlock>
         <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,346,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="484" Height="30" VerticalContentAlignment="Center"/>

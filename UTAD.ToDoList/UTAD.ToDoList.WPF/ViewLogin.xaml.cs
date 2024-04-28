@@ -36,6 +36,11 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnLoginClick(object sender, RoutedEventArgs e)
         {
+            if (tbNome.Text == "" || App.ConvertToPlainText(tbPassword.SecurePassword) == "")
+            {
+                MessageBox.Show("Preencha todos os campos!", "Erro de Preenchimento", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
 
             path = System.IO.Path.Combine(path, tbNome.Text) + ".json";
