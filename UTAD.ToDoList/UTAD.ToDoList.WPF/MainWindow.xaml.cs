@@ -1,6 +1,8 @@
 ﻿using Microsoft.Win32;
 using System.Diagnostics;
+using System.IO;
 using System.Text;
+using System.Text.Json;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -61,6 +63,23 @@ namespace UTAD.ToDoList.WPF
         {
             App.ViewNovaTarefa = new ViewNovaTarefa();
             App.ViewNovaTarefa.Show();
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // caminho da pasta do utilizador
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+            path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
+
+            // serializa o objeto perfil para json
+            string jsonString = JsonSerializer.Serialize(App.Perfil);
+
+
+            using (StreamWriter writer = new StreamWriter(path))
+            {
+                // Write some text to the file
+                writer.WriteLine(jsonString);
+            }
         }
     }
 }

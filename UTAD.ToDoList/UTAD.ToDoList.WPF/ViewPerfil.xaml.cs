@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,9 +16,6 @@ using System.Windows.Shapes;
 
 namespace UTAD.ToDoList.WPF
 {
-    /// <summary>
-    /// Interaction logic for ViewPerfil.xaml
-    /// </summary>
     public partial class ViewPerfil : Window
     {
 
@@ -32,12 +31,55 @@ namespace UTAD.ToDoList.WPF
 
         private void btnSalvar_Click(object sender, RoutedEventArgs e)
         {
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+            path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
 
+            // elimina ficheiro antigo se houver alterações
+            if (tbNome.Text != App.Perfil.Nome || tbEmail.Text != App.Perfil.Email || tbPassword.Text != App.Perfil.Password)
+            {
+                if(File.Exists(path))
+                {
+                    File.Delete(path);
+                }  
+            }
+
+            App.Perfil.Nome = tbNome.Text;
+            App.Perfil.Email = tbEmail.Text;
+            App.Perfil.Password = tbPassword.Text;
+            this.Close();
         }
 
         private void btnAlterarImagem_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
+            path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
+
+            OpenFileDialog openFileDialog = new();
+
+            // filtro de ficheiros de imagem
+            openFileDialog.Filter = "Ficheiros de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+
+            // após selecionar a imagem, muda imagem da view e guarda no objeto perfil
+            if (openFileDialog.ShowDialog() == true)
+            {
+                BitmapImage img = new BitmapImage(new Uri(openFileDialog.FileName));
+                ftPerfil.Source = img;
+                App.Perfil.Fotografia = openFileDialog.FileName;
+            }
+            else
+            {
+                App.Perfil.Fotografia = "";
+            }
+
+            // elimina ficheiro antigo se houver alterações
+            if (tbNome.Text != App.Perfil.Nome || tbEmail.Text != App.Perfil.Email || tbPassword.Text != App.Perfil.Password)
+            {
+                if (File.Exists(path))
+                {
+                    File.Delete(path);
+                }
+            }
+
         }
 
         private void btnVoltar_Click(object sender, RoutedEventArgs e)

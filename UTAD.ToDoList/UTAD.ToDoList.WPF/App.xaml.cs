@@ -24,6 +24,7 @@ namespace UTAD.ToDoList.WPF
         public ViewNovaTarefa ViewNovaTarefa { get; set; }
         public ViewEditarTarefa ViewEditarTarefa { get; set; }
 
+
         public App()
         {
             // inicialização das views

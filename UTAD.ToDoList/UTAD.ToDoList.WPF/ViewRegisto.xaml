@@ -119,7 +119,7 @@
         <Image x:Name="ftPerfil" Source="Images\Camera.png" HorizontalAlignment="Left" Height="242" Margin="721,227,0,0" VerticalAlignment="Top" Width="247"/>
         <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,458,709,219" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Password"/></TextBlock>
         <PasswordBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,481,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" Width="484" Height="30" VerticalContentAlignment="Center" ToolTip="Password" PasswordChar="*"/>
-        
+
         <Image HorizontalAlignment="Left" Source="/Images/Message.png" Height="17" Margin="134,487,0,0" VerticalAlignment="Top" Width="17"/>
         <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="4" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="126,508,0,0" Height="14" Width="709" />
     </Grid>

@@ -21,11 +21,13 @@ namespace UTAD.ToDoList.WPF
     public partial class ViewRegisto : Window
     {
         public App App;
+
         public ViewRegisto()
         {
             InitializeComponent();
             App = (App)Application.Current;
         }
+
         private void btnInserirImagem_Click(object sender, RoutedEventArgs e)
         {
             App.Perfil = new Perfil();
@@ -44,7 +46,7 @@ namespace UTAD.ToDoList.WPF
             }
             else
             {
-                App.Perfil.Fotografia = null;
+                App.Perfil.Fotografia = "";
             }
         }
 
