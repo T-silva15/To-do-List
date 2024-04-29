@@ -15,7 +15,9 @@
     <None Remove="Images\Completed Icon.png" />
     <None Remove="Images\Fire_fill.png" />
     <None Remove="Images\Importante.png" />
+    <None Remove="Images\MesAnterior.png" />
     <None Remove="Images\Message.png" />
+    <None Remove="Images\MesSeguinte.png" />
     <None Remove="Images\NewTask Icon.png" />
     <None Remove="Images\Normal.png" />
     <None Remove="Images\Pen.png" />
@@ -34,6 +36,8 @@
     <Resource Include="Images\All Icon.png" />
     <Resource Include="Images\Camera.png" />
     <Resource Include="Images\Completed Icon.png" />
+    <Resource Include="Images\MesAnterior.png" />
+    <Resource Include="Images\MesSeguinte.png" />
     <Resource Include="Images\Pen.png" />
     <Resource Include="Images\Importante.png" />
     <Resource Include="Images\Message.png" />

@@ -1,6 +1,7 @@
 ﻿using Syncfusion.UI.Xaml.Scheduler;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,7 +36,7 @@ namespace UTAD.ToDoList.WPF
 
         private void ButtonBackward_Click(object sender, RoutedEventArgs e)
         {
-            schedule.Forward();
+            schedule.Backward();
         }
     }
 }

@@ -34,18 +34,6 @@
         </Style>
     </Window.Resources>
 
-    <!--
-        <Window.Triggers>
-            <EventTrigger RoutedEvent="Loaded">
-                <BeginStoryboard>
-                    <Storyboard Duration="00:00:3" Storyboard.TargetProperty="Opacity">
-                        <DoubleAnimation From="0" To="1"/>
-                    </Storyboard>
-                </BeginStoryboard>
-            </EventTrigger>
-        </Window.Triggers>
-    -->
-
     <Grid>
         <TextBlock Text="To-Do List" Margin="298,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
         <TextBlock Text="DashBoard" Margin="512,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
