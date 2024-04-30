@@ -7,17 +7,22 @@
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.ViewNovaTarefa"
         xmlns:viewModels="clr-namespace:UTAD.ToDoList.WPF.Models"
         mc:Ignorable="d"
-        Title="ViewNovaTarefa" Height="450" Width="800" Background="#050214">
+        Title="ViewNovaTarefa" Height="768" Width="1024" Background="#050214">
 
     <Window.DataContext>
         <viewModels:SchedulerViewModel/>
     </Window.DataContext>
 
     <Grid>
-        <TextBlock Text="Nova" Margin="50,50,636,315" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap"/>
-        <TextBlock Text="Tarefa" Margin="142,70,582,334" Height="30" Width="75" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.45*"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Grid.Column="0" Text="Nova" Margin="98,53,159,0" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="0" Text="Tarefa" Margin="160,53,78,0" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" Height="31" VerticalAlignment="Top"/>
 
-        <Syncfusion:SfScheduler x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="276,50,0,0" ViewType="Month" Width="433" Height="346">
+        <Syncfusion:SfScheduler Grid.Column="1" Language="" x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" ViewType="Month" Margin="55,132,55,0" Height="382" VerticalAlignment="Top">
+
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings>
                     <Syncfusion:MonthViewSettings.MonthCellTemplate>
@@ -44,9 +49,9 @@
             <Syncfusion:SfScheduler.HeaderTemplate>
                 <DataTemplate>
                     <Grid Background="#050214">
-                        <Button Command="{Binding MoveToPreviousMonthCommand}" HorizontalAlignment="Left" Content="&lt; " Click="ButtonBackward_Click"/>
+                        <Button Command="{Binding MoveToPreviousMonthCommand}" Height="24" Width="16" HorizontalAlignment="Left" Content="&lt; " Click="ButtonBackward_Click"/>
                         <TextBlock Text="{Binding}" FontFamily="Nunito Bold" FontSize="17" HorizontalAlignment="Center" Foreground="White" Width="252" TextAlignment="Center" VerticalAlignment="Center"/>
-                        <Button Command="{Binding MoveToNextMonthCommand}" HorizontalAlignment="Left" Content="&gt;" Margin="415,0,0,0" Height="26" VerticalAlignment="Top" Click="ButtonForward_Click"/>
+                        <Button Command="{Binding MoveToNextMonthCommand}" Content="&gt;" Click="ButtonForward_Click" HorizontalAlignment="Right" Width="16" />
                     </Grid>
                 </DataTemplate>
             </Syncfusion:SfScheduler.HeaderTemplate>
