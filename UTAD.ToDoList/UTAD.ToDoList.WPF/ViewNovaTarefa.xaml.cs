@@ -2,6 +2,7 @@
 using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using UTAD.ToDoList.WPF.Models;
 
 
 namespace UTAD.ToDoList.WPF
@@ -22,7 +24,7 @@ namespace UTAD.ToDoList.WPF
     /// </summary>
     public partial class ViewNovaTarefa : Window
     {
-        public Application App;
+        public App App;
 
         public ViewNovaTarefa()
         {
@@ -33,22 +35,41 @@ namespace UTAD.ToDoList.WPF
 
         private void ButtonForward_Click(object sender, RoutedEventArgs e)
         {
-            schedule.Forward();
+            sfCalendario.Forward();
         }
 
         private void ButtonBackward_Click(object sender, RoutedEventArgs e)
         {
-            schedule.Backward();
+            sfCalendario.Backward();
         }
 
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
         {
+            if (App.Perfil.ListaTarefas == null)
+            {
+                App.Perfil.ListaTarefas = new ObservableCollection<Tarefa>();
+            }
+            Tarefa tarefa = new Tarefa();
+            tarefa.Titulo = tbNome.Text;
+            tarefa.DataInicio = dpInicio.SelectedDate.Value;
+            tarefa.DataTermino = dpTermino.SelectedDate.Value;
+            tarefa.Descricao = tbDescricao.Text;
+           
+            
+
             
         }
 
-        private void schedule_SelectionChanged(object sender, Syncfusion.UI.Xaml.Scheduler.SelectionChangedEventArgs e)
+        private void BtnSair_Click(object sender, RoutedEventArgs e)
         {
-            DateTime? selectedDate = schedule.SelectedDate;
+            this.Close();
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            dpInicio.SelectedDate = DateTime.Now;
+            dpTermino.SelectedDate = DateTime.Now;
+        }
+        
     }
 }

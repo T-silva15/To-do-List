@@ -5,11 +5,11 @@ namespace UTAD.ToDoList.WPF.Models
     public class Tarefa : BaseModel
     {
         public string Titulo { get; set; }
-        public DateOnly DataInicio {  get; set; }
-        public DateOnly DataTermino { get; set; }
+        public DateTime DataInicio {  get; set; }
+        public DateTime DataTermino { get; set; }
 
         public enum NivelImportancia { Pouco_Importante, Normal, Important, Prioritaria}
-        public bool Estado { get; set; }
+        public enum Estado { Por_Iniciar, Em_Execucao, Terminada  }
 
         // atributos opcionais
         public string? Descricao { get; set; }
@@ -22,22 +22,20 @@ namespace UTAD.ToDoList.WPF.Models
         {
             Titulo = string.Empty;
             Descricao = string.Empty;
-            DataInicio = DateOnly.MinValue;
-            DataTermino = DateOnly.MaxValue;
-            Estado = false;
+            DataInicio = DateTime.MinValue;
+            DataTermino = DateTime.MaxValue;
             Periodicidade = new Periodicidade();
             AlertaAntecipacao = new Alerta();
             AlertaExecucao = new Alerta();
         }
         // construtor com parâmetros
-        public Tarefa(string _Titulo, string _Descricao, DateOnly _DataInicio, DateOnly _DataTermino, int _NivelImportancia, bool _Estado, 
+        public Tarefa(string _Titulo, string _Descricao, DateTime _DataInicio, DateTime _DataTermino, int _NivelImportancia, 
             Periodicidade _Periodicidade, Alerta _AlertaAntecipacao, Alerta _AlertaExecucao)
         {
             Titulo = _Titulo;
             Descricao = _Descricao;
             DataInicio = _DataInicio;
             DataTermino = _DataTermino;
-            Estado = _Estado;
             Periodicidade = _Periodicidade;
             AlertaAntecipacao = _AlertaAntecipacao;
             AlertaExecucao = _AlertaExecucao;
