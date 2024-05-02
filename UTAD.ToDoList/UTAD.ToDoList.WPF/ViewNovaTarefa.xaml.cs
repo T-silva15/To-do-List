@@ -1,4 +1,5 @@
 ﻿using Syncfusion.UI.Xaml.Scheduler;
+using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,6 +13,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+
 
 namespace UTAD.ToDoList.WPF
 {
@@ -36,7 +38,17 @@ namespace UTAD.ToDoList.WPF
 
         private void ButtonBackward_Click(object sender, RoutedEventArgs e)
         {
-            schedule.Forward();
+            schedule.Backward();
+        }
+
+        private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
+        {
+            
+        }
+
+        private void schedule_SelectionChanged(object sender, Syncfusion.UI.Xaml.Scheduler.SelectionChangedEventArgs e)
+        {
+            DateTime? selectedDate = schedule.SelectedDate;
         }
     }
 }

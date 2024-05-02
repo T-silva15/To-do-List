@@ -15,13 +15,13 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="0.45*"/>
-            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="0.5*"/>
+            <ColumnDefinition Width="0.5*"/>
         </Grid.ColumnDefinitions>
-        <TextBlock Grid.Column="0" Text="Nova" Margin="98,53,159,0" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top"/>
-        <TextBlock Grid.Column="0" Text="Tarefa" Margin="160,53,78,0" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" Height="31" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="0" Text="Nova" Margin="62,47,389,0" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top"/>
+        <TextBlock Grid.Column="0" Text="Tarefa" Margin="128,47,305,0" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" Height="31" VerticalAlignment="Top"/>
 
-        <Syncfusion:SfScheduler Grid.Column="1" Language="" x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" ViewType="Month" Margin="55,132,55,0" Height="382" VerticalAlignment="Top">
+        <Syncfusion:SfScheduler x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" ViewType="Month" Margin="55,134,55,0" Height="382" VerticalAlignment="Top" SelectionChanged="schedule_SelectionChanged">
 
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings>
@@ -56,5 +56,6 @@
                 </DataTemplate>
             </Syncfusion:SfScheduler.HeaderTemplate>
         </Syncfusion:SfScheduler>
+        <Button x:Name="BtnAdicionar" Content="Adicionar" Grid.Column="1" HorizontalAlignment="Left" Margin="348,688,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnAdicionar_Click"/>
     </Grid>
 </Window>
