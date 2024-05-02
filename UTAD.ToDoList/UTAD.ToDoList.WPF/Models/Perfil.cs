@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.ObjectModel;
+using System.IO;
 using System.Text.Json;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
@@ -14,7 +15,7 @@ namespace UTAD.ToDoList.WPF.Models
 
         // Fotografia do perfil (caminho para a foto)
         public string? Fotografia { get; set; }
-        public List<Tarefa> ListaTarefas { get; set; }
+        public ObservableCollection<Tarefa> ListaTarefas { get; set; }
 
         
         // construtor por defeito
@@ -23,7 +24,6 @@ namespace UTAD.ToDoList.WPF.Models
             Nome = string.Empty;
             Email = string.Empty;
             Fotografia = string.Empty;
-            ListaTarefas = new List<Tarefa>();
         }
 
         // construtor com parâmetros
@@ -32,7 +32,6 @@ namespace UTAD.ToDoList.WPF.Models
             Nome = _name;
             Email = _Email;
             Fotografia= _Fotografia;
-            ListaTarefas = _ListaTarefas;
         }
 
         public void GuardarPerfil()
