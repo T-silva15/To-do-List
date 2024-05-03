@@ -1,4 +1,5 @@
-﻿using System.Collections.ObjectModel;
+﻿using Syncfusion.UI.Xaml.Scheduler;
+using System.Collections.ObjectModel;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Media;
@@ -15,9 +16,11 @@ namespace UTAD.ToDoList.WPF.Models
 
         // Fotografia do perfil (caminho para a foto)
         public string? Fotografia { get; set; }
-        public ObservableCollection<Tarefa> ListaTarefas { get; set; }
+        public List<Tarefa> ListaTarefas { get; set; }
 
-        
+        public ObservableCollection<ScheduleAppointment> TarefasScheduler { get; set; }
+
+
         // construtor por defeito
         public Perfil() 
         {   
