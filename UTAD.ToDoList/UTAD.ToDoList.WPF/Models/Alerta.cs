@@ -2,27 +2,29 @@
 
 namespace UTAD.ToDoList.WPF.Models
 {
+    public enum TipoA { popup, mail }
+
     public class Alerta: BaseModel
     {
         public string Mensagem {  get; set; }
-        public DateTime DataHora { get; set; }
+        public DateTime Data { get; set; }
 
         // Tipo de alerta (1 - Alerta Windows | 2 - Email)  
-        public enum Tipo {popup, mail }
+        public TipoA Tipo { get; set; }
         public bool Estado { get; set; }
 
         // construtor por defeito
         public Alerta() 
         {
             Mensagem = string.Empty;
-            DataHora = DateTime.MinValue;
+            Data = DateTime.MinValue;
             Estado = false;
         }
         // construtor com parâmetros 
-        public Alerta(string _Mensagem, DateTime _DataHora, int _Tipos, bool _Estado)
+        public Alerta(string _Mensagem, DateTime _Data, bool _Estado)
         {
             Mensagem = _Mensagem;
-            DataHora = _DataHora;
+            Data = _Data;
             Estado = _Estado;
         }
     }
