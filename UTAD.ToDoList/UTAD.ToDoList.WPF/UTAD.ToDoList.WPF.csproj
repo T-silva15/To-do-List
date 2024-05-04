@@ -51,6 +51,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <EmbeddedResource Update="Resources\Syncfusion.SfScheduler.WPF.pt-PT.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Resources\Syncfusion.SfScheduler.WPF.resx">
+      <Generator></Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
     <None Update="Images\Insert_photo.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>

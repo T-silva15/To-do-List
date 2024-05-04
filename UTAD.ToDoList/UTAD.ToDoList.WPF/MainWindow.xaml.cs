@@ -28,6 +28,7 @@ namespace UTAD.ToDoList.WPF
         public MainWindow()
         {
             InitializeComponent();
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-PT");
             App = (App)Application.Current;
         }
 

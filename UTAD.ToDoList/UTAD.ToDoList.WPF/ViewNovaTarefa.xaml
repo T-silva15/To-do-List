@@ -6,7 +6,31 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.ViewNovaTarefa"
         mc:Ignorable="d"
-        Title="ViewNovaTarefa" Height="450" Width="800" Background="#050214">
+        Title="ViewNovaTarefa" Height="450" Width="800" Background="#050214" ShowInTaskbar="False">
+
+    <Window.Resources>
+        <Style x:Key="CheckboxStyle" TargetType="{x:Type CheckBox}">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type CheckBox}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <Border x:Name="border" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="1" CornerRadius="5" Background="{TemplateBinding Background}" Padding="2" Width="15" Height="15"/>
+                            <ContentPresenter Grid.Column="1" Margin="5,0,0,0"/>
+                        </Grid>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="False">
+                                <Setter TargetName="border" Property="Background" Value="Transparent"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
 
     <Grid>
         <TextBlock Text="Nova" Margin="50,50,636,315" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap"/>
@@ -18,7 +42,7 @@
                     <Syncfusion:MonthViewSettings.MonthCellTemplate>
                         <DataTemplate>
                             <Border Background="#050214">
-                                <TextBlock Text="{Binding DateTime.Day}" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <TextBlock Text="{Binding DateTime.Day}" FontFamily="Nunito Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Foreground" Value="White"/>
@@ -80,5 +104,22 @@
                 </DataTemplate>
             </Syncfusion:SfScheduler.HeaderTemplate>
         </Syncfusion:SfScheduler>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,95,0,0" TextWrapping="Wrap" Text="Título" FontFamily="Nunito Bold" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,95,0,0" Width="120" TextWrapping="Wrap" Text="Inserir Título" FontFamily="Nunito Bold" Background="#36373a" Foreground="#6a6a6b" VerticalContentAlignment="Center" BorderThickness="0"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,125,0,0" TextWrapping="Wrap" Text="Hora" FontFamily="Nunito Bold" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,125,0,0" Width="120" TextWrapping="Wrap" Text="Inserir Hora" FontFamily="Nunito Bold" Background="#36373a" Foreground="#6a6a6b" VerticalContentAlignment="Center" BorderThickness="0"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,155,0,0" TextWrapping="Wrap" Text="Lugar" FontFamily="Nunito Bold" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,155,0,0" Width="120" TextWrapping="Wrap" Text="Inserir Lugar" FontFamily="Nunito Bold" Background="#36373a" Foreground="#6a6a6b" VerticalContentAlignment="Center" BorderThickness="0"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,185,0,0" TextWrapping="Wrap" Text="Estado" FontFamily="Nunito Bold" Foreground="White"/>
+        <CheckBox Style="{StaticResource CheckboxStyle}" Content="Por Iniciar" Margin="475,184,185,220" Foreground="White"/>
+
+        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,215,0,0" TextWrapping="Wrap" Text="Descrição" FontFamily="Nunito Bold" Foreground="White"/>
+        <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,215,0,0" Width="120" TextWrapping="Wrap" Text="Inserir Descrição" FontFamily="Nunito Bold" Background="#36373a" Foreground="#6a6a6b" VerticalContentAlignment="Center" BorderThickness="0"/>
+
+
     </Grid>
 </Window>
