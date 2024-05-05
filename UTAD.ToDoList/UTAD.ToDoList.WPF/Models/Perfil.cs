@@ -18,9 +18,6 @@ namespace UTAD.ToDoList.WPF.Models
         public string? Fotografia { get; set; }
         public List<Tarefa> ListaTarefas { get; set; }
 
-        public ObservableCollection<ScheduleAppointment> TarefasScheduler { get; set; }
-
-
         // construtor por defeito
         public Perfil() 
         {   
@@ -49,5 +46,6 @@ namespace UTAD.ToDoList.WPF.Models
                 writer.WriteLine(jsonString);
             }
         }
+
     }
 }

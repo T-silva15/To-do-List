@@ -69,5 +69,15 @@ namespace UTAD.ToDoList.WPF
         {
             App.Perfil.GuardarPerfil();
         }
+
+        private void ButtonForward_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.Forward();
+        }
+
+        private void ButtonBackward_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.Backward();
+        }
     }
 }

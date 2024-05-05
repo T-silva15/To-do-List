@@ -172,6 +172,10 @@
         </Style>
     </Window.Resources>
 
+    <Window.DataContext>
+        <viewModels:SchedulerModel/>
+    </Window.DataContext>
+
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0.5*"/>
@@ -180,7 +184,17 @@
         <TextBlock Grid.Column="0" Text="Nova" Margin="60,32,0,0" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBlock Grid.Column="0" Text="Tarefa" Margin="126,32,0,0" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
 
-        <Syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding TarefasScheduler}" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" ViewType="Month" Margin="55,88,55,0" Height="382" VerticalAlignment="Top">
+        <Syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="20,85,0,0" Height="400" VerticalAlignment="Top">
+            <Syncfusion:SfScheduler.AppointmentMapping>
+                <Syncfusion:AppointmentMapping 
+                    Subject="Name"
+                    Notes="Description"
+                    StartTime="From" 
+                    EndTime="To" 
+                    AppointmentBackground="BackgroundColor"
+                    RecurrenceRule="RecurrenceRule"
+                    Id="Id"/>
+            </Syncfusion:SfScheduler.AppointmentMapping>
 
             <Syncfusion:SfScheduler.MonthViewSettings>
                 <Syncfusion:MonthViewSettings>
@@ -250,7 +264,7 @@
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Perfil Icon.png" Height="20" Width="20" Margin="52,279,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
         <RadioButton x:Name="rbPorIniciar" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Por Iniciar"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,261,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbEmExecucao" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Em Execução" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,281,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbTerminada" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Por Terminar" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbTerminada" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Terminada" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top"/>
 
         <Label Grid.Column="1" Content="Descrição" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="72,376,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="94"/>
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Pen.png" Height="20" Width="20" Margin="52,383,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
