@@ -29,6 +29,7 @@ namespace UTAD.ToDoList.WPF.Models
             }
         }
 
+
         public void AdicionarTarefa(string nome, string descricao, DateTime inicio, DateTime fim, SolidColorBrush cor, string id, string recurrence)
         {
             // tarefa no modelo

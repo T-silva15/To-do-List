@@ -264,7 +264,7 @@
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Perfil Icon.png" Height="20" Width="20" Margin="52,279,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
         <RadioButton x:Name="rbPorIniciar" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Por Iniciar"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,261,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="rbEmExecucao" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Em Execução" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,281,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbTerminada" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Por Terminar" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top"/>
+        <RadioButton x:Name="rbTerminada" GroupName="Estado" Style="{DynamicResource SquareRadioButton}" Grid.Column="1" Content="Terminada" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="201,301,0,0" VerticalAlignment="Top"/>
 
         <Label Grid.Column="1" Content="Descrição" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="72,376,0,0" VerticalAlignment="Top" Height="32" HorizontalAlignment="Left" Width="94"/>
         <Image HorizontalAlignment="Left" Source="C:\code\LABPSW\UTAD.ToDoList\UTAD.ToDoList.WPF\Images\Pen.png" Height="20" Width="20" Margin="52,383,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
