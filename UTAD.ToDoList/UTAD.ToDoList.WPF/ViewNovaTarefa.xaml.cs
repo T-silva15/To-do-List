@@ -51,10 +51,7 @@ namespace UTAD.ToDoList.WPF
             {
                 App.Perfil.ListaTarefas = [];
             }
-            if (App.Perfil.TarefasScheduler == null)
-            {
-                App.Perfil.TarefasScheduler = [];
-            }
+
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();
             tarefa.Titulo = tbNome.Text;
@@ -86,37 +83,29 @@ namespace UTAD.ToDoList.WPF
                 tarefa.Estado = Estado.Terminada;
             }
 
-            // tarefa no syncfusion scheduler
-            ScheduleAppointment appointment = new ScheduleAppointment();
-            appointment.Id = tarefa.Id;
-            appointment.StartTime = tarefa.DataInicio;
-            appointment.EndTime = tarefa.DataTermino;
-            appointment.Subject = tarefa.Titulo;
-            appointment.Notes = tarefa.Descricao;
 
             // prioridade 
-            if (rbPoucoImportante.IsChecked == true)
-            {
-                tarefa.NivelImportancia = NivelImportancia.Pouco_Importante;
-                appointment.AppointmentBackground = Brushes.LightGreen;
-            }
-            else if (rbNormal.IsChecked == true)
+            SolidColorBrush cor = new SolidColorBrush();
+
+            // utilizador nao escolheu prioridade (prioridade pouco importante)
+            tarefa.NivelImportancia = NivelImportancia.Pouco_Importante;
+            cor = new SolidColorBrush(Colors.LightBlue);
+            
+            if (rbNormal.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Normal;
-                appointment.AppointmentBackground = Brushes.LightBlue;
-
+                cor = new SolidColorBrush(Colors.LightGreen);
             }
             else if (rbImportante.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Importante;
-                appointment.AppointmentBackground = Brushes.Orange;
+                cor = new SolidColorBrush(Colors.Orange);
 
             }
             else if (rbNormal.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Prioritaria;
-                appointment.AppointmentBackground = Brushes.Red;
-
+                cor = new SolidColorBrush(Colors.Red);
             }
 
             // alerta antecipação
@@ -171,6 +160,8 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Estado = false;
             }
 
+            // periodicidade
+            string recurrence = "";
             if (PerDiario.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
@@ -179,7 +170,7 @@ namespace UTAD.ToDoList.WPF
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
                 tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                appointment.RecurrenceRule = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                recurrence = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
             else if (PerSemanal.IsChecked == true)
             {
@@ -189,7 +180,7 @@ namespace UTAD.ToDoList.WPF
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
                 tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                appointment.RecurrenceRule = "FREQ=WEEKLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                recurrence = "FREQ=WEEKLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
 
             }
             else if (PerMensal.IsChecked == true)
@@ -200,12 +191,12 @@ namespace UTAD.ToDoList.WPF
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
                 tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
-                appointment.RecurrenceRule = "FREQ=MONTHLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                recurrence = "FREQ=MONTHLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
 
             }
 
             App.Perfil.ListaTarefas.Add(tarefa);
-            App.Perfil.TarefasScheduler.Add(appointment);
+            App.scheduler.AdicionarTarefa(tarefa.Titulo,tarefa.Descricao, tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
 
             this.Close();
         }

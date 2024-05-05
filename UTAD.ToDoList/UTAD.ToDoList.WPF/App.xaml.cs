@@ -16,6 +16,7 @@ namespace UTAD.ToDoList.WPF
     {
         // propriedades dos modelos
         public Perfil Perfil { get; set; }
+        public SchedulerModel scheduler { get; set; }
 
         // propriedades das views
         public new MainWindow MainWindow { get; set; }
@@ -27,17 +28,20 @@ namespace UTAD.ToDoList.WPF
 
         public App()
         {
-            // inicialização das views
 
             // Syncfusion License
             Syncfusion.Licensing.SyncfusionLicenseProvider.RegisterLicense("Ngo9BigBOggjHTQxAR8/V1NBaF5cXmZCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdnWXtfeHRSQ2ddUk1/Wkc=");
+            
+            // inicialização das views
             MainWindow = new MainWindow();
             ViewRegisto = new ViewRegisto();
             ViewPerfil = new ViewPerfil();
             ViewNovaTarefa = new ViewNovaTarefa();
             ViewEditarTarefa = new ViewEditarTarefa();
+            
             // inicialização do modelo
             Perfil = new Perfil();
+            scheduler = new SchedulerModel();
         }
 
         // função que converte uma SecureString para string (usada para converter a password para texto)
