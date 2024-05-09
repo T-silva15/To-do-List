@@ -30,12 +30,6 @@ namespace UTAD.ToDoList.WPF
             InitializeComponent();
             App = (App)App.Current;
 
-            App.scheduler.Meetings.CollectionChanged += Meetings_CollectionChanged;
-        }
-
-        private void Meetings_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
-        {
-            sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
