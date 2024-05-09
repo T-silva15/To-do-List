@@ -13,7 +13,7 @@ namespace UTAD.ToDoList.WPF.Models
     public class SchedulerModel : INotifyPropertyChanged
     {
         private ObservableCollection<Meeting> meetings;
-        public event PropertyChangedEventHandler PropertyChanged;
+        public event PropertyChangedEventHandler? PropertyChanged;
         public SchedulerModel()
         {
             Meetings = new ObservableCollection<Meeting>();
@@ -42,6 +42,8 @@ namespace UTAD.ToDoList.WPF.Models
             meeting.Id = id;
             meeting.RecurrenceRule = recurrence;
             Meetings.Add(meeting);
+
+            RaiseOnPropertyChanged("Meetings");
         }
 
         public void RaiseOnPropertyChanged(string propertyName)

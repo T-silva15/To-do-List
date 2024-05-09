@@ -51,6 +51,10 @@ namespace UTAD.ToDoList.WPF
             {
                 App.Perfil.ListaTarefas = [];
             }
+            if (App.scheduler.Meetings == null)
+            {
+                App.scheduler.Meetings = [];
+            }
 
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();

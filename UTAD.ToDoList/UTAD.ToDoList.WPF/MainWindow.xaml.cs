@@ -28,29 +28,14 @@ namespace UTAD.ToDoList.WPF
         public MainWindow()
         {
             InitializeComponent();
-            App = (App)Application.Current;
-            //Loaded += Loading_Animation;
+            App = (App)App.Current;
+
+            App.scheduler.Meetings.CollectionChanged += Meetings_CollectionChanged;
         }
 
-        // esta animação não está a funcionar
-        private void Loading_Animation(object sender, RoutedEventArgs e)
+        private void Meetings_CollectionChanged(object? sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
         {
-            DoubleAnimation widthAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = this.Width,
-                Duration = TimeSpan.FromSeconds(5)
-            };
-
-            DoubleAnimation heightAnimation = new DoubleAnimation
-            {
-                From = 0,
-                To = this.Height,
-                Duration = TimeSpan.FromSeconds(5)
-            };
-
-            this.BeginAnimation(UIElement.OpacityProperty, widthAnimation);
-            this.BeginAnimation(UIElement.OpacityProperty, heightAnimation);
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
