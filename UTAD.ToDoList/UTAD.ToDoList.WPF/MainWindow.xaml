@@ -249,6 +249,10 @@
                 </DataTemplate>
             </syncfusion:SfScheduler.HeaderTemplate>
         </syncfusion:SfScheduler>
+        <Button x:Name="BtnSemana" Content="Semana" HorizontalAlignment="Left" Margin="108,136,0,0" VerticalAlignment="Top" Height="17" Width="62" Click="BtnSemana_Click"/>
+        <Button x:Name="BtnMes" Content= "Mês" HorizontalAlignment="Left" Margin="292,136,0,0" VerticalAlignment="Top" Height="17" Width="61" Click="BtnMes_Click"/>
+        <Button x:Name="BtnSemanaTrab" Content="Semana&#xD;&#xA;Trabalho" HorizontalAlignment="Left" Margin="203,125,0,0" VerticalAlignment="Top" Height="39" Width="61" Click="BtnSemanaTrab_Click"/>
+        <Button x:Name="BtnDia" Content="Dia" HorizontalAlignment="Left" Margin="10,136,0,0" VerticalAlignment="Top" Height="17" Width="62" Click="BtnDia_Click"/>
     </Grid>
 
 

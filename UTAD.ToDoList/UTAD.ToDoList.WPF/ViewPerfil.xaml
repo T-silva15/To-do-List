@@ -126,7 +126,7 @@
             
             <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Nunito" Margin="132,361,800,205" TextWrapping="Wrap"><Run Language="pt-pt" Text="Password"/></TextBlock>
             <TextBox x:Name="tbPassword" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="157,381,0,0" FontSize="14" FontFamily="Nunito" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="386" Height="30" VerticalContentAlignment="Center"/>
-            <Image HorizontalAlignment="Left" Source="/Images/Message.png" Margin="135,387,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
+            <Image HorizontalAlignment="Left" Source="Images/Message.png" Margin="135,387,0,0" VerticalAlignment="Top" Height="20" Width="20"/>
             <Line X1="10" Y1="10" X2="510" Y2="10" Stroke="White" StrokeThickness="2.5" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="127,409,0,0" Height="14" Width="430"/>
 
             

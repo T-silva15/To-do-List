@@ -1,4 +1,5 @@
 ﻿using Microsoft.Win32;
+using Syncfusion.UI.Xaml.Scheduler;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -57,6 +58,26 @@ namespace UTAD.ToDoList.WPF
         private void ButtonBackward_Click(object sender, RoutedEventArgs e)
         {
             sfCalendario.Backward();
+        }
+
+        private void BtnDia_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ViewType = SchedulerViewType.Day;
+        }
+
+        private void BtnSemana_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ViewType = SchedulerViewType.Week;
+        }
+
+        private void BtnSemanaTrab_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ViewType = SchedulerViewType.WorkWeek;
+        }
+
+        private void BtnMes_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ViewType = SchedulerViewType.Month;
         }
     }
 }
