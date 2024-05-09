@@ -210,7 +210,6 @@ namespace UTAD.ToDoList.WPF
         {
             dpInicio.SelectedDate = DateTime.Now;
             dpTermino.SelectedDate = DateTime.Now;
-
         }
 
     }
