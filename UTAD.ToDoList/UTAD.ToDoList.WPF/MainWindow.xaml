@@ -39,24 +39,24 @@
     </Window.DataContext>
 
     <Grid>
-        <TextBlock Text="To-Do List" Margin="298,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
-        <TextBlock Text="DashBoard" Margin="512,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        <TextBlock Text="To-Do List" Margin="298,29,516,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" VerticalAlignment="Top" TextWrapping="Wrap"/>
+        <TextBlock Text="DashBoard" Margin="512,29,301,668" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
 
         <!-- Filtros -->
-        <Button Content="Todas" Margin="76,568,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="32"/>
+        <Button Content="Todas" Margin="76,568,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top"/>
         <Image Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="49,568,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Completas" Margin="76,594,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="58"/>
+        <Button Content="Completas" Margin="76,594,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top"/>
         <Image Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="49,594,0,0" VerticalAlignment="Top"/>
 
-        <Button Content="Pendentes" Margin="76,620,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="57"/>
+        <Button Content="Pendentes" Margin="76,620,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57"/>
         <Image Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="49,620,0,0" VerticalAlignment="Top"/>
 
         <!-- Outros -->
-        <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="76,666,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="65"/>
+        <Button x:Name="btnNova_Tarefa" Click="btnNova_Tarefa_Click" Content="Nova Tarefa" Margin="76,0,0,65" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="65"/>
         <Image Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="49,666,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="76,692,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="21" Width="29"/>
+        <Button x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="76,692,0,0" VerticalAlignment="Top" Height="21" HorizontalAlignment="Left" Width="29"/>
         <Image Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="49,692,0,0" VerticalAlignment="Top"/>
 
         <!-- Separador Central -->
@@ -96,7 +96,7 @@
         <!-- Tarefas -->
         <!-- Prioritárias -->
         <Image Source="Images/Prioritaria.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="410,204,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.6,0.077"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="435,205,0,0" TextWrapping="Wrap" Text="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="16"/>
+        <TextBlock VerticalAlignment="Top" Height="23" Margin="435,205,503,0" TextWrapping="Wrap" Text="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="494,217,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="498">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -123,7 +123,7 @@
 
         <!-- Importante -->
         <Image Source="Images/Importante.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="410,304,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="91" Height="23" Margin="435,305,0,0" TextWrapping="Wrap" Text="Importante" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="16"/>
+        <TextBlock VerticalAlignment="Top" Height="23" Margin="435,305,498,0" TextWrapping="Wrap" Text="Importante" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="526,317,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="466">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -150,7 +150,7 @@
 
         <!-- Normal -->
         <Image Source="Images/Normal.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="410,404,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="86" Height="23" Margin="435,405,0,0" TextWrapping="Wrap" Text="Normal" Foreground="#849EEA" FontFamily="Nunito" FontSize="16"/>
+        <TextBlock VerticalAlignment="Top" Height="23" Margin="435,405,503,0" TextWrapping="Wrap" Text="Normal" Foreground="#849EEA" FontFamily="Nunito" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="494,418,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="498">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -177,7 +177,7 @@
 
         <!-- Pouco Importante -->
         <Image Source="Images/Pouco_Importante.png" HorizontalAlignment="Left" Width="25" Height="25" Margin="410,504,0,0" VerticalAlignment="Top"/>
-        <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Width="145" Height="23" Margin="435,505,0,0" TextWrapping="Wrap" Text="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="16"/>
+        <TextBlock VerticalAlignment="Top" Height="23" Margin="435,505,444,0" TextWrapping="Wrap" Text="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="16"/>
         <Separator HorizontalAlignment="Left" Margin="580,517,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="412">
             <Separator.Style>
                 <Style TargetType="{x:Type Separator}">
@@ -202,9 +202,9 @@
             </Separator.Style>
         </Separator>
 
-        
 
-        <syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="10,174,671,0" Height="366" VerticalAlignment="Top">
+
+        <syncfusion:SfScheduler x:Name="sfCalendario"  ItemsSource="{Binding Meetings}" ViewType="Month" Margin="10,174,671,0" Height="366" VerticalAlignment="Top">
             <syncfusion:SfScheduler.AppointmentMapping>
                 <syncfusion:AppointmentMapping 
                     Subject="Name"
