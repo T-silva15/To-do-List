@@ -2,7 +2,7 @@
 
 namespace UTAD.ToDoList.WPF.Models
 {
-    public enum TipoP {diario, semanal, mensal}
+    public enum TipoP { DAILY, WEEKLY, MONTHLY}
 
     public class Periodicidade : BaseModel
     {
@@ -13,7 +13,7 @@ namespace UTAD.ToDoList.WPF.Models
 
         public Periodicidade()
         {
-            Tipo = TipoP.diario;
+            Tipo = TipoP.DAILY;
             Intervalo = 1;
             Quantidade = 0;
         }

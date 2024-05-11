@@ -98,14 +98,14 @@ namespace UTAD.ToDoList.WPF
                 cor = new SolidColorBrush(Colors.Orange);
 
             }
-            else if (rbNormal.IsChecked == true)
+            else if (rbPrioritaria.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Prioritaria;
                 cor = new SolidColorBrush(Colors.Red);
             }
 
             // alerta antecipação
-            if (rbAlAnt15Min.IsChecked == true)
+            if (cbAlAnt15Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-15);
@@ -113,7 +113,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
                 tarefa.AlertaAntecipacao.Estado = false;
             }
-            else if (rbAlAnt30Min.IsChecked == true)
+            else if (cbAlAnt30Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-30);
@@ -121,7 +121,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
                 tarefa.AlertaAntecipacao.Estado = false;
             }
-            else if (rbAlAnt60Min.IsChecked == true)
+            else if (cbAlAnt60Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-60);
@@ -131,7 +131,7 @@ namespace UTAD.ToDoList.WPF
             }
 
             // alerta execução
-            if (rbAlNR15Min.IsChecked == true)
+            if (cbAlNR15Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(15);
@@ -139,7 +139,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
                 tarefa.AlertaExecucao.Estado = false;
             }
-            else if (rbAlNR30Min.IsChecked == true)
+            else if (cbAlNR30Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(30);
@@ -147,7 +147,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
                 tarefa.AlertaExecucao.Estado = false;
             }
-            else if (rbAlNR60Min.IsChecked == true)
+            else if (cbAlNR60Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(60);
@@ -161,7 +161,7 @@ namespace UTAD.ToDoList.WPF
             if (PerDiario.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
-                tarefa.Periodicidade.Tipo = TipoP.diario;
+                tarefa.Periodicidade.Tipo = TipoP.DAILY;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
@@ -171,7 +171,7 @@ namespace UTAD.ToDoList.WPF
             else if (PerSemanal.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
-                tarefa.Periodicidade.Tipo = TipoP.semanal;
+                tarefa.Periodicidade.Tipo = TipoP.WEEKLY;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
@@ -182,7 +182,7 @@ namespace UTAD.ToDoList.WPF
             else if (PerMensal.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
-                tarefa.Periodicidade.Tipo = TipoP.mensal;
+                tarefa.Periodicidade.Tipo = TipoP.MONTHLY;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;

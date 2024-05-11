@@ -114,6 +114,7 @@
                 </Setter.Value>
             </Setter>
         </Style>
+
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
                 <Setter.Value>
@@ -282,16 +283,15 @@
 
         <Label Content="Alerta de &#xD;&#xA;Antecipação" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="331,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="171"/>
         <Image HorizontalAlignment="Left" Source="Images\Alerta.png" Height="20" Width="20" Margin="311,512,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbAlAnt15Min" GroupName="AlertaAntecipacao" Style="{DynamicResource SquareRadioButton}" Content="15 Minutos"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbAlAnt30Min" GroupName="AlertaAntecipacao" Style="{DynamicResource SquareRadioButton}" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="rbAlAnt60Min" GroupName="AlertaAntecipacao" Style="{DynamicResource SquareRadioButton}" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
-
+        <CheckBox x:Name="cbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Alerta de &#xA;Não-Realização" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="34,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="170" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Source="\Images\Alerta.png" Height="20" Width="20" Margin="14,510,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton x:Name="rbAlNR15Min" GroupName="AlertaNR" Style="{DynamicResource SquareRadioButton}" Content="15 Minutos"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,570,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton x:Name="rbAlNR30Min" GroupName="AlertaNR" Style="{DynamicResource SquareRadioButton}" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,590,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton x:Name="rbAlNR60Min" GroupName="AlertaNR" Style="{DynamicResource SquareRadioButton}" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,610,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
         <Label Content="Prioridade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="292,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126" Grid.Column="1"/>
@@ -300,7 +300,7 @@
         <RadioButton x:Name="rbImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbNormal" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Normal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbPoucoImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Pouco Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,610,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-
+        
 
     </Grid>
 </Window>

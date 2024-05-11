@@ -83,6 +83,8 @@ namespace UTAD.ToDoList.WPF
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             sfCalendario.ItemsSource = App.scheduler.Meetings;
+            // Carregar as tarefas no calendário com base no perfil do utilizador
+            App.scheduler.CarregarTarefas(App.Perfil.ListaTarefas);
         }
     }
 }
