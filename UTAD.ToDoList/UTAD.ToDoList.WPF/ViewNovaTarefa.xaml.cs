@@ -105,7 +105,7 @@ namespace UTAD.ToDoList.WPF
             }
 
             // alerta antecipação
-            if (cbAlAnt15Min.IsChecked == true)
+            if (rbAlAnt15Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-15);
@@ -113,7 +113,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
                 tarefa.AlertaAntecipacao.Estado = false;
             }
-            else if (cbAlAnt30Min.IsChecked == true)
+            else if (rbAlAnt30Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-30);
@@ -121,7 +121,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
                 tarefa.AlertaAntecipacao.Estado = false;
             }
-            else if (cbAlAnt60Min.IsChecked == true)
+            else if (rbAlAnt60Min.IsChecked == true)
             {
                 tarefa.AlertaAntecipacao = new Alerta();
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-60);
@@ -131,7 +131,7 @@ namespace UTAD.ToDoList.WPF
             }
 
             // alerta execução
-            if (cbAlNR15Min.IsChecked == true)
+            if (rbAlNR15Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(15);
@@ -139,7 +139,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
                 tarefa.AlertaExecucao.Estado = false;
             }
-            else if (cbAlNR30Min.IsChecked == true)
+            else if (rbAlNR30Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(30);
@@ -147,7 +147,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
                 tarefa.AlertaExecucao.Estado = false;
             }
-            else if (cbAlNR60Min.IsChecked == true)
+            else if (rbAlNR60Min.IsChecked == true)
             {
                 tarefa.AlertaExecucao = new Alerta();
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(60);

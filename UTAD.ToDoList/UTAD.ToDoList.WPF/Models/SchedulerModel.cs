@@ -33,7 +33,20 @@ namespace UTAD.ToDoList.WPF.Models
             }
         }
 
-
+        /// <summary>
+        /// Função que recebe os dados de uma nova tarefa e a adiciona ao calendário, com base na classe Meeting
+        /// </summary>
+        /// <param name="nome">Título da Tarefa</param>
+        /// <param name="descricao">Notas da Tarefa</param>
+        /// <param name="inicio">Data Inicial</param>
+        /// <param name="fim">Data de Término</param>
+        /// <param name="cor">Cor da Tarefa -> associada à prioridade 
+        /// (vermelho -> Prioritária)
+        /// (laranja -> Importante)
+        /// (verde -> Normal) 
+        /// (azul -> Pouco Importante</param>
+        /// <param name="id">Id da Tarefa, gerado automaticamente devido à classe BaseModel</param>
+        /// <param name="recurrence">Recurrência da Tarefa, vezes a repetir e intervalo de repetição</param>
         public void AdicionarTarefa(string nome, string descricao, DateTime inicio, DateTime fim, SolidColorBrush cor, string id, string recurrence)
         {
             // tarefa no modelo
@@ -49,12 +62,20 @@ namespace UTAD.ToDoList.WPF.Models
 
             RaiseOnPropertyChanged("Meetings");
         }
-
+        /// <summary>
+        /// Evento que é chamado sempre que uma propriedade é alterada, avisa o calendário que a coleção de tarefas foi alterada.
+        /// </summary>
+        /// <param name="propertyName">Nome da Propriedade modificada</param>
         public void RaiseOnPropertyChanged(string propertyName)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        /// <summary>
+        /// Função que carrega as tarefas do perfil do utilizador para o calendário,
+        /// é executada sempre que o calendário é carregado.
+        /// </summary>
+        /// <param name="tarefas">Lista de tarefas armazenada no utilizador</param>
         public void CarregarTarefas(List<Tarefa> tarefas)
         {
             foreach (Tarefa tarefa in tarefas)

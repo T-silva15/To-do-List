@@ -39,10 +39,16 @@ namespace UTAD.ToDoList.WPF
             App.ViewPerfil.ShowDialog(); // bloqueia o utilizador de mexer no Dashboard
         }
 
-        private void btnNova_Tarefa_Click(object sender, RoutedEventArgs e)
+        private void BtnNova_Tarefa_Click(object sender, RoutedEventArgs e)
         {
             App.ViewNovaTarefa = new ViewNovaTarefa();
             App.ViewNovaTarefa.Show();
+        }
+
+        private void BtnEditar_Tarefa_Click(object sender, RoutedEventArgs e)
+        {
+            App.ViewEditarTarefa = new ViewEditarTarefa();
+            App.ViewEditarTarefa.Show();
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)

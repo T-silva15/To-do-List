@@ -185,7 +185,7 @@
         <TextBlock Grid.Column="0" Text="Nova" Margin="60,32,0,0" Height="30" Width="61" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="White" TextWrapping="Wrap" VerticalAlignment="Top" HorizontalAlignment="Left"/>
         <TextBlock Grid.Column="0" Text="Tarefa" Margin="126,32,0,0" FontSize="25" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" Height="31" VerticalAlignment="Top" HorizontalAlignment="Left" Width="80"/>
 
-        <Syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="20,85,0,0" Height="400" VerticalAlignment="Top">
+        <Syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="10,85,10,267">
             <Syncfusion:SfScheduler.AppointmentMapping>
                 <Syncfusion:AppointmentMapping 
                     Subject="Name"
@@ -271,7 +271,7 @@
         <Image HorizontalAlignment="Left" Source="Images\Pen.png" Height="20" Width="20" Margin="52,383,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
         <TextBox x:Name="tbDescricao" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Inserir Notas" Foreground="#737373" VerticalContentAlignment="Top" Margin="200,347,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" Grid.Column="1" Height="88" VerticalAlignment="Top" HorizontalAlignment="Left" Width="279"/>
 
-        <Label Content="Periodicidade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="80,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126"/>
+        <Label Content="Periodicidade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="80,505,306,217"/>
         <Image HorizontalAlignment="Left" Source="Images\Repetition Icon.png" Height="20" Width="20" Margin="62,512,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="PerDiario" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Diário"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,570,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="PerSemanal" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Semanal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,590,0,0" VerticalAlignment="Top"/>
@@ -283,15 +283,15 @@
 
         <Label Content="Alerta de &#xD;&#xA;Antecipação" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="331,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="171"/>
         <Image HorizontalAlignment="Left" Source="Images\Alerta.png" Height="20" Width="20" Margin="311,512,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
-        <CheckBox x:Name="cbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Alerta de &#xA;Não-Realização" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="34,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="170" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Source="\Images\Alerta.png" Height="20" Width="20" Margin="14,510,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox x:Name="cbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox x:Name="cbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <CheckBox x:Name="cbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
         <Label Content="Prioridade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="292,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126" Grid.Column="1"/>

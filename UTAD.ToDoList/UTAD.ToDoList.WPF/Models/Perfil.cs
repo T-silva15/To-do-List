@@ -38,8 +38,14 @@ namespace UTAD.ToDoList.WPF.Models
             Fotografia= _Fotografia;
         }
 
+        /// <summary>
+        /// Função que guarda o perfil do utilizador num ficheiro json, 
+        /// o ficheiro está guardado na pasta do utilizador, caso não exista 
+        /// a pasta e os ficheiros são criados e armazenados num ficheiro .json.
+        /// </summary>
         public void GuardarPerfil()
         {
+            System.IO.Directory.CreateDirectory("to-do list");
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
             path = System.IO.Path.Combine(path, Nome) + ".json";
             string jsonString = JsonSerializer.Serialize(this);
