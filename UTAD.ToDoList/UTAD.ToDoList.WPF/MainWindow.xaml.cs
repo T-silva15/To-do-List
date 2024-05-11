@@ -2,6 +2,7 @@
 using Syncfusion.UI.Xaml.Scheduler;
 using System.Diagnostics;
 using System.IO;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Text.Json;
 using System.Windows;
@@ -30,7 +31,6 @@ namespace UTAD.ToDoList.WPF
         {
             InitializeComponent();
             App = (App)App.Current;
-
         }
 
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
@@ -78,6 +78,11 @@ namespace UTAD.ToDoList.WPF
         private void BtnMes_Click(object sender, RoutedEventArgs e)
         {
             sfCalendario.ViewType = SchedulerViewType.Month;
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
     }
 }

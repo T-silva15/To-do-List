@@ -1,5 +1,6 @@
 ﻿using Syncfusion.UI.Xaml.Scheduler;
 using System.Collections.ObjectModel;
+using System.ComponentModel;
 using System.IO;
 using System.Text.Json;
 using System.Windows.Media;
@@ -16,7 +17,9 @@ namespace UTAD.ToDoList.WPF.Models
 
         // Fotografia do perfil (caminho para a foto)
         public string? Fotografia { get; set; }
+
         public List<Tarefa> ListaTarefas { get; set; }
+
 
         // construtor por defeito
         public Perfil() 
@@ -24,6 +27,7 @@ namespace UTAD.ToDoList.WPF.Models
             Nome = string.Empty;
             Email = string.Empty;
             Fotografia = string.Empty;
+            ListaTarefas = new List<Tarefa>();
         }
 
         // construtor com parâmetros

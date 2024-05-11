@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:viewModels="clr-namespace:UTAD.ToDoList.WPF.Models" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanResize" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
+        Title="MainWindow" ResizeMode="CanResize" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style TargetType="Button">
@@ -204,7 +204,7 @@
 
 
 
-        <syncfusion:SfScheduler x:Name="sfCalendario"  ItemsSource="{Binding Meetings}" ViewType="Month" Margin="10,174,671,0" Height="366" VerticalAlignment="Top">
+        <syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="10,174,671,0" Height="366" VerticalAlignment="Top">
             <syncfusion:SfScheduler.AppointmentMapping>
                 <syncfusion:AppointmentMapping 
                     Subject="Name"

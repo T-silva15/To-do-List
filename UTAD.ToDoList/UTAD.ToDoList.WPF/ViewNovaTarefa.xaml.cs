@@ -32,6 +32,7 @@ namespace UTAD.ToDoList.WPF
             App = (App)Application.Current;
             InitializeComponent();
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
+
         }
 
         private void ButtonForward_Click(object sender, RoutedEventArgs e)
@@ -46,15 +47,6 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
         {
-            // cria lista de tarefas se não existir
-            if (App.Perfil.ListaTarefas == null)
-            {
-                App.Perfil.ListaTarefas = [];
-            }
-            if (App.scheduler.Meetings == null)
-            {
-                App.scheduler.Meetings = [];
-            }
 
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();
@@ -72,7 +64,7 @@ namespace UTAD.ToDoList.WPF
             tarefa.DataInicio = dpInicio.SelectedDate.Value.AddHours(Convert.ToInt32(tbHoraInicio.Text)).AddMinutes(Convert.ToInt32(tbMinutosInicio.Text));
             tarefa.DataTermino = dpTermino.SelectedDate.Value.AddHours(Convert.ToInt32(tbHoraFim.Text)).AddMinutes(Convert.ToInt32(tbMinutosFim.Text));
             tarefa.Descricao = tbDescricao.Text;
-            
+
             // estado
             if (rbPorIniciar.IsChecked == true)
             {
@@ -94,7 +86,7 @@ namespace UTAD.ToDoList.WPF
             // utilizador nao escolheu prioridade (prioridade pouco importante)
             tarefa.NivelImportancia = NivelImportancia.Pouco_Importante;
             cor = new SolidColorBrush(Colors.LightBlue);
-            
+
             if (rbNormal.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Normal;
@@ -200,7 +192,7 @@ namespace UTAD.ToDoList.WPF
             }
 
             App.Perfil.ListaTarefas.Add(tarefa);
-            App.scheduler.AdicionarTarefa(tarefa.Titulo,tarefa.Descricao, tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
+            App.scheduler.AdicionarTarefa(tarefa.Titulo, tarefa.Descricao, tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
 
             this.Close();
         }
@@ -214,7 +206,10 @@ namespace UTAD.ToDoList.WPF
         {
             dpInicio.SelectedDate = DateTime.Now;
             dpTermino.SelectedDate = DateTime.Now;
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
+
+
 
     }
 }
