@@ -50,23 +50,23 @@
         <TextBlock Text="To-Do List" Grid.Column="0" Margin="207,17,429,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" VerticalAlignment="Top" TextWrapping="Wrap"/>
         <TextBlock Text="DashBoard" Grid.Column="0" Margin="418,17,202,563" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
 
-        <Button x:Name="btnTarefasTodas" Grid.Row="0" Grid.Column="1" Content="Todas" FontFamily="Nunito-Regular" Margin="72,216,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top" Click="btnTarefasTodas_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,216,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasTodas" Grid.Row="0" Grid.Column="1" Content="Todas" FontFamily="Nunito-Regular" Margin="52,191,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top" Click="btnTarefasTodas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,191,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnTarefasCompletas" Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="73,242,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top" Click="btnTarefasCompletas_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,242,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasCompletas" Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="53,217,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top" Click="btnTarefasCompletas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,217,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnTarefasExecucao" Grid.Row="0" Grid.Column="1" Content="Em Execução" FontFamily="Nunito-Regular" Margin="73,269,0,0" HorizontalAlignment="Left" Width="70" Height="22" VerticalAlignment="Top" Click="btnTarefasExecucao_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,269,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasExecucao" Grid.Row="0" Grid.Column="1" Content="Em Execução" FontFamily="Nunito-Regular" Margin="53,244,0,0" HorizontalAlignment="Left" Width="70" Height="22" VerticalAlignment="Top" Click="btnTarefasExecucao_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,244,0,0" VerticalAlignment="Top"/>
 
-        <Button x:Name="btnTarefasPendentes" Grid.Row="0" Grid.Column="1" Content="Pendentes" FontFamily="Nunito-Regular" Margin="74,296,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57" Click="btnTarefasPendentes_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="45,296,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasPendentes" Grid.Column="1" Content="Pendentes" FontFamily="Nunito-Regular" Margin="54,271,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57" Click="btnTarefasPendentes_Click"/>
+        <Image Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="25,270,0,0" VerticalAlignment="Top"/>
 
-        <Button Grid.Row="0" Grid.Column="1" x:Name="btnNova_Tarefa" FontFamily="Nunito-Regular" Click="BtnNova_Tarefa_Click" Content="Nova Tarefa" Margin="68,0,0,208" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="65"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="45,397,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="btnNova_Tarefa" FontFamily="Nunito-Regular" Click="BtnNova_Tarefa_Click" Content="Nova Tarefa" Margin="64,0,0,73" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="65"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="41,534,0,0" VerticalAlignment="Top"/>
 
-        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="45,421,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Row="0" Grid.Column="1" x:Name="btnEditarTarefa" FontFamily="Nunito-Regular" Click="BtnEditar_Tarefa_Click" Content="Editar Tarefa" Margin="68,0,0,183" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="68"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="41,558,0,0" VerticalAlignment="Top"/>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="btnEditarTarefa" FontFamily="Nunito-Regular" Click="BtnEditar_Tarefa_Click" Content="Editar Tarefa" Margin="64,0,0,48" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="68"/>
 
         <Button  Grid.Row="0" Grid.Column="1" x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="83,45,0,0" VerticalAlignment="Top" Height="21" HorizontalAlignment="Left" Width="29"/>
         <Image Grid.Row="0" Grid.Column="1" Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="56,44,0,0" VerticalAlignment="Top"/>
@@ -107,20 +107,20 @@
 
         <!-- Tarefas -->
         <!-- Prioritárias -->
-        <Image Grid.Column="1" Source="Images/Prioritaria.png" MaxHeight="20" MaxWidth="20" Margin="0,0,164,94" Height="19" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="20"/>
-        <TextBlock Grid.Column="1" Margin="0,0,82,94" TextWrapping="Wrap" Text="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="82"/>
+        <Image Grid.Column="1" Source="Images/Prioritaria.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,268" Height="19" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnPrioritaria" Grid.Column="1" Margin="42,0,74,267" HorizontalContentAlignment="Left" Content="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Click="btnPrioritaria_Click"/>
 
         <!-- Importante -->
-        <Image Grid.Column="1" Source="Images/Importante.png" MaxHeight="20" MaxWidth="20" Margin="0,0,164,71" Grid.Row="1" HorizontalAlignment="Right" Width="20" Height="20" VerticalAlignment="Bottom"/>
-        <TextBlock Grid.Column="1" Margin="0,33,82,70" TextWrapping="Wrap" Text="Importante" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="16" Grid.Row="1" HorizontalAlignment="Right" Width="82"/>
+        <Image Grid.Column="1" Source="Images/Importante.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,245" Height="20" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnImportante" Grid.Column="1" Margin="43,361,65,244" Content="Importante" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="16" Click="btnImportante_Click"/>
 
         <!-- Normal -->
-        <Image Grid.Column="1" Source="Images/Normal.png" MaxHeight="20" MaxWidth="20" Margin="6,60,164,45" Grid.Row="1"/>
-        <TextBlock Grid.Column="1" Margin="26,57,82,47" TextWrapping="Wrap" Text="Normal" Foreground="#849EEA" FontFamily="Nunito" FontSize="16" Grid.Row="1"/>
+        <Image Grid.Column="1" Source="Images/Normal.png" MaxHeight="20" MaxWidth="20" Margin="25,386,147,221"/>
+        <Button x:Name="btnNormal" Grid.Column="1" Margin="45,385,91,221" Content="Normal" Foreground="#849EEA" FontFamily="Nunito" FontSize="16" Click="btnNormal_Click"/>
 
         <!-- Pouco Importante -->
-        <Image Grid.Column="1" Source="Images/Pouco_Importante.png" MaxHeight="20" MaxWidth="20" Margin="0,0,164,24" Height="18" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="20"/>
-        <TextBlock Grid.Column="1" Margin="0,0,34,23" TextWrapping="Wrap" Text="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Grid.Row="1" HorizontalAlignment="Right" Width="130"/>
+        <Image Grid.Column="1" Source="Images/Pouco_Importante.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,200" Height="18" VerticalAlignment="Bottom"/>
+        <Button x:Name="btnPoucoImp" Grid.Column="1" Margin="43,0,17,199" Content="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Click="btnPoucoImp_Click"/>
 
 
 
@@ -174,7 +174,7 @@
         <Button x:Name="BtnSemana" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana" HorizontalAlignment="Left" Margin="356,57,0,51" Width="62" Click="BtnSemana_Click"/>
         <Button x:Name="BtnSemanaTrab" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana&#xD;&#xA;Trabalho" Margin="462,43,310,44" Click="BtnSemanaTrab_Click"/>
         <Button x:Name="BtnMes" Grid.Row="1" Grid.Column="0" Content= "Mês" FontFamily="Nunito-Regular" Margin="558,57,215,51" Click="BtnMes_Click"/>
-        
+
     </Grid>
 
 

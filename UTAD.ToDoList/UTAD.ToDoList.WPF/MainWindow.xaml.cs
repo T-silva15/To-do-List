@@ -33,12 +33,14 @@ namespace UTAD.ToDoList.WPF
             App = (App)App.Current;
         }
 
+        // Botão de visualização de perfil
         private void BtnPerfil_Click(object sender, RoutedEventArgs e)
         {
             App.ViewPerfil = new ViewPerfil();
             App.ViewPerfil.ShowDialog(); // bloqueia o utilizador de mexer no Dashboard
         }
 
+        // Botões de adicionar e editar tarefas
         private void BtnNova_Tarefa_Click(object sender, RoutedEventArgs e)
         {
             App.ViewNovaTarefa = new ViewNovaTarefa();
@@ -51,11 +53,13 @@ namespace UTAD.ToDoList.WPF
             App.ViewEditarTarefa.Show();
         }
 
+        // Botão de fechar janela e guardar o perfil do utilizador
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             App.Perfil.GuardarPerfil();
         }
 
+        // Botões de navegação no calendário
         private void ButtonForward_Click(object sender, RoutedEventArgs e)
         {
             sfCalendario.Forward();
@@ -66,6 +70,7 @@ namespace UTAD.ToDoList.WPF
             sfCalendario.Backward();
         }
 
+        // Botões de visualização do calendário
         private void BtnDia_Click(object sender, RoutedEventArgs e)
         {
             sfCalendario.ViewType = SchedulerViewType.Day;
@@ -86,6 +91,8 @@ namespace UTAD.ToDoList.WPF
             sfCalendario.ViewType = SchedulerViewType.Month;
         }
 
+
+        // Carregar as tarefas no calendário quando a janela é carregada
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             sfCalendario.ItemsSource = App.scheduler.Meetings;
@@ -93,30 +100,50 @@ namespace UTAD.ToDoList.WPF
             App.scheduler.CarregarTarefas(App.Perfil.ListaTarefas);
         }
 
+
+        // Botões de ordenação por estado
         private void btnTarefasTodas_Click(object sender, RoutedEventArgs e)
         {
-            sfCalendario.ItemsSource = App.scheduler.Meetings;
             App.scheduler.CarregarTarefas(App.Perfil.ListaTarefas);
         }
 
         private void btnTarefasCompletas_Click(object sender, RoutedEventArgs e)
         {
-            sfCalendario.ItemsSource = App.scheduler.Meetings;
             App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Terminada);
         }
 
         private void btnTarefasExecucao_Click(object sender, RoutedEventArgs e)
         {
-            sfCalendario.ItemsSource = App.scheduler.Meetings;
             App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Em_Execucao);
         }
 
         private void btnTarefasPendentes_Click(object sender, RoutedEventArgs e)
         {
-            sfCalendario.ItemsSource = App.scheduler.Meetings;
             App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Por_Iniciar);
         }
 
-       
+
+        // Botões de ordenação por nível de importância
+        private void btnPrioritaria_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Prioritaria);
+        }
+
+        private void btnImportante_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Importante);
+        }
+
+        private void btnNormal_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Normal);
+        }
+
+        private void btnPoucoImp_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Pouco_Importante);
+        }
+
+        
     }
 }

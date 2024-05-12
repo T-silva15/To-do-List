@@ -86,23 +86,23 @@ namespace UTAD.ToDoList.WPF
 
             // utilizador nao escolheu prioridade (prioridade pouco importante)
             tarefa.NivelImportancia = NivelImportancia.Pouco_Importante;
-            cor = new SolidColorBrush(Colors.LightBlue);
+            cor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
 
             if (rbNormal.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Normal;
-                cor = new SolidColorBrush(Colors.LightGreen);
+                cor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
             }
             else if (rbImportante.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Importante;
-                cor = new SolidColorBrush(Colors.Orange);
+                cor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
 
             }
             else if (rbPrioritaria.IsChecked == true)
             {
                 tarefa.NivelImportancia = NivelImportancia.Prioritaria;
-                cor = new SolidColorBrush(Colors.Red);
+                cor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
             }
 
             // alerta antecipação

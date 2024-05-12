@@ -88,13 +88,13 @@ namespace UTAD.ToDoList.WPF.Models
                 meeting.From = tarefa.DataInicio;
                 meeting.To = tarefa.DataTermino;
                 if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
-                    meeting.BackgroundColor = Brushes.LightBlue;
+                    meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
                 else if (tarefa.NivelImportancia == NivelImportancia.Normal)
-                    meeting.BackgroundColor = Brushes.LightGreen;
+                    meeting.BackgroundColor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
                 else if (tarefa.NivelImportancia == NivelImportancia.Importante)
-                    meeting.BackgroundColor = Brushes.Orange;
+                    meeting.BackgroundColor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
                 else if (tarefa.NivelImportancia == NivelImportancia.Prioritaria)
-                    meeting.BackgroundColor = Brushes.Red;
+                    meeting.BackgroundColor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
                 meeting.Id = tarefa.Id;
                 if (tarefa.Periodicidade != null)
                 {
@@ -110,8 +110,8 @@ namespace UTAD.ToDoList.WPF.Models
         /// Função que carrega as tarefas do perfil do utilizador para o calendário,
         /// com base no estado passado como parâmetro, utilizada nos botões de ordenação.
         /// </summary>
-        /// <param name="tarefas"></param>
-        /// <param name="estado"></param>
+        /// <param name="tarefas">Lista de tarefas armazenada no utilizador</param>
+        /// <param name="estado">Estado das tarefas a serem mostradas</param>
         public void CarregarTarefasEstado(List<Tarefa> tarefas, Estado estado)
         {
             if (Meetings.Count > 0)
@@ -126,13 +126,13 @@ namespace UTAD.ToDoList.WPF.Models
                     meeting.From = tarefa.DataInicio;
                     meeting.To = tarefa.DataTermino;
                     if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
-                        meeting.BackgroundColor = Brushes.LightBlue;
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
                     else if (tarefa.NivelImportancia == NivelImportancia.Normal)
-                        meeting.BackgroundColor = Brushes.LightGreen;
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
                     else if (tarefa.NivelImportancia == NivelImportancia.Importante)
-                        meeting.BackgroundColor = Brushes.Orange;
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
                     else if (tarefa.NivelImportancia == NivelImportancia.Prioritaria)
-                        meeting.BackgroundColor = Brushes.Red;
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
                     meeting.Id = tarefa.Id;
                     if (tarefa.Periodicidade != null)
                     {
@@ -143,5 +143,45 @@ namespace UTAD.ToDoList.WPF.Models
             }
             RaiseOnPropertyChanged("Meetings");
         }
+
+
+        /// <summary>
+        /// Função que carrega as tarefas do perfil do utilizador para o calendário,
+        /// com base no nível de importância passado como parâmetro, utilizada nos botões de ordenação.
+        /// </summary>
+        /// <param name="tarefas">Lista de tarefas armazenada no utilizador</param>
+        /// <param name="nivel">Nivel de Importância das tarefas a serem mostradas</param>
+        public void CarregarTarefasNivelImportancia(List<Tarefa> tarefas, NivelImportancia nivel)
+        {
+            if (Meetings.Count > 0)
+                Meetings.Clear();
+            foreach (Tarefa tarefa in tarefas)
+            {
+                if (tarefa.NivelImportancia == nivel)
+                {
+                    Meeting meeting = new Meeting();
+                    meeting.Name = tarefa.Titulo;
+                    meeting.Description = tarefa.Descricao;
+                    meeting.From = tarefa.DataInicio;
+                    meeting.To = tarefa.DataTermino;
+                    if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Normal)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Prioritaria)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
+                    meeting.Id = tarefa.Id;
+                    if (tarefa.Periodicidade != null)
+                    {
+                        meeting.RecurrenceRule = "FREQ=" + tarefa.Periodicidade.Tipo.ToString().ToUpper() + ";INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                    }
+                    Meetings.Add(meeting);
+                }
+            }
+            RaiseOnPropertyChanged("Meetings");
+        }
+
     }
 }
