@@ -50,14 +50,17 @@
         <TextBlock Text="To-Do List" Grid.Column="0" Margin="207,17,429,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" VerticalAlignment="Top" TextWrapping="Wrap"/>
         <TextBlock Text="DashBoard" Grid.Column="0" Margin="418,17,202,563" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
 
-        <Button Grid.Row="0" Grid.Column="1" Content="Todas" FontFamily="Nunito-Regular" Margin="72,239,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,239,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasTodas" Grid.Row="0" Grid.Column="1" Content="Todas" FontFamily="Nunito-Regular" Margin="72,216,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top" Click="btnTarefasTodas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,216,0,0" VerticalAlignment="Top"/>
 
-        <Button Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="73,265,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,265,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasCompletas" Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="73,242,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top" Click="btnTarefasCompletas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,242,0,0" VerticalAlignment="Top"/>
 
-        <Button Grid.Row="0" Grid.Column="1" Content="Pendentes" FontFamily="Nunito-Regular" Margin="74,291,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Pending Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="45,291,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasExecucao" Grid.Row="0" Grid.Column="1" Content="Em Execução" FontFamily="Nunito-Regular" Margin="73,269,0,0" HorizontalAlignment="Left" Width="70" Height="22" VerticalAlignment="Top" Click="btnTarefasExecucao_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="45,269,0,0" VerticalAlignment="Top"/>
+
+        <Button x:Name="btnTarefasPendentes" Grid.Row="0" Grid.Column="1" Content="Pendentes" FontFamily="Nunito-Regular" Margin="74,296,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57" Click="btnTarefasPendentes_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="45,296,0,0" VerticalAlignment="Top"/>
 
         <Button Grid.Row="0" Grid.Column="1" x:Name="btnNova_Tarefa" FontFamily="Nunito-Regular" Click="BtnNova_Tarefa_Click" Content="Nova Tarefa" Margin="68,0,0,208" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="65"/>
         <Image Grid.Row="0" Grid.Column="1" Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="45,397,0,0" VerticalAlignment="Top"/>
@@ -171,6 +174,7 @@
         <Button x:Name="BtnSemana" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana" HorizontalAlignment="Left" Margin="356,57,0,51" Width="62" Click="BtnSemana_Click"/>
         <Button x:Name="BtnSemanaTrab" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana&#xD;&#xA;Trabalho" Margin="462,43,310,44" Click="BtnSemanaTrab_Click"/>
         <Button x:Name="BtnMes" Grid.Row="1" Grid.Column="0" Content= "Mês" FontFamily="Nunito-Regular" Margin="558,57,215,51" Click="BtnMes_Click"/>
+        
     </Grid>
 
 

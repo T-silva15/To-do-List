@@ -11,21 +11,21 @@ namespace UTAD.ToDoList.WPF.Models
 
         // Tipo de alerta (1 - Alerta Windows | 2 - Email)  
         public TipoA Tipo { get; set; }
-        public bool Estado { get; set; }
+        public bool EstadoAlerta { get; set; }
 
         // construtor por defeito
         public Alerta() 
         {
             Mensagem = string.Empty;
             Data = DateTime.MinValue;
-            Estado = false;
+            EstadoAlerta = false;
         }
         // construtor com parâmetros 
         public Alerta(string _Mensagem, DateTime _Data, bool _Estado)
         {
             Mensagem = _Mensagem;
             Data = _Data;
-            Estado = _Estado;
+            EstadoAlerta = _Estado;
         }
     }
 }

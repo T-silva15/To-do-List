@@ -3,6 +3,7 @@ using Syncfusion.Windows.Shared;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Diagnostics.Eventing.Reader;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -111,7 +112,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-15);
                 tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 15 minutos!";
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.Estado = false;
+                tarefa.AlertaAntecipacao.EstadoAlerta = false;
             }
             else if (rbAlAnt30Min.IsChecked == true)
             {
@@ -119,7 +120,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-30);
                 tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 30 minutos!";
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.Estado = false;
+                tarefa.AlertaAntecipacao.EstadoAlerta = false;
             }
             else if (rbAlAnt60Min.IsChecked == true)
             {
@@ -127,7 +128,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-60);
                 tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 60 minutos!";
                 tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.Estado = false;
+                tarefa.AlertaAntecipacao.EstadoAlerta = false;
             }
 
             // alerta execução
@@ -137,7 +138,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(15);
                 tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 15 minutos atrás!";
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.Estado = false;
+                tarefa.AlertaExecucao.EstadoAlerta = false;
             }
             else if (rbAlNR30Min.IsChecked == true)
             {
@@ -145,7 +146,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(30);
                 tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 30 minutos atrás!";
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.Estado = false;
+                tarefa.AlertaExecucao.EstadoAlerta = false;
             }
             else if (rbAlNR60Min.IsChecked == true)
             {
@@ -153,7 +154,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(60);
                 tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 60 minutos atrás!";
                 tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.Estado = false;
+                tarefa.AlertaExecucao.EstadoAlerta = false;
             }
 
             // periodicidade
@@ -188,7 +189,16 @@ namespace UTAD.ToDoList.WPF
                     tarefa.Periodicidade.Quantidade = 0;
                 tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 recurrence = "FREQ=MONTHLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
-
+            }
+            else
+            {
+                tarefa.Periodicidade = new Periodicidade();
+                tarefa.Periodicidade.Tipo = TipoP.DAILY;
+                tarefa.Periodicidade.Intervalo = 1;
+                if (tbQuantidade.Text == "")
+                    tarefa.Periodicidade.Quantidade = 0;
+                tarefa.Periodicidade.Quantidade = 1;
+                recurrence = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
 
             App.Perfil.ListaTarefas.Add(tarefa);

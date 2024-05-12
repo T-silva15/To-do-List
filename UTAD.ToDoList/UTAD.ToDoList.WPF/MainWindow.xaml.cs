@@ -92,5 +92,31 @@ namespace UTAD.ToDoList.WPF
             // Carregar as tarefas no calendário com base no perfil do utilizador
             App.scheduler.CarregarTarefas(App.Perfil.ListaTarefas);
         }
+
+        private void btnTarefasTodas_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
+            App.scheduler.CarregarTarefas(App.Perfil.ListaTarefas);
+        }
+
+        private void btnTarefasCompletas_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
+            App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Terminada);
+        }
+
+        private void btnTarefasExecucao_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
+            App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Em_Execucao);
+        }
+
+        private void btnTarefasPendentes_Click(object sender, RoutedEventArgs e)
+        {
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
+            App.scheduler.CarregarTarefasEstado(App.Perfil.ListaTarefas, Estado.Por_Iniciar);
+        }
+
+       
     }
 }
