@@ -51,11 +51,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <EmbeddedResource Update="Resources\Syncfusion.SfScheduler.WPF.pt-PT.resx">
+    <EmbeddedResource Update="Resources\Syncfusion.SfScheduler.WPF.pt.resx">
       <Generator></Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Resources\Syncfusion.SfScheduler.WPF.resx">
-      <Generator></Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Syncfusion.UI.Xaml.Schedule.SfScheduler.Designer.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
 

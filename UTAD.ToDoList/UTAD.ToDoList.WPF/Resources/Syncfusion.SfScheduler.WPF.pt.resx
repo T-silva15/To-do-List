@@ -121,27 +121,27 @@
     <value>Abril</value>
   </data>
   <data name="Friday" xml:space="preserve">
-    <value>Sex</value>
+    <value>Sexta</value>
   </data>
   <data name="May" xml:space="preserve">
     <value>Maio</value>
   </data>
   <data name="Monday" xml:space="preserve">
-    <value>Seg</value>
+    <value>Segunda</value>
   </data>
   <data name="Saturday" xml:space="preserve">
-    <value>Sáb</value>
+    <value>Sábado</value>
   </data>
   <data name="Sunday" xml:space="preserve">
-    <value>Dom</value>
+    <value>Domingo</value>
   </data>
   <data name="Thursday" xml:space="preserve">
-    <value>Qui</value>
+    <value>Quinta</value>
   </data>
   <data name="Tuesday" xml:space="preserve">
-    <value>Ter</value>
+    <value>Terça</value>
   </data>
   <data name="Wednesday" xml:space="preserve">
-    <value>Qua</value>
+    <value>Quarta</value>
   </data>
 </root>

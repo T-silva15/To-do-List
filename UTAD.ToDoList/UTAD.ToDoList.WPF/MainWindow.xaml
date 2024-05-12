@@ -4,34 +4,34 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
-        xmlns:syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
+        xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" x:Class="UTAD.ToDoList.WPF.MainWindow"
         mc:Ignorable="d"
         Title="MainWindow" ResizeMode="CanResize" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing">
 
     <Window.Resources>
         <Style TargetType="Button">
-            <Setter Property="Background" Value="Transparent"/>
-            <Setter Property="Foreground" Value="White"/>
-            <Setter Property="FontFamily" Value="Nunito Regular"/>
-            <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="Foreground" Value="White"/>
+        <Setter Property="FontFamily" Value="Nunito Regular"/>
+        <Setter Property="BorderThickness" Value="0"/>
 
-            <Setter Property="Template">
-                <Setter.Value>
-                    <ControlTemplate TargetType="Button">
-                        <Border Background="{TemplateBinding Background}">
-                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
-                        </Border>
-                    </ControlTemplate>
-                </Setter.Value>
-            </Setter>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
 
-            <Style.Triggers>
-                <Trigger Property="IsMouseOver" Value="True">
-                    <Setter Property="Background" Value="#C10C99"/>
-                    <Setter Property="Foreground" Value="Black"/>
-                </Trigger>
-            </Style.Triggers>
-        </Style>
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="True">
+                <Setter Property="Background" Value="#C10C99"/>
+                <Setter Property="Foreground" Value="Black"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
     </Window.Resources>
 
     <Grid>
@@ -39,7 +39,73 @@
         <TextBlock Text="DashBoard" Margin="512,29,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" HorizontalAlignment="Left" VerticalAlignment="Top" TextWrapping="Wrap"/>
 
         <!-- Calendário -->
-        <syncfusion:CalendarEdit Date="1/1/2020" HorizontalAlignment="Left" Height="200" Margin="40,169,0,0" VerticalAlignment="Top" Width="200"/>
+
+        <Syncfusion:SfScheduler x:Name="schedule" SelectedDate="{Binding SelectedDate, Mode=TwoWay}" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="32,92,0,0" ViewType="Month" Width="126" Height="263" BorderThickness="0">
+            <Syncfusion:SfScheduler.MonthViewSettings>
+                <Syncfusion:MonthViewSettings>
+                    <Syncfusion:MonthViewSettings.MonthCellTemplate>
+                        <DataTemplate>
+                            <Border Background="#050214">
+                                <TextBlock Text="{Binding DateTime.Day}" FontFamily="Nunito Bold" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DateTime.DayOfWeek}" Value="sunday">
+                                                    <Setter Property="Foreground" Value="#C10C99"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Border>
+                        </DataTemplate>
+                    </Syncfusion:MonthViewSettings.MonthCellTemplate>
+
+                    <Syncfusion:MonthViewSettings.ViewHeaderTemplate>
+                        <DataTemplate>
+                            <Border Background="#050214">
+                                <TextBlock FontFamily="Nunito Bold"
+                                           Background="#050214"
+                                           Text="{Binding DayText}"
+                                           HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <TextBlock.Style>
+                                        <Style TargetType="TextBlock">
+                                            <Setter Property="Foreground" Value="White"/>
+                                            <Style.Triggers>
+                                                <DataTrigger Binding="{Binding DayText}" Value="Sun">
+                                                    <Setter Property="Foreground" Value="#C10C99"/>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBlock.Style>
+                                </TextBlock>
+                            </Border>
+                        </DataTemplate>
+                    </Syncfusion:MonthViewSettings.ViewHeaderTemplate>
+                </Syncfusion:MonthViewSettings>
+            </Syncfusion:SfScheduler.MonthViewSettings>
+
+            <Syncfusion:SfScheduler.HeaderTemplate>
+                <DataTemplate>
+                    <Grid Background="#050214">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <Button Command="{Binding MoveToPreviousMonthCommand}" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Center" Click="ButtonBackward_Click" Background="Transparent" BorderThickness="0">
+                            <Image Source="Images/MesAnterior.png"/>
+                        </Button>
+                        <TextBlock Text="{Binding}" Grid.Column="1" FontFamily="Nunito Bold" FontSize="17" HorizontalAlignment="Center" VerticalAlignment="Center" TextAlignment="Center" Foreground="White"/>
+                        <Button Command="{Binding MoveToNextMonthCommand}" Grid.Column="2" HorizontalAlignment="Left" VerticalAlignment="Center" Click="ButtonForward_Click" Background="Transparent" BorderThickness="0">
+                            <Image Source="Images/MesSeguinte.png"/>
+                        </Button>
+                    </Grid>
+                </DataTemplate>
+            </Syncfusion:SfScheduler.HeaderTemplate>
+        </Syncfusion:SfScheduler>
 
         <!-- Filtros -->
         <Button Content="Todas" Margin="67,430,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Height="22" Width="32"/>

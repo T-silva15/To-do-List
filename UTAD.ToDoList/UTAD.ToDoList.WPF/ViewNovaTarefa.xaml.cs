@@ -27,7 +27,6 @@ namespace UTAD.ToDoList.WPF
         {
             App = (App)Application.Current;
             InitializeComponent();
-            //System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("pt-PT");
         }
 
         private void ButtonForward_Click(object sender, RoutedEventArgs e)
@@ -38,21 +37,6 @@ namespace UTAD.ToDoList.WPF
         private void ButtonBackward_Click(object sender, RoutedEventArgs e)
         {
             schedule.Backward();
-        }
-
-        private void CheckBox_Checked(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Checked_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void CheckBox_Checked_2(object sender, RoutedEventArgs e)
-        {
-
         }
     }
 }

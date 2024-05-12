@@ -9,6 +9,11 @@
         Title="ViewNovaTarefa" Height="450" Width="800" Background="#050214" ShowInTaskbar="False">
 
     <Window.Resources>
+        <Style TargetType="Syncfusion:SfScheduler">
+            <Setter Property="BorderBrush" Value="#050214"/>
+            <Setter Property="BorderThickness" Value="0"/>
+        </Style>
+
         <Style x:Key="CheckboxStyle" TargetType="{x:Type CheckBox}">
             <Setter Property="Template">
                 <Setter.Value>
@@ -47,7 +52,7 @@
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Foreground" Value="White"/>
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding DateTime.DayOfWeek}" Value="sunday">
+                                                <DataTrigger Binding="{Binding DateTime.DayOfWeek}" Value="Sunday">
                                                     <Setter Property="Foreground" Value="#C10C99"/>
                                                 </DataTrigger>
                                             </Style.Triggers>
@@ -64,14 +69,12 @@
                                 <TextBlock FontFamily="Nunito Bold"
                                            Background="#050214"
                                            Text="{Binding DayText}"
-                                           HorizontalAlignment="Center"
-                                           VerticalAlignment="Center">
-
+                                           HorizontalAlignment="Center" VerticalAlignment="Center">
                                     <TextBlock.Style>
                                         <Style TargetType="TextBlock">
                                             <Setter Property="Foreground" Value="White"/>
                                             <Style.Triggers>
-                                                <DataTrigger Binding="{Binding DayText}" Value="domingo">
+                                                <DataTrigger Binding="{Binding DayText}" Value="Sun">
                                                     <Setter Property="Foreground" Value="#C10C99"/>
                                                 </DataTrigger>
                                             </Style.Triggers>
@@ -119,7 +122,5 @@
 
         <TextBlock HorizontalAlignment="Left" VerticalAlignment="Top" Margin="400,215,0,0" TextWrapping="Wrap" Text="Descrição" FontFamily="Nunito Bold" Foreground="White"/>
         <TextBox HorizontalAlignment="Left" VerticalAlignment="Top" Margin="475,215,0,0" Width="120" TextWrapping="Wrap" Text="Inserir Descrição" FontFamily="Nunito Bold" Background="#36373a" Foreground="#6a6a6b" VerticalContentAlignment="Center" BorderThickness="0"/>
-
-
     </Grid>
 </Window>
