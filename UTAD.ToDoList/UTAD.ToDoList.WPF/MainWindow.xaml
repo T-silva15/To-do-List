@@ -145,7 +145,7 @@
                             </Border>
                         </DataTemplate>
                     </syncfusion:MonthViewSettings.MonthCellTemplate>
-
+                    
                     <syncfusion:MonthViewSettings.ViewHeaderTemplate>
                         <DataTemplate>
                             <Border Background="#050214">
@@ -158,7 +158,8 @@
                     </syncfusion:MonthViewSettings.ViewHeaderTemplate>
                 </syncfusion:MonthViewSettings>
             </syncfusion:SfScheduler.MonthViewSettings>
-
+           
+            
             <syncfusion:SfScheduler.HeaderTemplate>
                 <DataTemplate>
                     <Grid Background="#050214">
