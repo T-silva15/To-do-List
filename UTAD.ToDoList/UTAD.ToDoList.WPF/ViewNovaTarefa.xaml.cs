@@ -53,6 +53,7 @@ namespace UTAD.ToDoList.WPF
             Tarefa tarefa = new Tarefa();
             tarefa.Titulo = tbNome.Text;
 
+            // default value das horas e minutos a 0
             if (tbHoraInicio.Text == "")
                 tbHoraInicio.Text = "0";
             if (tbHoraFim.Text == "")

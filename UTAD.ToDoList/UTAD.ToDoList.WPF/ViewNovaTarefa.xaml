@@ -283,15 +283,15 @@
 
         <Label Content="Alerta de &#xD;&#xA;Antecipação" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="331,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="171"/>
         <Image HorizontalAlignment="Left" Source="Images\Alerta.png" Height="20" Width="20" Margin="311,512,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Alerta de &#xA;Não-Realização" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="34,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="170" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Source="\Images\Alerta.png" Height="20" Width="20" Margin="14,510,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" x:Name="rbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
         <Label Content="Prioridade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="292,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126" Grid.Column="1"/>
