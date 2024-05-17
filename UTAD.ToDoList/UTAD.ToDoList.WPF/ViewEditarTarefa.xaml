@@ -299,19 +299,7 @@
         <RadioButton x:Name="rbImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbNormal" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Normal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbPoucoImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Pouco Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,610,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <Syncfusion:ComboBoxAdv x:Name="ComboboxEditarTarefa" AllowMultiSelect="True" Grid.Column="1" DefaultText="ComboBox Items" HorizontalAlignment="Left" Height="30" Margin="204,32,0,0" VerticalAlignment="Top" Width="275" SelectionChanged="ComboBoxAdv_SelectionChanged">
-            <Syncfusion:ComboBoxItemAdv Content="Item 1"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 2"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 3"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 4"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 5"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 1"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 2"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 3"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 4"/>
-            <Syncfusion:ComboBoxItemAdv Content="Item 5"/>
-        </Syncfusion:ComboBoxAdv>
-
+        <ComboBox x:Name="cbTarefas" Grid.Column="1" HorizontalAlignment="Left" Height="30" Margin="204,32,0,0" VerticalAlignment="Top" Width="275" SelectionChanged="cbTarefas_SelectionChanged"/>
 
     </Grid>
 </Window>

@@ -33,7 +33,6 @@ namespace UTAD.ToDoList.WPF
             App = (App)Application.Current;
             InitializeComponent();
             System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
-            ComboboxEditarTarefa.ItemsSource = App.Perfil.ListaTarefas;
         }
 
         private void ButtonForward_Click(object sender, RoutedEventArgs e)
@@ -220,9 +219,9 @@ namespace UTAD.ToDoList.WPF
             sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
 
-        private void ComboBoxAdv_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void cbTarefas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            ComboboxEditarTarefa.ItemsSource = App.Perfil.ListaTarefas;
+            cbTarefas.ItemsSource = App.Perfil.ListaTarefas;
         }
     }
 }
