@@ -27,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="25.1.39" />
+    <PackageReference Include="Syncfusion.SfScheduler.WPF" Version="25.2.3" />
   </ItemGroup>
 
   <ItemGroup>
