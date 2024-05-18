@@ -242,24 +242,17 @@
 
 
         <DatePicker x:Name="dpInicio" Grid.Column="1" Margin="200,148,0,0" HorizontalAlignment="Left" Width="102" Height="24" VerticalAlignment="Top"/>
-        <DatePicker x:Name="dpTermino" Grid.Column="1" Margin="351,148,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="102"/>
-        <Label Grid.Column="1" Content="&lt;-&gt;" HorizontalContentAlignment="Center" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="310,143,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="34"/>
+        <DatePicker x:Name="dpTermino" Grid.Column="1" Margin="369,148,0,0" VerticalAlignment="Top" HorizontalAlignment="Left" Width="102"/>
+        <Label Grid.Column="1" Content="&lt;-&gt;" HorizontalContentAlignment="Center" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="319,143,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="34"/>
         <Label Grid.Column="1" Content="Data" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="72,146,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="55"/>
         <Image HorizontalAlignment="Left" Source="Images\Clock_fill.png" Height="20" Width="20" Margin="52,153,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
 
 
         <Label Grid.Column="1" Content="Hora" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="70,205,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="56"/>
         <Image HorizontalAlignment="Left" Source="Images\Clock_fill.png" Height="20" Width="20" Margin="52,212,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
-        <TextBox x:Name="tbHoraInicio" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Hora" HorizontalContentAlignment="Center" Foreground="#737373" Margin="201,205,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.Column="1" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox x:Name="tbMinutosInicio" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Minutos" HorizontalContentAlignment="Center" Foreground="#737373" Margin="264,205,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.Column="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
-        <Label Grid.Column="1" Content=":" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="251,202,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="14"/>
-
+        <Syncfusion:SfTimePicker x:Name="tpInicio" SetValueOnLostFocus="True" AllowNull="False" Value="00:00" FormatString="HH:mm" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="200,208,0,0" VerticalAlignment="Top" Watermark="Pick a time" Width="120"/>
+        <Syncfusion:SfTimePicker x:Name="tpTermino" SetValueOnLostFocus="True" AllowNull="False" FormatString="HH:mm" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="351,208,0,0" Value="00:00" VerticalAlignment="Top" Watermark="Pick a time" Width="120"/>
         <Label Grid.Column="1" Content="-" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="328,204,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="16"/>
-
-        <TextBox x:Name="tbHoraFim" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Hora" HorizontalContentAlignment="Center" Foreground="#737373" Margin="348,205,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.Column="1" Height="30" Width="50" VerticalAlignment="Top" HorizontalAlignment="Left"/>
-        <TextBox x:Name="tbMinutosFim" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Minutos" HorizontalContentAlignment="Center" Foreground="#737373" Margin="412,205,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.Column="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="62"/>
-        <Label Grid.Column="1" Content=":" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="398,202,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="12"/>
-
 
         <Label Grid.Column="1" Content="Estado" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="70,272,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="66"/>
         <Image HorizontalAlignment="Left" Source="Images\Perfil Icon.png" Height="20" Width="20" Margin="52,279,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
@@ -271,8 +264,8 @@
         <Image HorizontalAlignment="Left" Source="Images\Pen.png" Height="20" Width="20" Margin="52,383,0,0" VerticalAlignment="Top"  Grid.Column="1"/>
         <TextBox x:Name="tbDescricao" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Inserir Notas" Foreground="#737373" VerticalContentAlignment="Top" Margin="200,347,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" Grid.Column="1" Height="88" VerticalAlignment="Top" HorizontalAlignment="Left" Width="279"/>
 
-        <Label Content="Periodicidade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="80,505,306,217"/>
-        <Image HorizontalAlignment="Left" Source="Images\Repetition Icon.png" Height="20" Width="20" Margin="62,512,0,0" VerticalAlignment="Top"/>
+        <Label Content="Periodicidade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="80,505,0,0" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="144"/>
+        <Image Source="Images\Repetition Icon.png" Height="20" Margin="62,0,0,220" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="20"/>
         <RadioButton x:Name="PerDiario" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Diário"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,570,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="PerSemanal" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Semanal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,590,0,0" VerticalAlignment="Top"/>
         <RadioButton x:Name="PerMensal" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Mensal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,610,0,0" VerticalAlignment="Top"/>
@@ -283,15 +276,15 @@
 
         <Label Content="Alerta de &#xD;&#xA;Antecipação" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="331,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="171"/>
         <Image HorizontalAlignment="Left" Source="Images\Alerta.png" Height="20" Width="20" Margin="311,512,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlAnt" x:Name="rbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbAlAnt15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,570,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbAlAnt30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,590,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="cbAlAnt60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="331,610,0,0" VerticalAlignment="Top"/>
 
         <Label Content="Alerta de &#xA;Não-Realização" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="34,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="170" Grid.Column="1"/>
         <Image HorizontalAlignment="Left" Source="\Images\Alerta.png" Height="20" Width="20" Margin="14,510,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        <RadioButton Style="{StaticResource SquareRadioButton}" GroupName="AlNR" x:Name="rbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR15Min" Content="15 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR30Min" Content="30 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <CheckBox x:Name="cbAlNR60Min" Content="60 Minutos" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,611,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
 
         <Label Content="Prioridade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="292,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126" Grid.Column="1"/>
@@ -300,7 +293,7 @@
         <RadioButton x:Name="rbImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbNormal" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Normal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbPoucoImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Pouco Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,610,0,0" VerticalAlignment="Top" Grid.Column="1"/>
-        
+
 
     </Grid>
 </Window>

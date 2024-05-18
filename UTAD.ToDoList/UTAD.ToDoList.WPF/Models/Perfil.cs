@@ -6,19 +6,24 @@ using System.Text.Json;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 
+
 namespace UTAD.ToDoList.WPF.Models
 {
+    public delegate void ListadeTarefasAlteradas();
+
     [Serializable]
     public class Perfil
     {
         public string Nome { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
+        public List<Tarefa> ListaTarefas { get; set; }
+
+        public event ListadeTarefasAlteradas TarefasAlteradas;
 
         // Fotografia do perfil (caminho para a foto)
         public string? Fotografia { get; set; }
 
-        public List<Tarefa> ListaTarefas { get; set; }
 
 
         // construtor por defeito
@@ -57,5 +62,22 @@ namespace UTAD.ToDoList.WPF.Models
             }
         }
 
+        public Tarefa GetTarefa(string nome) 
+        { 
+            foreach (Tarefa tarefa in ListaTarefas)
+            {
+                if (tarefa.Titulo == nome)
+                {
+                    return tarefa;
+                }
+            }
+            return null;
+        }
+
+        public void RemoveTarefa(Tarefa tarefa)
+        {
+            ListaTarefas.Remove(tarefa);
+            TarefasAlteradas?.Invoke();
+        }
     }
 }

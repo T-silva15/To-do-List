@@ -47,23 +47,34 @@ namespace UTAD.ToDoList.WPF
 
         private void BtnAdicionar_Click(object sender, RoutedEventArgs e)
         {
+            // validação
+            if (tbNome.Text == "")
+            {
+                MessageBox.Show("A tarefa deve ter nome!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if ((dpInicio.SelectedDate < dpTermino.SelectedDate && tpInicio.Value >= tpTermino.Value) || dpInicio.SelectedDate > dpTermino.SelectedDate)
+            {
+                MessageBox.Show("A data de início deve ser anterior à data de término!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            // remover tarefa antiga
+            App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
+            
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();
             tarefa.Titulo = tbNome.Text;
 
-            // default value das horas e minutos a 0
-            if (tbHoraInicio.Text == "")
-                tbHoraInicio.Text = "0";
-            if (tbHoraFim.Text == "")
-                tbHoraFim.Text = "0";
-            if (tbMinutosInicio.Text == "")
-                tbMinutosInicio.Text = "0";
-            if (tbMinutosFim.Text == "")
-                tbMinutosFim.Text = "0";
-            // lê do date picker a data e as horas e minutos das textboxes
-            tarefa.DataInicio = dpInicio.SelectedDate.Value.AddHours(Convert.ToInt32(tbHoraInicio.Text)).AddMinutes(Convert.ToInt32(tbMinutosInicio.Text));
-            tarefa.DataTermino = dpTermino.SelectedDate.Value.AddHours(Convert.ToInt32(tbHoraFim.Text)).AddMinutes(Convert.ToInt32(tbMinutosFim.Text));
+
+            // lê do date picker a data e as horas e minutos do time picker
+            DateTime dateI = dpInicio.SelectedDate.Value.Date;
+            TimeSpan timeI = tpInicio.Value.Value.TimeOfDay;
+            tarefa.DataInicio = dateI + timeI;
+            DateTime dateT = dpTermino.SelectedDate.Value.Date;
+            TimeSpan timeT = tpTermino.Value.Value.TimeOfDay;
+            tarefa.DataTermino = dateT + timeT; 
+            
             tarefa.Descricao = tbDescricao.Text;
 
             // estado
@@ -106,63 +117,70 @@ namespace UTAD.ToDoList.WPF
             }
 
             // alerta antecipação
-            if (rbAlAnt15Min.IsChecked == true)
+            if (cbAlAnt15Min.IsChecked == true)
             {
-                tarefa.AlertaAntecipacao = new Alerta();
-                tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-15);
-                tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 15 minutos!";
-                tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataInicio.AddMinutes(-15);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 15 minutos!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaAnt.Add(alerta);
             }
-            else if (rbAlAnt30Min.IsChecked == true)
+            if (cbAlAnt30Min.IsChecked == true)
             {
-                tarefa.AlertaAntecipacao = new Alerta();
-                tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-30);
-                tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 30 minutos!";
-                tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataInicio.AddMinutes(-30);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 30 minutos!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaAnt.Add(alerta);
             }
-            else if (rbAlAnt60Min.IsChecked == true)
+            if (cbAlAnt60Min.IsChecked == true)
             {
-                tarefa.AlertaAntecipacao = new Alerta();
-                tarefa.AlertaAntecipacao.Data = dpInicio.SelectedDate.Value.AddMinutes(-60);
-                tarefa.AlertaAntecipacao.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 60 minutos!";
-                tarefa.AlertaAntecipacao.Tipo = TipoA.popup;
-                tarefa.AlertaAntecipacao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataInicio.AddHours(-1);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de 60 minutos!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaAnt.Add(alerta);
             }
 
             // alerta execução
-            if (rbAlNR15Min.IsChecked == true)
+            if (cbAlNR15Min.IsChecked == true)
             {
-                tarefa.AlertaExecucao = new Alerta();
-                tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(15);
-                tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 15 minutos atrás!";
-                tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataTermino.AddMinutes(15);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 15 minutos atrás!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaNaoExec.Add(alerta);
             }
-            else if (rbAlNR30Min.IsChecked == true)
+            if (cbAlNR30Min.IsChecked == true)
             {
-                tarefa.AlertaExecucao = new Alerta();
-                tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(30);
-                tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 30 minutos atrás!";
-                tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataTermino.AddMinutes(30);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 30 minutos atrás!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaNaoExec.Add(alerta);
             }
-            else if (rbAlNR60Min.IsChecked == true)
+            if (cbAlNR60Min.IsChecked == true)
             {
-                tarefa.AlertaExecucao = new Alerta();
-                tarefa.AlertaExecucao.Data = dpTermino.SelectedDate.Value.AddMinutes(60);
-                tarefa.AlertaExecucao.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 60 minutos atrás!";
-                tarefa.AlertaExecucao.Tipo = TipoA.popup;
-                tarefa.AlertaExecucao.EstadoAlerta = false;
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataTermino.AddHours(1);
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 60 minutos atrás!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaNaoExec.Add(alerta);
             }
 
-            // periodicidade
             string recurrence = "";
             if (PerDiario.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.DAILY;
+                if (tbIntervalo.Text == "")
+                    tarefa.Periodicidade.Intervalo = 1;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
@@ -173,6 +191,8 @@ namespace UTAD.ToDoList.WPF
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.WEEKLY;
+                if (tbIntervalo.Text == "")
+                    tarefa.Periodicidade.Intervalo = 1;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
@@ -184,6 +204,8 @@ namespace UTAD.ToDoList.WPF
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.MONTHLY;
+                if (tbIntervalo.Text == "")
+                    tarefa.Periodicidade.Intervalo = 1;
                 tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
                 if (tbQuantidade.Text == "")
                     tarefa.Periodicidade.Quantidade = 0;
@@ -195,8 +217,6 @@ namespace UTAD.ToDoList.WPF
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.DAILY;
                 tarefa.Periodicidade.Intervalo = 1;
-                if (tbQuantidade.Text == "")
-                    tarefa.Periodicidade.Quantidade = 0;
                 tarefa.Periodicidade.Quantidade = 1;
                 recurrence = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
@@ -212,16 +232,114 @@ namespace UTAD.ToDoList.WPF
             this.Close();
         }
 
+        private void BtnRemover_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.RemoverMeeting(((Tarefa)cbTarefas.SelectedItem).Id);
+            App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
+            this.Close();
+        }
+
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             dpInicio.SelectedDate = DateTime.Now;
             dpTermino.SelectedDate = DateTime.Now;
             sfCalendario.ItemsSource = App.scheduler.Meetings;
+            cbTarefas.ItemsSource = App.Perfil.ListaTarefas;
         }
 
         private void cbTarefas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
-            cbTarefas.ItemsSource = App.Perfil.ListaTarefas;
+            if (cbTarefas.SelectedItem is Tarefa selectedModel)
+            {
+                tbNome.Text = selectedModel.Titulo;
+                tbDescricao.Text = selectedModel.Descricao;
+                dpInicio.SelectedDate = selectedModel.DataInicio.Date;
+                dpTermino.SelectedDate = selectedModel.DataTermino.Date;
+                tpInicio.Value = selectedModel.DataInicio;
+                tpTermino.Value = selectedModel.DataTermino;
+
+                // estado
+                if (selectedModel.Estado == Estado.Por_Iniciar)
+                {
+                    rbPorIniciar.IsChecked = true;
+                }
+                else if (selectedModel.Estado == Estado.Em_Execucao)
+                {
+                    rbEmExecucao.IsChecked = true;
+                }
+                else if (selectedModel.Estado == Estado.Terminada)
+                {
+                    rbTerminada.IsChecked = true;
+                }
+
+                // prioridade
+                if (selectedModel.NivelImportancia == NivelImportancia.Pouco_Importante)
+                {
+                    rbPoucoImportante.IsChecked = true;
+                }
+                else if (selectedModel.NivelImportancia == NivelImportancia.Normal)
+                {
+                    rbNormal.IsChecked = true;
+                }
+                else if (selectedModel.NivelImportancia == NivelImportancia.Importante)
+                {
+                    rbImportante.IsChecked = true;
+                }
+                else if (selectedModel.NivelImportancia == NivelImportancia.Prioritaria)
+                {
+                    rbPrioritaria.IsChecked = true;
+                }
+
+                // periodicidade
+                if (selectedModel.Periodicidade.Tipo == TipoP.DAILY)
+                {
+                    PerDiario.IsChecked = true;
+                }
+                else if (selectedModel.Periodicidade.Tipo == TipoP.WEEKLY)
+                {
+                    PerSemanal.IsChecked = true;
+                }
+                else if (selectedModel.Periodicidade.Tipo == TipoP.MONTHLY)
+                {
+                    PerMensal.IsChecked = true;
+                }
+
+                tbIntervalo.Text = selectedModel.Periodicidade.Intervalo.ToString();
+                tbQuantidade.Text = selectedModel.Periodicidade.Quantidade.ToString();
+
+                // alerta antecipação
+                foreach (Alerta alerta in selectedModel.ListaAlertaAnt)
+                {
+                    if (alerta.Data == selectedModel.DataInicio.AddMinutes(-15))
+                    {
+                        cbAlAnt15Min.IsChecked = true;
+                    }
+                    if (alerta.Data == selectedModel.DataInicio.AddMinutes(-30))
+                    {
+                        cbAlAnt30Min.IsChecked = true;
+                    }
+                    if (alerta.Data == selectedModel.DataInicio.AddHours(-1))
+                    {
+                        cbAlAnt60Min.IsChecked = true;
+                    }
+                    // alerta execução
+                }
+                foreach (Alerta alerta in selectedModel.ListaAlertaNaoExec)
+                {
+                    if (alerta.Data == selectedModel.DataTermino.AddMinutes(15))
+                    {
+                        cbAlNR15Min.IsChecked = true;
+                    }
+                    if (alerta.Data == selectedModel.DataTermino.AddMinutes(30))
+                    {
+                        cbAlNR30Min.IsChecked = true;
+                    }
+                    if (alerta.Data == selectedModel.DataTermino.AddHours(1))
+                    {
+                        cbAlNR60Min.IsChecked = true;
+                    }
+                }
+            }
         }
     }
 }

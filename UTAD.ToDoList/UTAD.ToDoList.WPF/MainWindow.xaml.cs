@@ -31,6 +31,16 @@ namespace UTAD.ToDoList.WPF
         {
             InitializeComponent();
             App = (App)App.Current;
+            if (App.Perfil != null)
+            {
+                App.Perfil.TarefasAlteradas += Perfil_TarefasAlteradas;
+            }
+        }
+
+        private void Perfil_TarefasAlteradas()
+        {
+
+            sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
 
         // Botão de visualização de perfil
@@ -143,6 +153,7 @@ namespace UTAD.ToDoList.WPF
         {
             App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Pouco_Importante);
         }
+
 
         
     }

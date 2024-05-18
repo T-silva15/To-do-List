@@ -17,31 +17,33 @@ namespace UTAD.ToDoList.WPF.Models
         // atributos opcionais
         public string? Descricao { get; set; }
         public Periodicidade? Periodicidade { get; set; }
-        public Alerta? AlertaAntecipacao { get; set; }
-        public Alerta? AlertaExecucao { get; set; }
+        public List<Alerta> ListaAlertaAnt { get; set; }
+        public List<Alerta> ListaAlertaNaoExec { get; set; }
 
-        // construtor por defeito
         public Tarefa()
         {
-            Titulo = string.Empty;
-            Descricao = string.Empty;
-            DataInicio = DateTime.MinValue;
-            DataTermino = DateTime.MaxValue;
-            Periodicidade = new Periodicidade();
-            AlertaAntecipacao = new Alerta();
-            AlertaExecucao = new Alerta();
+            Titulo = "";
+            DataInicio = DateTime.Now;
+            DataTermino = DateTime.Now;
+            NivelImportancia = NivelImportancia.Normal;
+            Estado = Estado.Por_Iniciar;
+            Descricao = "";
+            Periodicidade = null;
+            ListaAlertaAnt = new List<Alerta>();
+            ListaAlertaNaoExec = new List<Alerta>();
         }
+
         // construtor com parâmetros
         public Tarefa(string _Titulo, string _Descricao, DateTime _DataInicio, DateTime _DataTermino,
-            Periodicidade _Periodicidade, Alerta _AlertaAntecipacao, Alerta _AlertaExecucao)
+            Periodicidade _Periodicidade, List<Alerta> _AlertaAntecipacao, List<Alerta> _AlertaExecucao)
         {
             Titulo = _Titulo;
             Descricao = _Descricao;
             DataInicio = _DataInicio;
             DataTermino = _DataTermino;
             Periodicidade = _Periodicidade;
-            AlertaAntecipacao = _AlertaAntecipacao;
-            AlertaExecucao = _AlertaExecucao;
+            ListaAlertaAnt = _AlertaAntecipacao;
+            ListaAlertaNaoExec = _AlertaExecucao;
         }
     }
 }

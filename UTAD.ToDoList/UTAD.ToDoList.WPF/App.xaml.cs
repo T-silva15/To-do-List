@@ -9,9 +9,7 @@ using UTAD.ToDoList.WPF.Models.Shared;
 
 namespace UTAD.ToDoList.WPF
 {
-    /// <summary>
-    /// Interaction logic for App.xaml
-    /// </summary>
+
     public partial class App : Application
     {
         // propriedades dos modelos
@@ -24,7 +22,6 @@ namespace UTAD.ToDoList.WPF
         public ViewPerfil ViewPerfil { get; set; }
         public ViewNovaTarefa ViewNovaTarefa { get; set; }
         public ViewEditarTarefa ViewEditarTarefa { get; set; }
-
 
         public App()
         {

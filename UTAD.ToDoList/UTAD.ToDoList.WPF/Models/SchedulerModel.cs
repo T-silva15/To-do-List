@@ -183,5 +183,16 @@ namespace UTAD.ToDoList.WPF.Models
             RaiseOnPropertyChanged("Meetings");
         }
 
+        public void RemoverMeeting(string id)
+        {
+            foreach (Meeting meeting in Meetings)
+            {
+                if (meeting.Id == id)
+                {
+                    Meetings.Remove(meeting);
+                    break;
+                }
+            }
+        }
     }
 }
