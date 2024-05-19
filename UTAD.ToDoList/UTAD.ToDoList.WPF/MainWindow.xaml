@@ -124,7 +124,7 @@
 
 
 
-        <syncfusion:SfScheduler x:Name="sfCalendario" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="44,84,43,0" Height="507" VerticalAlignment="Top">
+        <syncfusion:SfScheduler x:Name="sfCalendario" EnableReminder="True" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="44,84,43,0" Height="507" VerticalAlignment="Top">
             <syncfusion:SfScheduler.AppointmentMapping>
                 <syncfusion:AppointmentMapping 
                     Subject="Name"
@@ -133,10 +133,17 @@
                     EndTime="To" 
                     AppointmentBackground="BackgroundColor"
                     RecurrenceRule="RecurrenceRule"
-                    Id="Id"/>
+                    Id="Id"
+                    Reminders="Reminders">
+
+                    <syncfusion:AppointmentMapping.ReminderMapping>
+                        <syncfusion:ReminderMapping IsDismissed="Dismissed" ReminderTimeInterval="ReminderTimeInterval"/>
+                    </syncfusion:AppointmentMapping.ReminderMapping>
+                
+                </syncfusion:AppointmentMapping>
             </syncfusion:SfScheduler.AppointmentMapping>
 
-            <syncfusion:SfScheduler.MonthViewSettings>
+        <syncfusion:SfScheduler.MonthViewSettings>
                 <syncfusion:MonthViewSettings>
                     <syncfusion:MonthViewSettings.MonthCellTemplate>
                         <DataTemplate>

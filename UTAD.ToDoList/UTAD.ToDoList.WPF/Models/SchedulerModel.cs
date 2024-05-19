@@ -47,7 +47,7 @@ namespace UTAD.ToDoList.WPF.Models
         /// (azul -> Pouco Importante</param>
         /// <param name="id">Id da Tarefa, gerado automaticamente devido à classe BaseModel</param>
         /// <param name="recurrence">Recurrência da Tarefa, vezes a repetir e intervalo de repetição</param>
-        public void AdicionarTarefa(string nome, string descricao, DateTime inicio, DateTime fim, SolidColorBrush cor, string id, string recurrence)
+        public void AdicionarTarefa(string nome, string descricao, ObservableCollection<SchedulerReminder> Alertas, DateTime inicio, DateTime fim, SolidColorBrush cor, string id, string recurrence)
         {
             // tarefa no modelo
             Meeting meeting = new Meeting();
@@ -58,6 +58,11 @@ namespace UTAD.ToDoList.WPF.Models
             meeting.BackgroundColor = cor;
             meeting.Id = id;
             meeting.RecurrenceRule = recurrence;
+            foreach (SchedulerReminder reminder in Alertas)
+            {
+                reminder.Data = meeting;
+            }
+            meeting.Reminders = Alertas;
             Meetings.Add(meeting);
 
             RaiseOnPropertyChanged("Meetings");
@@ -100,6 +105,39 @@ namespace UTAD.ToDoList.WPF.Models
                 {
                     meeting.RecurrenceRule = "FREQ=" + tarefa.Periodicidade.Tipo.ToString().ToUpper() + ";INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
                 }
+                if (tarefa.ListaAlertaAnt != null || tarefa.ListaAlertaNaoExec != null)
+                {
+                    ObservableCollection<SchedulerReminder> reminders = new ObservableCollection<SchedulerReminder>();
+                    foreach (Alerta alerta in tarefa.ListaAlertaAnt)
+                    {
+                        SchedulerReminder reminder = new SchedulerReminder();
+
+
+                        reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                        reminder.ReminderAlertTime = alerta.Data;
+                        if (alerta.Data < DateTime.Now)
+                            reminder.Dismissed = true;
+                        else
+                            reminder.Dismissed = false;
+                        reminders.Add(reminder);
+                    }
+
+                    foreach (Alerta alerta in tarefa.ListaAlertaNaoExec)
+                    {
+                        SchedulerReminder reminder = new SchedulerReminder();
+                        reminder.ReminderTimeInterval = new TimeSpan(0, -15, 0);
+                        reminder.ReminderAlertTime = alerta.Data;
+                        if (alerta.Data < DateTime.Now)
+                            reminder.Dismissed = true;
+                        else
+                            reminder.Dismissed = false;
+                        reminder.Data = meeting;
+                        reminders.Add(reminder);
+                    }
+
+                    meeting.Reminders = reminders;
+                }
+
                 Meetings.Add(meeting);
 
             }
@@ -194,5 +232,6 @@ namespace UTAD.ToDoList.WPF.Models
                 }
             }
         }
+    
     }
 }

@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Syncfusion.UI.Xaml.Scheduler;
+using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +18,6 @@ namespace UTAD.ToDoList.WPF.Models
         public Brush BackgroundColor { get; set; }
         public string? RecurrenceRule { get; set; }
         public string Id { get; set; }
-
+        public ObservableCollection<SchedulerReminder> Reminders { get; set; }
     }
 }

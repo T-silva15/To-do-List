@@ -115,6 +115,8 @@ namespace UTAD.ToDoList.WPF
                 cor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
             }
 
+            ObservableCollection<Models.SchedulerReminder> listaAlertas = new();
+
             // alerta antecipação
             if (cbAlAnt15Min.IsChecked == true)
             {
@@ -124,6 +126,14 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaAnt.Add(alerta);
+               
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
+
             }
             if (cbAlAnt30Min.IsChecked == true)
             {
@@ -133,6 +143,12 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaAnt.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
             }
             if (cbAlAnt60Min.IsChecked == true)
             {
@@ -142,6 +158,12 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaAnt.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
             }
 
             // alerta execução
@@ -153,6 +175,12 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
             }
             if (cbAlNR30Min.IsChecked == true)
             {
@@ -162,6 +190,12 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
             }
             if (cbAlNR60Min.IsChecked == true)
             {
@@ -171,6 +205,12 @@ namespace UTAD.ToDoList.WPF
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
             }
 
             // periodicidade
@@ -212,17 +252,9 @@ namespace UTAD.ToDoList.WPF
                 tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 recurrence = "FREQ=MONTHLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
-            else
-            {
-                tarefa.Periodicidade = new Periodicidade();
-                tarefa.Periodicidade.Tipo = TipoP.DAILY;
-                tarefa.Periodicidade.Intervalo = 1;
-                tarefa.Periodicidade.Quantidade = 1;
-                recurrence = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
-            }
 
             App.Perfil.ListaTarefas.Add(tarefa);
-            App.scheduler.AdicionarTarefa(tarefa.Titulo, tarefa.Descricao, tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
+            App.scheduler.AdicionarTarefa(tarefa.Titulo, tarefa.Descricao, listaAlertas,  tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
 
             this.Close();
         }
