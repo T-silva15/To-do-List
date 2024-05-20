@@ -58,6 +58,16 @@ namespace UTAD.ToDoList.WPF
                 MessageBox.Show("A data de início deve ser anterior à data de término!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (cbAlertaAntCustom.IsChecked == true && (tbAlertaAntCustom.Text == "" || !int.TryParse(tbAlertaAntCustom.Text, out int n)))
+            {
+                MessageBox.Show("O alerta de antecipação deve ser um número inteiro!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (cbAlertaNECustom.IsChecked == true && (tbAlertaNECustom.Text == "" || !int.TryParse(tbAlertaNECustom.Text, out int n2)))
+            {
+                MessageBox.Show("O alerta de não execução deve ser um número inteiro!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             // remover tarefa antiga
             App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
@@ -179,6 +189,21 @@ namespace UTAD.ToDoList.WPF
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
+            if (cbAlertaAntCustom.IsChecked == true)
+            {
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataInicio.AddMinutes(-Convert.ToInt32(tbAlertaAntCustom.Text));
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de " + tbAlertaAntCustom.Text + " minutos!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaAnt.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
+            }
 
             // alerta execução
             if (cbAlNR15Min.IsChecked == true)
@@ -226,7 +251,23 @@ namespace UTAD.ToDoList.WPF
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
+            if (cbAlertaNECustom.IsChecked == true)
+            {
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataTermino.AddMinutes(Convert.ToInt32(tbAlertaNECustom.Text));
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há " + tbAlertaNECustom.Text + " minutos atrás!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaNaoExec.Add(alerta);
 
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderAlertTime = alerta.Data;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
+            }
+
+            // periodicidade
             string recurrence = "";
             if (PerDiario.IsChecked == true)
             {
@@ -276,9 +317,10 @@ namespace UTAD.ToDoList.WPF
         {
             this.Close();
         }
-
+        
         private void BtnRemover_Click(object sender, RoutedEventArgs e)
         {
+            // remover tarefa da lista do perfil e da lista do scheduler
             App.scheduler.RemoverMeeting(((Tarefa)cbTarefas.SelectedItem).Id);
             App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
             this.Close();
@@ -294,6 +336,43 @@ namespace UTAD.ToDoList.WPF
 
         private void cbTarefas_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
+            // limpa interface
+            tbNome.Text = "";
+            tbDescricao.Text = "";
+ 
+            dpInicio.SelectedDate = DateTime.Now;
+            dpTermino.SelectedDate = DateTime.Now;
+            tpInicio.Value = DateTime.Now;
+            tpTermino.Value = DateTime.Now;
+            cbTodoDia.IsChecked = false;
+            
+            rbPorIniciar.IsChecked = false;
+            rbEmExecucao.IsChecked = false;
+            rbTerminada.IsChecked = false;
+            
+            rbPoucoImportante.IsChecked = true;
+            rbNormal.IsChecked = false;
+            rbImportante.IsChecked = false;
+            rbPrioritaria.IsChecked = false;
+            
+            PerDiario.IsChecked = false;
+            PerSemanal.IsChecked = false;
+            PerMensal.IsChecked = false;
+            tbIntervalo.Text = "";
+            tbQuantidade.Text = "";
+            
+            cbAlAnt15Min.IsChecked = false;
+            cbAlAnt30Min.IsChecked = false;
+            cbAlAnt60Min.IsChecked = false;
+            cbAlertaAntCustom.IsChecked = false;
+            tbAlertaAntCustom.Text = "";
+            cbAlNR15Min.IsChecked = false;
+            cbAlNR30Min.IsChecked = false;
+            cbAlNR60Min.IsChecked = false;
+            cbAlertaNECustom.IsChecked = false;
+            tbAlertaNECustom.Text = "";
+            
+
             if (cbTarefas.SelectedItem is Tarefa selectedModel)
             {
                 tbNome.Text = selectedModel.Titulo;
@@ -382,8 +461,14 @@ namespace UTAD.ToDoList.WPF
                     {
                         cbAlAnt60Min.IsChecked = true;
                     }
-                    // alerta execução
+                    if (alerta.Data != selectedModel.DataInicio.AddMinutes(-15) && alerta.Data != selectedModel.DataInicio.AddMinutes(-30) && alerta.Data != selectedModel.DataInicio.AddHours(-1))
+                    {
+                        cbAlertaAntCustom.IsChecked = true;
+                        tbAlertaAntCustom.Text = (selectedModel.DataInicio - alerta.Data).Minutes.ToString();
+                    }
                 }
+
+                // alerta não execução
                 foreach (Alerta alerta in selectedModel.ListaAlertaNaoExec)
                 {
                     if (alerta.Data == selectedModel.DataTermino.AddMinutes(15))
@@ -397,6 +482,11 @@ namespace UTAD.ToDoList.WPF
                     if (alerta.Data == selectedModel.DataTermino.AddHours(1))
                     {
                         cbAlNR60Min.IsChecked = true;
+                    }
+                    if (alerta.Data != selectedModel.DataTermino.AddMinutes(15) && alerta.Data != selectedModel.DataTermino.AddMinutes(30) && alerta.Data != selectedModel.DataTermino.AddHours(1))
+                    {
+                        cbAlertaNECustom.IsChecked = true;
+                        tbAlertaNECustom.Text = (alerta.Data - selectedModel.DataTermino).Minutes.ToString();
                     }
                 }
             }

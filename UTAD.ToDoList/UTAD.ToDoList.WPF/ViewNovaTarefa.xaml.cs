@@ -61,6 +61,16 @@ namespace UTAD.ToDoList.WPF
                 MessageBox.Show("A data de início deve ser anterior à data de término!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (cbAlertaAntCustom.IsChecked == true && (tbAlertaAntCustom.Text == "" || !int.TryParse(tbAlertaAntCustom.Text, out int n)))
+            {
+                MessageBox.Show("O alerta de antecipação deve ser um número inteiro!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+            if (cbAlertaNECustom.IsChecked == true && (tbAlertaNECustom.Text == "" || !int.TryParse(tbAlertaNECustom.Text, out int n2)))
+            {
+                MessageBox.Show("O alerta de não execução deve ser um número inteiro!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();
@@ -143,8 +153,8 @@ namespace UTAD.ToDoList.WPF
                
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderTimeInterval = new TimeSpan(0, -15, 0);
+                reminder.ReminderAlertTime = tarefa.DataInicio;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
 
@@ -159,8 +169,8 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaAnt.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderTimeInterval = new TimeSpan(0, -30, 0);
+                reminder.ReminderAlertTime = tarefa.DataInicio;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
@@ -174,8 +184,23 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaAnt.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderTimeInterval = new TimeSpan(-1, 0, 0);
+                reminder.ReminderAlertTime = tarefa.DataInicio;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
+            }
+            if (cbAlertaAntCustom.IsChecked == true)
+            {
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataInicio.AddMinutes(-Convert.ToInt32(tbAlertaAntCustom.Text));
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " vai começar dentro de " + tbAlertaAntCustom.Text + " minutos!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaAnt.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, -Convert.ToInt32(tbAlertaAntCustom.Text), 0);
+                reminder.ReminderAlertTime = tarefa.DataInicio;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
@@ -192,7 +217,7 @@ namespace UTAD.ToDoList.WPF
 
                 Models.SchedulerReminder reminder = new();
                 reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderAlertTime = tarefa.DataTermino;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
@@ -206,8 +231,8 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderTimeInterval = new TimeSpan(0, 30, 0);
+                reminder.ReminderAlertTime = tarefa.DataTermino;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
@@ -221,8 +246,23 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
-                reminder.ReminderAlertTime = alerta.Data;
+                reminder.ReminderTimeInterval = new TimeSpan(1, 0, 0);
+                reminder.ReminderAlertTime = tarefa.DataTermino;
+                reminder.Dismissed = false;
+                listaAlertas.Add(reminder);
+            }
+            if (cbAlertaNECustom.IsChecked == true)
+            {
+                Alerta alerta = new Alerta();
+                alerta.Data = tarefa.DataTermino.AddMinutes(Convert.ToInt32(tbAlertaNECustom.Text));
+                alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há " + tbAlertaNECustom.Text + " minutos atrás!";
+                alerta.Tipo = TipoA.popup;
+                alerta.EstadoAlerta = false;
+                tarefa.ListaAlertaNaoExec.Add(alerta);
+
+                Models.SchedulerReminder reminder = new();
+                reminder.ReminderTimeInterval = new TimeSpan(0, Convert.ToInt32(tbAlertaAntCustom.Text), 0);
+                reminder.ReminderAlertTime = tarefa.DataTermino;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
             }
@@ -284,5 +324,6 @@ namespace UTAD.ToDoList.WPF
             dpTermino.SelectedDate = DateTime.Now;
             sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
+
     }
 }

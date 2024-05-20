@@ -9,7 +9,6 @@ namespace UTAD.ToDoList.WPF.Models
         public string Mensagem {  get; set; }
         public DateTime Data { get; set; }
 
-        // Tipo de alerta (1 - Alerta Windows | 2 - Email)  
         public TipoA Tipo { get; set; }
         public bool EstadoAlerta { get; set; }
 
