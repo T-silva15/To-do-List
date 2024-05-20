@@ -12,6 +12,7 @@ namespace UTAD.ToDoList.WPF.Models
         public DateTime DataTermino { get; set; }
         public NivelImportancia NivelImportancia { get; set; }
         public Estado Estado { get; set; }
+        public bool DiaInteiro { get; set; }
         
 
         // atributos opcionais

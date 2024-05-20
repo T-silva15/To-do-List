@@ -19,5 +19,6 @@ namespace UTAD.ToDoList.WPF.Models
         public string? RecurrenceRule { get; set; }
         public string Id { get; set; }
         public ObservableCollection<SchedulerReminder> Reminders { get; set; }
+        public bool AllDay { get; set; }
     }
 }

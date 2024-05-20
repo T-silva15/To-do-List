@@ -154,7 +154,9 @@ namespace UTAD.ToDoList.WPF
             App.scheduler.CarregarTarefasNivelImportancia(App.Perfil.ListaTarefas, NivelImportancia.Pouco_Importante);
         }
 
-
-        
+        private void btnTarefasDiaInteiro_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasDiaInteiro(App.Perfil.ListaTarefas);
+        }
     }
 }

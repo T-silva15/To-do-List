@@ -53,7 +53,7 @@ namespace UTAD.ToDoList.WPF
                 MessageBox.Show("A tarefa deve ter nome!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
-            if ((dpInicio.SelectedDate < dpTermino.SelectedDate && tpInicio.Value >= tpTermino.Value) || dpInicio.SelectedDate > dpTermino.SelectedDate)
+            if ((dpInicio.SelectedDate < dpTermino.SelectedDate && tpInicio.Value >= tpTermino.Value && cbTodoDia.IsChecked == false) || dpInicio.SelectedDate > dpTermino.SelectedDate)
             {
                 MessageBox.Show("A data de início deve ser anterior à data de término!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
@@ -61,7 +61,8 @@ namespace UTAD.ToDoList.WPF
 
             // remover tarefa antiga
             App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
-            
+            App.scheduler.RemoverMeeting(((Tarefa)cbTarefas.SelectedItem).Id);
+
             // tarefa no modelo
             Tarefa tarefa = new Tarefa();
             tarefa.Titulo = tbNome.Text;
@@ -69,12 +70,24 @@ namespace UTAD.ToDoList.WPF
 
             // lê do date picker a data e as horas e minutos do time picker
             DateTime dateI = dpInicio.SelectedDate.Value.Date;
-            TimeSpan timeI = tpInicio.Value.Value.TimeOfDay;
-            tarefa.DataInicio = dateI + timeI;
             DateTime dateT = dpTermino.SelectedDate.Value.Date;
-            TimeSpan timeT = tpTermino.Value.Value.TimeOfDay;
-            tarefa.DataTermino = dateT + timeT; 
-            
+
+            // verifica se tarefa é de dia inteiro
+            if (cbTodoDia.IsChecked == true)
+            {
+                tarefa.DiaInteiro = true;
+                tarefa.DataInicio = dateI;
+                tarefa.DataTermino = dateT;
+            }
+            else
+            {
+                tarefa.DiaInteiro = false;
+                TimeSpan timeI = tpInicio.Value.Value.TimeOfDay;
+                TimeSpan timeT = tpTermino.Value.Value.TimeOfDay;
+                tarefa.DataInicio = dateI + timeI;
+                tarefa.DataTermino = dateT + timeT;
+            }
+
             tarefa.Descricao = tbDescricao.Text;
 
             // estado
@@ -254,7 +267,7 @@ namespace UTAD.ToDoList.WPF
             }
 
             App.Perfil.ListaTarefas.Add(tarefa);
-            App.scheduler.AdicionarTarefa(tarefa.Titulo, tarefa.Descricao, listaAlertas, tarefa.DataInicio, tarefa.DataTermino, cor, tarefa.Id, recurrence);
+            App.scheduler.AdicionarTarefa(tarefa.Titulo, tarefa.Descricao, listaAlertas, tarefa.DataInicio, tarefa.DataTermino, tarefa.DiaInteiro, cor, tarefa.Id, recurrence);
 
             this.Close();
         }
@@ -289,6 +302,16 @@ namespace UTAD.ToDoList.WPF
                 dpTermino.SelectedDate = selectedModel.DataTermino.Date;
                 tpInicio.Value = selectedModel.DataInicio;
                 tpTermino.Value = selectedModel.DataTermino;
+
+                // dia inteiro
+                if (selectedModel.DiaInteiro == true)
+                {
+                    cbTodoDia.IsChecked = true;
+                }
+                else
+                {
+                    cbTodoDia.IsChecked = false;
+                }
 
                 // estado
                 if (selectedModel.Estado == Estado.Por_Iniciar)

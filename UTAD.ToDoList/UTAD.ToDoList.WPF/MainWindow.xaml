@@ -130,12 +130,13 @@
                     Subject="Name"
                     Notes="Description"
                     StartTime="From" 
-                    EndTime="To" 
+                    EndTime="To"
+                    IsAllDay="AllDay"
                     AppointmentBackground="BackgroundColor"
                     RecurrenceRule="RecurrenceRule"
                     Id="Id"
                     Reminders="Reminders">
-
+                
                     <syncfusion:AppointmentMapping.ReminderMapping>
                         <syncfusion:ReminderMapping IsDismissed="Dismissed" ReminderTimeInterval="ReminderTimeInterval"/>
                     </syncfusion:AppointmentMapping.ReminderMapping>
@@ -182,6 +183,8 @@
         <Button x:Name="BtnSemana" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana" HorizontalAlignment="Left" Margin="356,57,0,51" Width="62" Click="BtnSemana_Click"/>
         <Button x:Name="BtnSemanaTrab" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana&#xD;&#xA;Trabalho" Margin="462,43,310,44" Click="BtnSemanaTrab_Click"/>
         <Button x:Name="BtnMes" Grid.Row="1" Grid.Column="0" Content= "Mês" FontFamily="Nunito-Regular" Margin="558,57,215,51" Click="BtnMes_Click"/>
+        <Button x:Name="btnTarefasDiaInteiro" Grid.Row="0" Grid.Column="1" Content="Dia Inteiro" FontFamily="Nunito-Regular" Margin="52,150,0,0" HorizontalAlignment="Left" Width="59" HorizontalContentAlignment="Left" Height="22" VerticalAlignment="Top" Click="btnTarefasDiaInteiro_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Clock_Fill.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,150,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 

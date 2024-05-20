@@ -253,6 +253,9 @@
         <Syncfusion:SfTimePicker x:Name="tpInicio" SetValueOnLostFocus="True" AllowNull="False" Value="00:00" FormatString="HH:mm" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="200,208,0,0" VerticalAlignment="Top" Watermark="Pick a time" Width="120"/>
         <Syncfusion:SfTimePicker x:Name="tpTermino" SetValueOnLostFocus="True" AllowNull="False" FormatString="HH:mm" Grid.Column="1" HorizontalAlignment="Left" Height="24" Margin="351,208,0,0" Value="00:00" VerticalAlignment="Top" Watermark="Pick a time" Width="120"/>
         <Label Grid.Column="1" Content="-" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="328,204,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="16"/>
+        <CheckBox x:Name="cbTodoDia" Grid.Column="1" Content="Todo o Dia" FontFamily="Poppins" FontSize="11" Foreground="#FFFFFF" Margin="54,177,0,0" VerticalAlignment="Top" Height="14" HorizontalAlignment="Left" Width="82"/>
+
+
 
         <Label Grid.Column="1" Content="Estado" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="70,272,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="66"/>
         <Image HorizontalAlignment="Left" Source="Images\Perfil Icon.png" Height="20" Width="20" Margin="52,279,0,0" VerticalAlignment="Top"  Grid.Column="1"/>

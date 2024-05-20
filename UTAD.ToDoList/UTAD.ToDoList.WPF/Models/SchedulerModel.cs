@@ -47,7 +47,7 @@ namespace UTAD.ToDoList.WPF.Models
         /// (azul -> Pouco Importante</param>
         /// <param name="id">Id da Tarefa, gerado automaticamente devido à classe BaseModel</param>
         /// <param name="recurrence">Recurrência da Tarefa, vezes a repetir e intervalo de repetição</param>
-        public void AdicionarTarefa(string nome, string descricao, ObservableCollection<SchedulerReminder> Alertas, DateTime inicio, DateTime fim, SolidColorBrush cor, string id, string recurrence)
+        public void AdicionarTarefa(string nome, string descricao, ObservableCollection<SchedulerReminder> Alertas, DateTime inicio, DateTime fim, bool IsAllDay, SolidColorBrush cor, string id, string recurrence)
         {
             // tarefa no modelo
             Meeting meeting = new Meeting();
@@ -58,6 +58,7 @@ namespace UTAD.ToDoList.WPF.Models
             meeting.BackgroundColor = cor;
             meeting.Id = id;
             meeting.RecurrenceRule = recurrence;
+            meeting.AllDay = IsAllDay;
             foreach (SchedulerReminder reminder in Alertas)
             {
                 reminder.Data = meeting;
@@ -92,6 +93,7 @@ namespace UTAD.ToDoList.WPF.Models
                 meeting.Description = tarefa.Descricao;
                 meeting.From = tarefa.DataInicio;
                 meeting.To = tarefa.DataTermino;
+                meeting.AllDay = tarefa.DiaInteiro;
                 if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
                     meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
                 else if (tarefa.NivelImportancia == NivelImportancia.Normal)
@@ -220,6 +222,41 @@ namespace UTAD.ToDoList.WPF.Models
             }
             RaiseOnPropertyChanged("Meetings");
         }
+
+        public void CarregarTarefasDiaInteiro(List<Tarefa> tarefas)
+        {
+            if (Meetings.Count > 0)
+                Meetings.Clear();
+            foreach (Tarefa tarefa in tarefas)
+            {
+                if (tarefa.DiaInteiro == true)
+                {
+                    Meeting meeting = new Meeting();
+                    meeting.Name = tarefa.Titulo;
+                    meeting.Description = tarefa.Descricao;
+                    meeting.From = tarefa.DataInicio;
+                    meeting.To = tarefa.DataTermino;
+                    meeting.AllDay = tarefa.DiaInteiro;
+                    if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Normal)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Prioritaria)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
+                    meeting.Id = tarefa.Id;
+                    if (tarefa.Periodicidade != null)
+                    {
+                        meeting.RecurrenceRule = "FREQ=" + tarefa.Periodicidade.Tipo.ToString().ToUpper() + ";INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                    }
+                    Meetings.Add(meeting);
+                }
+            }
+
+            RaiseOnPropertyChanged("Meetings");
+        }
+
 
         public void RemoverMeeting(string id)
         {
