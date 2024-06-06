@@ -8,7 +8,7 @@
         Title="Perfil"
         WindowStartupLocation="CenterScreen"
         Height="600" Width="1024" ResizeMode="CanMinimize"
-        AllowsTransparency="True" Background="Transparent" WindowStyle="None">
+        AllowsTransparency="True" Background="Transparent" BorderBrush="#C10C99" BorderThickness="1" WindowStyle="None" Icon="Images/todo.ico">
 
     <Window.Resources>
         <Style x:Key="FocusVisual">
@@ -108,7 +108,7 @@
         </Style>
     </Window.Resources>
 
-    <Border BorderThickness="1" CornerRadius="50" Background="#050214" Margin="8" BorderBrush="#363E34">
+    <Border Background="#050214">
         <Grid Margin="7,-7,-7,7" Loaded="ViewPerfil_Loaded">
             <TextBlock Text="Perfil" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Nunito Bold" Margin="90,85,813,446" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
 

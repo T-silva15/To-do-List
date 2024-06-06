@@ -1,5 +1,7 @@
 ﻿using Microsoft.Win32;
+using Syncfusion.SfSkinManager;
 using Syncfusion.UI.Xaml.Scheduler;
+using Syncfusion.Windows.Controls.Input;
 using System.Diagnostics;
 using System.IO;
 using System.Runtime.CompilerServices;
@@ -29,17 +31,18 @@ namespace UTAD.ToDoList.WPF
 
         public MainWindow()
         {
+            
             InitializeComponent();
             App = (App)App.Current;
             if (App.Perfil != null)
             {
                 App.Perfil.TarefasAlteradas += Perfil_TarefasAlteradas;
             }
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
         }
 
         private void Perfil_TarefasAlteradas()
         {
-
             sfCalendario.ItemsSource = App.scheduler.Meetings;
         }
 
@@ -54,13 +57,18 @@ namespace UTAD.ToDoList.WPF
         private void BtnNova_Tarefa_Click(object sender, RoutedEventArgs e)
         {
             App.ViewNovaTarefa = new ViewNovaTarefa();
-            App.ViewNovaTarefa.Show();
+            App.ViewNovaTarefa.ShowDialog();
         }
 
         private void BtnEditar_Tarefa_Click(object sender, RoutedEventArgs e)
         {
+            if (App.Perfil.ListaTarefas.Count == 0)
+            {
+                MessageBox.Show("Não existem tarefas para editar!", "Erro", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             App.ViewEditarTarefa = new ViewEditarTarefa();
-            App.ViewEditarTarefa.Show();
+            App.ViewEditarTarefa.ShowDialog();
         }
 
         // Botão de fechar janela e guardar o perfil do utilizador
@@ -157,6 +165,11 @@ namespace UTAD.ToDoList.WPF
         private void btnTarefasDiaInteiro_Click(object sender, RoutedEventArgs e)
         {
             App.scheduler.CarregarTarefasDiaInteiro(App.Perfil.ListaTarefas);
+        }
+
+        private void BtnTarefasComRepeticao_Click(object sender, RoutedEventArgs e)
+        {
+            App.scheduler.CarregarTarefasComRepeticao(App.Perfil.ListaTarefas);
         }
     }
 }

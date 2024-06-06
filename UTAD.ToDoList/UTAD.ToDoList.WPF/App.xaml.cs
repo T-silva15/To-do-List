@@ -1,11 +1,14 @@
-﻿using System.Configuration;
+﻿using Syncfusion.SfSkinManager;
+using System.Configuration;
 using System.Data;
 using System.Runtime.InteropServices;
 using System.Security;
 using System.Security.Cryptography;
+using System.Text.RegularExpressions;
 using System.Windows;
 using UTAD.ToDoList.WPF.Models;
 using UTAD.ToDoList.WPF.Models.Shared;
+
 
 namespace UTAD.ToDoList.WPF
 {
@@ -41,7 +44,12 @@ namespace UTAD.ToDoList.WPF
             scheduler = new SchedulerModel();
         }
 
-        // função que converte uma SecureString para string (usada para converter a password para texto)
+        /// <summary>
+        /// Função que converte uma SecureString para string,
+        /// usada para converter a password para texto e mostrar ao utilizador
+        /// </summary>
+        /// <param name="secureString">SecureString lida da textbox</param>
+        /// <returns></returns>
         public string ConvertToPlainText(SecureString secureString)
         {
             IntPtr ptr = IntPtr.Zero;
@@ -54,6 +62,22 @@ namespace UTAD.ToDoList.WPF
             {
                 Marshal.ZeroFreeGlobalAllocUnicode(ptr);
             }
+        }
+
+        /// <summary>
+        /// Função que verifica se o email é válido
+        /// </summary>
+        /// <param name="email">Email a verificar</param>
+        /// <returns></returns>
+        public bool IsValidEmail(string email)
+        {
+            // Regex para verificar o email
+            string emailPattern = @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$";
+
+            // verifica email
+            Match match = Regex.Match(email, emailPattern);
+
+            return match.Success;
         }
     }
 }

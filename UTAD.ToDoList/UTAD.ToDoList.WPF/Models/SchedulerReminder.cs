@@ -13,5 +13,10 @@ namespace UTAD.ToDoList.WPF.Models
         public DateTime ReminderAlertTime { get; set; }
         public object Data { get; set; }
         public bool Dismissed { get; set; }
+
+        public SchedulerReminder()
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
+        }
     }
 }

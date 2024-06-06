@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         mc:Ignorable="d"
-        Title="Registo" Height="768" Width="1024" MinHeight="768" MinWidth="1024" ResizeMode="CanMinimize" Background="#050214" WindowStartupLocation="CenterScreen">
+        Title="Registo" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" BorderBrush="#C10C99" BorderThickness="1" ResizeMode="CanMinimize" Background="#050214" WindowStartupLocation="CenterScreen">
     <Window.Resources>
         <Style x:Key="FocusVisual">
             <Setter Property="Control.Template">
@@ -101,7 +101,7 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <TextBlock Text="Registo" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Poppins" Margin="131,115,709,561" TextWrapping="Wrap" MinHeight="52" MinWidth="52"/>
+        <TextBlock Text="Registo" Background="#050214" Foreground="#FFFFFF" FontSize="40" FontFamily="Poppins" Margin="131,115,709,0" TextWrapping="Wrap" MinHeight="52" MinWidth="52" Height="62" VerticalAlignment="Top"/>
 
         <TextBlock Background="#050214" Foreground="#FFFFFF" FontSize="16" FontFamily="Poppins" Margin="131,241,709,436" TextWrapping="Wrap" MinHeight="75" MinWidth="80"><Run Language="pt-pt" Text="Nome"/></TextBlock>
         <TextBox x:Name="tbNome" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="#FFFFFF" Margin="156,264,0,0" FontSize="14" FontFamily="Poppins" Background="#050214" BorderBrush="#050214" TextWrapping="Wrap" Width="484" Height="30" VerticalContentAlignment="Center"/>

@@ -5,10 +5,39 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:syncfusion="http://schemas.syncfusion.com/wpf" xmlns:viewModels="clr-namespace:UTAD.ToDoList.WPF.Models" x:Class="UTAD.ToDoList.WPF.MainWindow"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         mc:Ignorable="d"
-        Title="MainWindow" ResizeMode="CanResizeWithGrip" Height="768" Width="1024" MinHeight="768" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded">
+        Title="Dashboard" ResizeMode="CanResizeWithGrip" Height="768" Width="1024" MinHeight="768" syncfusion:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=MaterialDark}" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded">
 
     <Window.Resources>
+        <DataTemplate
+            x:Key="dayCellTemplate">
+        </DataTemplate>
+        <DataTemplate x:Key="viewHeaderTemplate">
+            <StackPanel Background="#050214"  
+        Width="2000"
+        VerticalAlignment="Stretch" 
+        HorizontalAlignment="Stretch"
+        Orientation="Vertical">
+                <TextBlock 
+        HorizontalAlignment="Left" 
+        Margin="20,0,0,0" 
+        Foreground="#FFFFFF"
+        FontFamily="Arial"
+        Text="{Binding DateText}"
+        FontSize="25"
+        TextTrimming="CharacterEllipsis"
+        TextWrapping="Wrap" />
+                <TextBlock 
+        HorizontalAlignment="Left"  Margin="20,0,0,0" 
+        Foreground="#FFFFFF"
+        FontFamily="Arial"
+        Text="{Binding DayText}"
+        FontSize="10"
+        TextTrimming="CharacterEllipsis"
+        TextWrapping="Wrap" />
+            </StackPanel>
+        </DataTemplate>
         <Style TargetType="Button">
             <Setter Property="Background" Value="Transparent"/>
             <Setter Property="Foreground" Value="White"/>
@@ -32,6 +61,34 @@
                 </Trigger>
             </Style.Triggers>
         </Style>
+        <Style x:Key="RoundedButtonStyle" TargetType="{x:Type Button}">
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="BorderBrush" Value="#6e0757"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Padding" Value="1"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type Button}">
+                        <Border x:Name="border" CornerRadius="4" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" SnapsToDevicePixels="true">
+                            <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#100640"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter Property="Background" TargetName="border" Value="#1a0a69"/>
+                            </Trigger>
+                            <Trigger Property="IsDefaulted" Value="true">
+                                <Setter Property="BorderBrush" TargetName="border" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
 
     <Window.DataContext>
@@ -45,86 +102,56 @@
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="1*"/>
-            <RowDefinition Height="0.20*"/>
+            <RowDefinition Height="0.10*"/>
         </Grid.RowDefinitions>
-        <TextBlock Text="To-Do List" Grid.Column="0" Margin="207,17,429,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" VerticalAlignment="Top" TextWrapping="Wrap"/>
-        <TextBlock Text="DashBoard" Grid.Column="0" Margin="418,17,202,563" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap"/>
+        <TextBlock Text="To-Do List" Grid.Column="0" Margin="47,27,0,0" FontSize="40" FontFamily="Nunito ExtraBold" Foreground="White" VerticalAlignment="Top" TextWrapping="Wrap" HorizontalAlignment="Left" Width="310"/>
+        <TextBlock Text="DashBoard" Grid.Column="0" Margin="257,28,0,0" FontSize="40" VerticalAlignment="Top" FontFamily="Nunito ExtraBold" Foreground="#C10C99" TextWrapping="Wrap" HorizontalAlignment="Left" Width="278"/>
 
-        <Button x:Name="btnTarefasTodas" Grid.Row="0" Grid.Column="1" Content="Todas" FontFamily="Nunito-Regular" Margin="52,191,0,0" HorizontalAlignment="Left" Width="32" Height="22" VerticalAlignment="Top" Click="btnTarefasTodas_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,191,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasDiaInteiro" Grid.Row="0" Grid.Column="1" Content="Dia Inteiro" FontFamily="Nunito-Regular" Margin="67,0,0,474" HorizontalAlignment="Left" Width="73" HorizontalContentAlignment="Left" Click="btnTarefasDiaInteiro_Click" Height="22" VerticalAlignment="Bottom"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="\Images\Clock_fill.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="46,0,0,475" VerticalAlignment="Bottom"/>
 
-        <Button x:Name="btnTarefasCompletas" Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="53,217,0,0" HorizontalAlignment="Left" Width="58" Height="22" VerticalAlignment="Top" Click="btnTarefasCompletas_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,217,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasTodas" Grid.Row="0" Grid.Column="1" HorizontalContentAlignment="Left" Content="Todas" FontFamily="Nunito-Regular" Margin="74,0,0,425" HorizontalAlignment="Left" Width="38" Height="22" VerticalAlignment="Bottom" Click="btnTarefasTodas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/All Icon.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="46,0,0,425" VerticalAlignment="Bottom"/>
 
-        <Button x:Name="btnTarefasExecucao" Grid.Row="0" Grid.Column="1" Content="Em Execução" FontFamily="Nunito-Regular" Margin="53,244,0,0" HorizontalAlignment="Left" Width="70" Height="22" VerticalAlignment="Top" Click="btnTarefasExecucao_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,244,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasCompletas" Grid.Row="0" Grid.Column="1" Content="Completas" FontFamily="Nunito-Regular" Margin="69,0,0,394" HorizontalAlignment="Left" Width="73" Height="22" VerticalAlignment="Bottom" Click="btnTarefasCompletas_Click"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="46,0,0,395" VerticalAlignment="Bottom"/>
 
-        <Button x:Name="btnTarefasPendentes" Grid.Column="1" Content="Pendentes" FontFamily="Nunito-Regular" Margin="54,271,0,0" VerticalAlignment="Top" Height="22" HorizontalAlignment="Left" Width="57" Click="btnTarefasPendentes_Click"/>
-        <Image Grid.Column="1" Source="Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="24" Margin="25,270,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasExecucao" Grid.Row="0" Grid.Column="1" Content="Em Execução" FontFamily="Nunito-Regular" Margin="71,0,0,366" HorizontalAlignment="Left" VerticalAlignment="Bottom" Width="84" Click="btnTarefasExecucao_Click" Height="17"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Completed Icon.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="46,0,0,365" VerticalAlignment="Bottom"/>
 
-        <Button Grid.Row="0" Grid.Column="1" x:Name="btnNova_Tarefa" FontFamily="Nunito-Regular" Click="BtnNova_Tarefa_Click" Content="Nova Tarefa" Margin="64,0,0,73" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="65"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/NewTask Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="41,534,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="btnTarefasPendentes" Grid.Column="1" VerticalAlignment="Bottom" HorizontalAlignment="Left" Content="Pendentes" FontFamily="Nunito-Regular" Margin="75,0,0,335" Height="22" Width="64" Click="btnTarefasPendentes_Click"/>
+        <Image Grid.Column="1" Source="/Images/Completed Icon.png" VerticalAlignment="Bottom" MaxHeight="32" MaxWidth="32" HorizontalAlignment="Left" Width="22" Height="22" Margin="47,0,0,336" />
 
-        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="41,558,0,0" VerticalAlignment="Top"/>
-        <Button Grid.Row="0" Grid.Column="1" x:Name="btnEditarTarefa" FontFamily="Nunito-Regular" Click="BtnEditar_Tarefa_Click" Content="Editar Tarefa" Margin="64,0,0,48" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="68"/>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="btnNova_Tarefa" FontFamily="Nunito-Regular" Click="BtnNova_Tarefa_Click" Content="Nova Tarefa" Margin="70,0,0,49" VerticalAlignment="Bottom" HorizontalAlignment="Left" Height="21"  Width="76"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/NewTask Icon.png" Width="22" MaxHeight="30" MaxWidth="30" Margin="47,0,0,49" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom" />
 
-        <Button  Grid.Row="0" Grid.Column="1" x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="83,45,0,0" VerticalAlignment="Top" Height="21" HorizontalAlignment="Left" Width="29"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" Margin="56,44,0,0" VerticalAlignment="Top"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Perfil Icon.png" MaxHeight="22" MaxWidth="22" Width="22" Margin="47,0,0,22" HorizontalAlignment="Left" Height="22" VerticalAlignment="Bottom"/>
+        <Button Grid.Row="0" Grid.Column="1" x:Name="btnEditarTarefa" FontFamily="Nunito-Regular" Click="BtnEditar_Tarefa_Click" Content="Editar Tarefa" Margin="71,0,0,21" VerticalAlignment="Bottom" Height="21" HorizontalAlignment="Left" Width="76"/>
 
-        <!-- Separador Central -->
-        <Separator HorizontalAlignment="Left" Margin="487,414,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="682">
-            <Separator.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform/>
-                    <RotateTransform Angle="90"/>
-                    <TranslateTransform/>
-                </TransformGroup>
-            </Separator.RenderTransform>
+        <Button  Grid.Row="0" Grid.Column="1" x:Name="btnPerfil" Click="BtnPerfil_Click" Content="Perfil" Margin="71,54,0,0" VerticalAlignment="Top" Height="20" HorizontalAlignment="Left" Width="37"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Perfil Icon.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="47,54,0,0" VerticalAlignment="Top"/>
 
-            <Separator.Style>
-                <Style TargetType="{x:Type Separator}">
-                    <Setter Property="Template">
-                        <Setter.Value>
-                            <ControlTemplate TargetType="{x:Type Separator}">
-                                <Grid>
-                                    <Rectangle Width="601" Height="1">
-                                        <Rectangle.Fill>
-                                            <LinearGradientBrush StartPoint="0,0.5" EndPoint="1,0.5">
-                                                <GradientStop Color="Transparent" Offset="0"/>
-                                                <GradientStop Color="#7e7e7e" Offset="0.5"/>
-                                                <GradientStop Color="Transparent" Offset="1"/>
-                                            </LinearGradientBrush>
-                                        </Rectangle.Fill>
-                                    </Rectangle>
-                                </Grid>
-                            </ControlTemplate>
-                        </Setter.Value>
-                    </Setter>
-                </Style>
-            </Separator.Style>
-        </Separator>
 
         <!-- Tarefas -->
         <!-- Prioritárias -->
-        <Image Grid.Column="1" Source="Images/Prioritaria.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,268" Height="19" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnPrioritaria" Grid.Column="1" Margin="42,0,74,267" HorizontalContentAlignment="Left" Content="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Click="btnPrioritaria_Click"/>
+        <Image Grid.Column="1" Source="/Images/Prioritaria.png" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxHeight="20" MaxWidth="20" Margin="47,0,0,277" Height="20" Width="20" />
+        <Button x:Name="btnPrioritaria" Grid.Column="1" Margin="69,0,0,272" Height="28" VerticalAlignment="Bottom" HorizontalAlignment="Left" HorizontalContentAlignment="Left" Content="Prioritária" Foreground="#E85671" FontFamily="Nunito" FontSize="13" Click="btnPrioritaria_Click"/>
 
         <!-- Importante -->
-        <Image Grid.Column="1" Source="Images/Importante.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,245" Height="20" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnImportante" Grid.Column="1" Margin="43,361,65,244" Content="Importante" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="16" Click="btnImportante_Click"/>
+        <Image Grid.Column="1" Source="/Images/Importante.png" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxHeight="20" MaxWidth="20" Margin="47,0,0,245" Height="20" Width="20"/>
+        <Button x:Name="btnImportante" Grid.Column="1" Height="28" Margin="69,0,0,240" Content="Importante" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#FE8A5F" FontFamily="Nunito" FontSize="13" Click="btnImportante_Click" Width="66"/>
 
         <!-- Normal -->
-        <Image Grid.Column="1" Source="Images/Normal.png" MaxHeight="20" MaxWidth="20" Margin="25,386,147,221"/>
-        <Button x:Name="btnNormal" Grid.Column="1" Margin="45,385,91,221" Content="Normal" Foreground="#849EEA" FontFamily="Nunito" FontSize="16" Click="btnNormal_Click"/>
+        <Image Grid.Column="1" Source="/Images/Normal.png" VerticalAlignment="Bottom" HorizontalAlignment="Left" MaxHeight="20" MaxWidth="20" Margin="47,0,0,216"/>
+        <Button x:Name="btnNormal" Grid.Column="1" Margin="69,0,0,211" Content="Normal" VerticalAlignment="Bottom" HorizontalAlignment="Left" Foreground="#849EEA" FontFamily="Nunito" FontSize="13" Height="28" Click="btnNormal_Click" Width="48"/>
 
         <!-- Pouco Importante -->
-        <Image Grid.Column="1" Source="Images/Pouco_Importante.png" MaxHeight="20" MaxWidth="20" Margin="23,0,147,200" Height="18" VerticalAlignment="Bottom"/>
-        <Button x:Name="btnPoucoImp" Grid.Column="1" Margin="43,0,17,199" Content="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="16" Height="20" VerticalAlignment="Bottom" Click="btnPoucoImp_Click"/>
+        <Image Grid.Column="1" Source="/Images/Pouco_Importante.png" MaxHeight="20" MaxWidth="20" Margin="47,0,0,188" Height="20" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="20"/>
+        <Button x:Name="btnPoucoImp" VerticalAlignment="Bottom" HorizontalAlignment="Left" Grid.Column="1" Margin="69,0,0,183" Content="Pouco Importante" Foreground="#87FF81" FontFamily="Nunito" FontSize="13" Click="btnPoucoImp_Click" Width="106" Height="28"/>
 
 
 
-        <syncfusion:SfScheduler x:Name="sfCalendario" EnableReminder="True" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="44,84,43,0" Height="507" VerticalAlignment="Top">
+        <syncfusion:SfScheduler x:Name="sfCalendario" AppointmentEditFlag="None" EnableReminder="True" ItemsSource="{Binding Meetings}" ViewType="Month" Margin="44,103,10,21">
             <syncfusion:SfScheduler.AppointmentMapping>
                 <syncfusion:AppointmentMapping 
                     Subject="Name"
@@ -136,15 +163,19 @@
                     RecurrenceRule="RecurrenceRule"
                     Id="Id"
                     Reminders="Reminders">
-                
+
                     <syncfusion:AppointmentMapping.ReminderMapping>
                         <syncfusion:ReminderMapping IsDismissed="Dismissed" ReminderTimeInterval="ReminderTimeInterval"/>
                     </syncfusion:AppointmentMapping.ReminderMapping>
-                
+
                 </syncfusion:AppointmentMapping>
             </syncfusion:SfScheduler.AppointmentMapping>
+            <syncfusion:SfScheduler.DaysViewSettings>
+                <syncfusion:DaysViewSettings TimeRulerSize="50" TimeRulerFormat="HH:mm" ViewHeaderTemplate="{StaticResource viewHeaderTemplate}"></syncfusion:DaysViewSettings>
+            </syncfusion:SfScheduler.DaysViewSettings>
 
-        <syncfusion:SfScheduler.MonthViewSettings>
+
+            <syncfusion:SfScheduler.MonthViewSettings>
                 <syncfusion:MonthViewSettings>
                     <syncfusion:MonthViewSettings.MonthCellTemplate>
                         <DataTemplate>
@@ -153,7 +184,7 @@
                             </Border>
                         </DataTemplate>
                     </syncfusion:MonthViewSettings.MonthCellTemplate>
-                    
+
                     <syncfusion:MonthViewSettings.ViewHeaderTemplate>
                         <DataTemplate>
                             <Border Background="#050214">
@@ -166,8 +197,9 @@
                     </syncfusion:MonthViewSettings.ViewHeaderTemplate>
                 </syncfusion:MonthViewSettings>
             </syncfusion:SfScheduler.MonthViewSettings>
-           
-            
+
+
+
             <syncfusion:SfScheduler.HeaderTemplate>
                 <DataTemplate>
                     <Grid Background="#050214">
@@ -179,12 +211,12 @@
             </syncfusion:SfScheduler.HeaderTemplate>
         </syncfusion:SfScheduler>
 
-        <Button x:Name="BtnDia" Grid.Row="1" Grid.Column="0" Content="Dia" BorderBrush="#C10C99" FontFamily="Nunito-Regular" Margin="243,53,529,54" Click="BtnDia_Click" Background="Transparent"/>
-        <Button x:Name="BtnSemana" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana" HorizontalAlignment="Left" Margin="356,57,0,51" Width="62" Click="BtnSemana_Click"/>
-        <Button x:Name="BtnSemanaTrab" Grid.Row="1" Grid.Column="0" FontFamily="Nunito-Regular" Content="Semana&#xD;&#xA;Trabalho" Margin="462,43,310,44" Click="BtnSemanaTrab_Click"/>
-        <Button x:Name="BtnMes" Grid.Row="1" Grid.Column="0" Content= "Mês" FontFamily="Nunito-Regular" Margin="558,57,215,51" Click="BtnMes_Click"/>
-        <Button x:Name="btnTarefasDiaInteiro" Grid.Row="0" Grid.Column="1" Content="Dia Inteiro" FontFamily="Nunito-Regular" Margin="52,150,0,0" HorizontalAlignment="Left" Width="59" HorizontalContentAlignment="Left" Height="22" VerticalAlignment="Top" Click="btnTarefasDiaInteiro_Click"/>
-        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Clock_Fill.png" HorizontalAlignment="Left" Width="22" Height="23" Margin="25,150,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="BtnDia" Grid.Row="1" Grid.Column="0" Style="{DynamicResource RoundedButtonStyle}" Background="Transparent" Foreground="#FFFFFF" MaxHeight="30" MaxWidth="50" Content="Dia" FontFamily="Nunito-Regular" Margin="141,8,632,24" Click="BtnDia_Click" />
+        <Button x:Name="BtnSemana" Grid.Row="1" Grid.Column="0" Style="{DynamicResource RoundedButtonStyle}" Background="Transparent" Foreground="#FFFFFF" MaxHeight="30" MaxWidth="70" FontFamily="Nunito-Regular" Content="Semana" Margin="311,8,438,24" Click="BtnSemana_Click"/>
+        <Button x:Name="BtnSemanaTrab" Grid.Row="1" Grid.Column="0" Style="{DynamicResource RoundedButtonStyle}" Background="Transparent" Foreground="#FFFFFF"  MaxHeight="40" MaxWidth="80" FontFamily="Nunito-Regular" Content="Semana&#xD;&#xA;Trabalho" Margin="503,2,233,18" Click="BtnSemanaTrab_Click"/>
+        <Button x:Name="BtnMes" Grid.Row="1" Grid.Column="0" Content= "Mês" Style="{DynamicResource RoundedButtonStyle}" Background="Transparent" Foreground="#FFFFFF"  MaxHeight="30" MaxWidth="50" FontFamily="Nunito-Regular" Margin="696,6,74,26" Click="BtnMes_Click"/>
+        <Button x:Name="BtnTarefasComRepeticao" Grid.Row="0" Grid.Column="1" Content="Tarefas Repetidas" FontFamily="Nunito-Regular" Margin="67,0,0,499" HorizontalAlignment="Left" Width="108" HorizontalContentAlignment="Left" Click="BtnTarefasComRepeticao_Click" Height="22" VerticalAlignment="Bottom"/>
+        <Image Grid.Row="0" Grid.Column="1" Source="/Images/Clock_fill.png" HorizontalAlignment="Left" Width="22" Height="22" MaxHeight="32" MaxWidth="32" Margin="46,0,0,500" VerticalAlignment="Bottom"/>
 
     </Grid>
 

@@ -12,11 +12,11 @@ namespace UTAD.ToDoList.WPF.Models
         public TipoA Tipo { get; set; }
         public bool EstadoAlerta { get; set; }
 
-        // construtor por defeito
-        public Alerta() 
+        // construtor sem parâmetros
+        public Alerta()
         {
-            Mensagem = string.Empty;
-            Data = DateTime.MinValue;
+            Mensagem = "";
+            Data = DateTime.Now;
             EstadoAlerta = false;
         }
         // construtor com parâmetros 

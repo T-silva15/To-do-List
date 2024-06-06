@@ -13,7 +13,6 @@ using System.Windows.Media;
 
 namespace UTAD.ToDoList.WPF.Models
 {
-    [Serializable] 
     public class SchedulerModel : INotifyPropertyChanged
     {
         private ObservableCollection<Meeting> meetings;
@@ -21,6 +20,7 @@ namespace UTAD.ToDoList.WPF.Models
         public SchedulerModel()
         {
             Meetings = new ObservableCollection<Meeting>();
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
         }
 
         public ObservableCollection<Meeting> Meetings
@@ -68,6 +68,7 @@ namespace UTAD.ToDoList.WPF.Models
 
             RaiseOnPropertyChanged("Meetings");
         }
+
         /// <summary>
         /// Evento que é chamado sempre que uma propriedade é alterada, avisa o calendário que a coleção de tarefas foi alterada.
         /// </summary>
@@ -223,6 +224,11 @@ namespace UTAD.ToDoList.WPF.Models
             RaiseOnPropertyChanged("Meetings");
         }
 
+        /// <summary>
+        /// Função que carrega as tarefas do perfil do utilizador para o calendário,
+        /// carrega apenas as tarefas de dia inteiro, utilizada nos botões de ordenação.
+        /// </summary>
+        /// <param name="tarefas">Lista de tarefas a filtrar e carregar</param>
         public void CarregarTarefasDiaInteiro(List<Tarefa> tarefas)
         {
             if (Meetings.Count > 0)
@@ -257,7 +263,44 @@ namespace UTAD.ToDoList.WPF.Models
             RaiseOnPropertyChanged("Meetings");
         }
 
+        public void CarregarTarefasComRepeticao(List<Tarefa> tarefas)
+        {
+            if (Meetings.Count > 0)
+                Meetings.Clear();
+            foreach (Tarefa tarefa in tarefas)
+            {
+                if (tarefa.Periodicidade != null)
+                {
+                    Meeting meeting = new Meeting();
+                    meeting.Name = tarefa.Titulo;
+                    meeting.Description = tarefa.Descricao;
+                    meeting.From = tarefa.DataInicio;
+                    meeting.To = tarefa.DataTermino;
+                    meeting.AllDay = tarefa.DiaInteiro;
+                    if (tarefa.NivelImportancia == NivelImportancia.Pouco_Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#87FF81") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Normal)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#849EEA") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Importante)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#FE8A5F") as SolidColorBrush;
+                    else if (tarefa.NivelImportancia == NivelImportancia.Prioritaria)
+                        meeting.BackgroundColor = new BrushConverter().ConvertFrom("#E85671") as SolidColorBrush;
+                    meeting.Id = tarefa.Id;
+                    if (tarefa.Periodicidade != null)
+                    {
+                        meeting.RecurrenceRule = "FREQ=" + tarefa.Periodicidade.Tipo.ToString().ToUpper() + ";INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
+                    }
+                    Meetings.Add(meeting);
+                }
+            }
 
+            RaiseOnPropertyChanged("Meetings");
+        }
+
+        /// <summary>
+        /// Função que remove uma tarefa do calendário, com base no id da tarefa passado como parâmetro
+        /// </summary>
+        /// <param name="id">Id da tarefa a remover</param>
         public void RemoverMeeting(string id)
         {
             foreach (Meeting meeting in Meetings)

@@ -6,8 +6,9 @@
         xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
         xmlns:Syncfusion="http://schemas.syncfusion.com/wpf" 
         xmlns:viewModels="clr-namespace:UTAD.ToDoList.WPF.Models"
+        xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         mc:Ignorable="d"
-        Title="ViewEditarTarefa" Height="768" Width="1024" WindowStartupLocation="CenterScreen" Background="#050214" ResizeMode="CanMinimize" Loaded="Window_Loaded">
+        Title="ViewEditarTarefa" Height="768" Width="1024" WindowStartupLocation="CenterScreen" BorderBrush="#C10C99" BorderThickness="1" WindowStyle="None" Icon="Images/todo.ico" Background="#050214" ResizeMode="CanMinimize" Loaded="Window_Loaded">
 
     <Window.Resources>
         <Style x:Key="SquareRadioButton" TargetType="{x:Type RadioButton}">
@@ -229,9 +230,9 @@
             </Syncfusion:SfScheduler.HeaderTemplate>
         </Syncfusion:SfScheduler>
 
-        <Button x:Name="BtnAdicionar" Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Content="Confirmar" FontFamily="Poppins"  Foreground="#FFFFFF" Grid.Column="1" HorizontalAlignment="Left" Margin="286,670,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnAdicionar_Click"/>
+        <Button x:Name="BtnAdicionar" Style="{DynamicResource RoundedButtonStyle}" Background="#C10C99" Content="Confirmar" FontFamily="Poppins"  Foreground="#FFFFFF" Grid.Column="1" HorizontalAlignment="Left" Margin="286,685,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnAdicionar_Click"/>
 
-        <Button x:Name="BtnSair" Style="{DynamicResource RoundedButtonStyle}" Background="#38373B" Content="Sair" FontFamily="Poppins"  Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="503,670,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnSair_Click" Grid.ColumnSpan="2"/>
+        <Button x:Name="BtnSair" Style="{DynamicResource RoundedButtonStyle}" Background="#38373B" Content="Sair" FontFamily="Poppins"  Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="503,685,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnSair_Click" Grid.ColumnSpan="2"/>
 
 
         <TextBox x:Name="tbNome" Text="" Foreground="#737373" Margin="200,87,0,0" FontSize="13"  FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Grid.Column="1" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" Width="279"/>
@@ -267,12 +268,13 @@
 
         <Label Content="Periodicidade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="80,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126"/>
         <Image HorizontalAlignment="Left" Source="Images\Repetition Icon.png" Height="20" Width="20" Margin="62,512,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="PerDiario" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Diário"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,570,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="PerSemanal" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Semanal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,590,0,0" VerticalAlignment="Top"/>
-        <RadioButton x:Name="PerMensal" GroupName="Periodicidade" Style="{DynamicResource SquareRadioButton}" Content="Mensal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,610,0,0" VerticalAlignment="Top"/>
+        <CheckBox x:Name="PerDiario" Content="Diário"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,570,0,0" VerticalAlignment="Top" Width="59"/>
+        <CheckBox x:Name="PerSemanal" Content="Semanal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,590,0,0" VerticalAlignment="Top" Width="76"/>
+        <CheckBox x:Name="PerMensal" Content="Mensal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="90,610,0,0" VerticalAlignment="Top" Width="67"/>
         <TextBox x:Name="tbQuantidade" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Quantidade" HorizontalContentAlignment="Center" Width="87" Foreground="#737373" Margin="166,636,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <TextBox x:Name="tbIntervalo" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Intervalo" HorizontalContentAlignment="Center" Width="69" Foreground="#737373" Margin="80,636,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Height="30" VerticalAlignment="Top" HorizontalAlignment="Left" />
         <Label Content="-" FontFamily="Poppins" FontSize="16" Foreground="#FFFFFF" Margin="149,636,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="16"/>
+        <Label Content="(Deixe em branco &#xD;&#xA;para pemanente)" FontFamily="Poppins" FontSize="10" Foreground="#918989" Margin="160,666,0,0" VerticalAlignment="Top" Height="38" HorizontalAlignment="Left" Width="103"/>
 
 
         <Label Content="Alerta de &#xD;&#xA;Antecipação" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="331,492,0,0" VerticalAlignment="Top" Height="56" HorizontalAlignment="Left" Width="171"/>
@@ -291,7 +293,7 @@
 
 
         <Label Content="Prioridade" FontFamily="Poppins" FontWeight="SemiBold" FontSize="16" Foreground="#FFFFFF" Margin="292,505,0,0" VerticalAlignment="Top" Height="30" HorizontalAlignment="Left" Width="126" Grid.Column="1"/>
-        <Image HorizontalAlignment="Left" Source="Images\Fire_Fill.png" Height="20" Width="20" Margin="272,512,0,0" VerticalAlignment="Top" Grid.Column="1"/>
+        <Image HorizontalAlignment="Left" Source="Images\FireFill.png" Height="20" Width="20" Margin="272,512,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbPrioritaria" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Prioritária"  Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,551,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbImportante" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Importante" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,571,0,0" VerticalAlignment="Top" Grid.Column="1"/>
         <RadioButton x:Name="rbNormal" Style="{DynamicResource SquareRadioButton}" GroupName="Prioridade" Content="Normal" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="295,591,0,0" VerticalAlignment="Top" Grid.Column="1"/>
@@ -299,14 +301,14 @@
         <TextBox x:Name="tbAlertaNECustom" Style="{StaticResource WatermarkTextBoxStyle}" local:WatermarkService.Watermark="Minutos" HorizontalContentAlignment="Center" Width="61" Foreground="#737373" Margin="143,626,0,0" FontSize="13" FontFamily="Poppins" Background="#494949" BorderBrush="#050214" TextWrapping="Wrap" VerticalContentAlignment="Center" Height="23" VerticalAlignment="Top" HorizontalAlignment="Left" Grid.Column="1" />
         <CheckBox x:Name="cbAlertaNECustom" Content="Personalizado" Foreground="#FFFFFF" FontFamily="Poppins" FontSize="12" HorizontalAlignment="Left" Margin="34,629,0,0" VerticalAlignment="Top" Grid.Column="1"/>
 
-
+        <Button x:Name="BtnLimpar" Style="{DynamicResource RoundedButtonStyle}" Background="#5c0749" VerticalContentAlignment="Top" Content="X" FontSize="20" FontFamily="Poppins"  Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="24,32,0,0" VerticalAlignment="Top" Height="31" Width="23" Click="BtnLimpar_Click" Grid.Column="1"/>
         <ComboBox x:Name="cbTarefas" Grid.Column="1" SelectedItem="{Binding ListaTarefas}" HorizontalAlignment="Left" Height="34" Margin="53,31,0,0" VerticalAlignment="Top" Width="424" SelectionChanged="cbTarefas_SelectionChanged">
             <ComboBox.ItemTemplate>
                 <DataTemplate>
-                        <TextBlock x:Name="tblTitulo" Text="{Binding Titulo}" Margin="0,0,20,0"/>
+                    <TextBlock x:Name="tblTitulo" Text="{Binding Titulo}" Margin="0,0,20,0"/>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="BtnRemover" Style="{DynamicResource RoundedButtonStyle}" Background="#5c0749" Content="Remover" FontFamily="Poppins"  Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="137,670,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnRemover_Click" Grid.Column="1"/>
+        <Button x:Name="BtnRemover" Style="{DynamicResource RoundedButtonStyle}" Background="#5c0749" Content="Remover" FontFamily="Poppins"  Foreground="#FFFFFF" HorizontalAlignment="Left" Margin="137,685,0,0" VerticalAlignment="Top" Height="30" Width="112" Click="BtnRemover_Click" Grid.Column="1"/>
     </Grid>
 </Window>

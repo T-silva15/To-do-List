@@ -68,6 +68,11 @@ namespace UTAD.ToDoList.WPF
                 MessageBox.Show("O alerta de não execução deve ser um número inteiro!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+            if (PerDiario.IsChecked == true && PerSemanal.IsChecked == true || PerDiario.IsChecked == true && PerMensal.IsChecked == true || PerSemanal.IsChecked == true && PerMensal.IsChecked == true)
+            {
+                MessageBox.Show("Deve escolher apenas um tipo de periodicidade!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
             // remover tarefa antiga
             App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);
@@ -169,7 +174,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaAnt.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(0, 30, 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -184,7 +189,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaAnt.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(1, 0, 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -199,7 +204,7 @@ namespace UTAD.ToDoList.WPF
                 tarefa.ListaAlertaAnt.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(0, Convert.ToInt32(tbAlertaAntCustom.Text), 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -209,14 +214,14 @@ namespace UTAD.ToDoList.WPF
             if (cbAlNR15Min.IsChecked == true)
             {
                 Alerta alerta = new Alerta();
-                alerta.Data = tarefa.DataTermino.AddMinutes(15);
+                alerta.Data = tarefa.DataInicio.AddMinutes(15);
                 alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 15 minutos atrás!";
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(0, -15, 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -224,14 +229,14 @@ namespace UTAD.ToDoList.WPF
             if (cbAlNR30Min.IsChecked == true)
             {
                 Alerta alerta = new Alerta();
-                alerta.Data = tarefa.DataTermino.AddMinutes(30);
+                alerta.Data = tarefa.DataInicio.AddMinutes(30);
                 alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 30 minutos atrás!";
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(0, -30, 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -239,14 +244,14 @@ namespace UTAD.ToDoList.WPF
             if (cbAlNR60Min.IsChecked == true)
             {
                 Alerta alerta = new Alerta();
-                alerta.Data = tarefa.DataTermino.AddHours(1);
+                alerta.Data = tarefa.DataInicio.AddHours(1);
                 alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há 60 minutos atrás!";
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(-1, 0, 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -254,14 +259,14 @@ namespace UTAD.ToDoList.WPF
             if (cbAlertaNECustom.IsChecked == true)
             {
                 Alerta alerta = new Alerta();
-                alerta.Data = tarefa.DataTermino.AddMinutes(Convert.ToInt32(tbAlertaNECustom.Text));
+                alerta.Data = tarefa.DataInicio.AddMinutes(Convert.ToInt32(tbAlertaNECustom.Text));
                 alerta.Mensagem = "A tarefa " + tarefa.Titulo + " começou há " + tbAlertaNECustom.Text + " minutos atrás!";
                 alerta.Tipo = TipoA.popup;
                 alerta.EstadoAlerta = false;
                 tarefa.ListaAlertaNaoExec.Add(alerta);
 
                 Models.SchedulerReminder reminder = new();
-                reminder.ReminderTimeInterval = new TimeSpan(0, 15, 0);
+                reminder.ReminderTimeInterval = new TimeSpan(0, -Convert.ToInt32(tbAlertaAntCustom.Text), 0);
                 reminder.ReminderAlertTime = alerta.Data;
                 reminder.Dismissed = false;
                 listaAlertas.Add(reminder);
@@ -273,24 +278,28 @@ namespace UTAD.ToDoList.WPF
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.DAILY;
-                if (tbIntervalo.Text == "")
+                if (tbIntervalo.Text == "" || !int.TryParse(tbIntervalo.Text, out int x))
                     tarefa.Periodicidade.Intervalo = 1;
-                tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
-                if (tbQuantidade.Text == "")
-                    tarefa.Periodicidade.Quantidade = 0;
-                tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                else
+                    tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
+                if (tbQuantidade.Text == "" || !int.TryParse(tbQuantidade.Text, out int y))
+                    tarefa.Periodicidade.Quantidade = 99999;
+                else
+                    tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 recurrence = "FREQ=DAILY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
             else if (PerSemanal.IsChecked == true)
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.WEEKLY;
-                if (tbIntervalo.Text == "")
+                if (tbIntervalo.Text == "" || !int.TryParse(tbIntervalo.Text, out int x))
                     tarefa.Periodicidade.Intervalo = 1;
-                tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
-                if (tbQuantidade.Text == "")
-                    tarefa.Periodicidade.Quantidade = 0;
-                tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                else
+                    tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
+                if (tbQuantidade.Text == "" || !int.TryParse(tbQuantidade.Text, out int y))
+                    tarefa.Periodicidade.Quantidade = 99999;
+                else
+                    tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 recurrence = "FREQ=WEEKLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
 
             }
@@ -298,12 +307,14 @@ namespace UTAD.ToDoList.WPF
             {
                 tarefa.Periodicidade = new Periodicidade();
                 tarefa.Periodicidade.Tipo = TipoP.MONTHLY;
-                if (tbIntervalo.Text == "")
+                if (tbIntervalo.Text == "" || !int.TryParse(tbIntervalo.Text, out int x))
                     tarefa.Periodicidade.Intervalo = 1;
-                tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
-                if (tbQuantidade.Text == "")
-                    tarefa.Periodicidade.Quantidade = 0;
-                tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
+                else
+                    tarefa.Periodicidade.Intervalo = Convert.ToInt32(tbIntervalo.Text);
+                if (tbQuantidade.Text == "" || !int.TryParse(tbQuantidade.Text, out int y))
+                    tarefa.Periodicidade.Quantidade = 99999;
+                else
+                    tarefa.Periodicidade.Quantidade = Convert.ToInt32(tbQuantidade.Text);
                 recurrence = "FREQ=MONTHLY;INTERVAL=" + tarefa.Periodicidade.Intervalo + ";COUNT=" + tarefa.Periodicidade.Quantidade;
             }
 
@@ -317,9 +328,29 @@ namespace UTAD.ToDoList.WPF
         {
             this.Close();
         }
-        
+
+        private void BtnLimpar_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show("Tem a certeza que deseja limpar a lista de tarefas?", "Aviso!", MessageBoxButton.YesNo, MessageBoxImage.Warning);
+            if (result == MessageBoxResult.Yes)
+            {
+                App.Perfil.ListaTarefas.Clear();
+                App.scheduler.Meetings.Clear();
+                this.Close();
+            }
+            else
+            {
+                return;
+            }
+        }
+
         private void BtnRemover_Click(object sender, RoutedEventArgs e)
         {
+            if (cbTarefas.SelectedItem == null)
+            {
+                MessageBox.Show("Selecione uma tarefa para remover!", "Aviso!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
             // remover tarefa da lista do perfil e da lista do scheduler
             App.scheduler.RemoverMeeting(((Tarefa)cbTarefas.SelectedItem).Id);
             App.Perfil.ListaTarefas.Remove((Tarefa)cbTarefas.SelectedItem);

@@ -35,7 +35,7 @@ namespace UTAD.ToDoList.WPF
             OpenFileDialog openFileDialog = new();
 
             // filtro de ficheiros de imagem
-            openFileDialog.Filter = "Ficheiros de Imagem|*.jpg;*.jpeg;*.png;*.gif;*.bmp";
+            openFileDialog.Filter = "Ficheiros de Imagem|*.jpg;*.jpeg;*.png";
             
             // após selecionar a imagem, muda imagem da view e guarda no objeto perfil
             if (openFileDialog.ShowDialog() == true)
@@ -52,11 +52,31 @@ namespace UTAD.ToDoList.WPF
 
         private void btnRegistar_Click(object sender, RoutedEventArgs e)
         {
+            // verifica se os campos estão preenchidos
             if (tbNome.Text == "" || tbEmail.Text == "" || App.ConvertToPlainText(tbPassword.SecurePassword) == "")
             {
-                MessageBox.Show("Preencha todos os campos!", "Erro de Preenchimento", MessageBoxButton.OK, MessageBoxImage.Error);
+                MessageBox.Show("Preencha todos os campos!", "Erro de Preenchimento!", MessageBoxButton.OK, MessageBoxImage.Error);
                 return;
             }
+
+            // verifica se o email é válido
+            if (App.IsValidEmail(tbEmail.Text) == false)
+            {
+                MessageBox.Show("Email inválido!", "Erro de Preenchimento!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
+            // verifica se o utilizador já existe
+            string folderName = "to-do list";
+            string fileName = tbNome.Text + ".json";
+            string environmentPath = Environment.GetFolderPath(Environment.SpecialFolder.UserProfile);
+            string filePath = System.IO.Path.Combine(environmentPath, folderName, fileName);
+            if (File.Exists(filePath))
+            {
+                MessageBox.Show("Utilizador já existe!", "Erro de Preenchimento!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
+
             App.Perfil.Nome = tbNome.Text;
             App.Perfil.Email = tbEmail.Text;
             App.Perfil.Password = App.ConvertToPlainText(tbPassword.SecurePassword);

@@ -34,13 +34,20 @@ namespace UTAD.ToDoList.WPF
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.UserProfile), "to-do list");
             path = System.IO.Path.Combine(path, App.Perfil.Nome) + ".json";
 
-            // elimina ficheiro antigo se houver alterações
+            // elimina ficheiro antigo se houver alterações (o ficheiro novo será criado quando a aplicação for fechada)
             if (tbNome.Text != App.Perfil.Nome || tbEmail.Text != App.Perfil.Email || tbPassword.Text != App.Perfil.Password)
             {
                 if(File.Exists(path))
                 {
                     File.Delete(path);
                 }  
+            }
+
+            // verifica se email é válido
+            if (App.IsValidEmail(tbEmail.Text) == false)
+            {
+                MessageBox.Show("Email inválido!", "Erro de Preenchimento!", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
             }
 
             App.Perfil.Nome = tbNome.Text;
@@ -98,7 +105,7 @@ namespace UTAD.ToDoList.WPF
             }
             else
             {
-                ftPerfil.Source = new BitmapImage(new Uri("C:\\code\\LABPSW\\UTAD.ToDoList\\UTAD.ToDoList.WPF\\Images\\Camera.png"));
+                ftPerfil.Source = new BitmapImage(new Uri("pack://application:,,,/Images/Camera.png"));
             }
         }
     }

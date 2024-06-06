@@ -20,5 +20,10 @@ namespace UTAD.ToDoList.WPF.Models
         public string Id { get; set; }
         public ObservableCollection<SchedulerReminder> Reminders { get; set; }
         public bool AllDay { get; set; }
+
+        public Meeting()
+        {
+            System.Threading.Thread.CurrentThread.CurrentUICulture = new System.Globalization.CultureInfo("PT-pt");
+        }
     }
 }

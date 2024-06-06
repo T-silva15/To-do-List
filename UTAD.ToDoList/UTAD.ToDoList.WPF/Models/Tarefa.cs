@@ -35,13 +35,16 @@ namespace UTAD.ToDoList.WPF.Models
         }
 
         // construtor com parâmetros
-        public Tarefa(string _Titulo, string _Descricao, DateTime _DataInicio, DateTime _DataTermino,
+        public Tarefa(string _Titulo, string _Descricao, DateTime _DataInicio, DateTime _DataTermino, NivelImportancia _NivelImportancia, Estado _Estado, bool diaInteiro,
             Periodicidade _Periodicidade, List<Alerta> _AlertaAntecipacao, List<Alerta> _AlertaExecucao)
         {
             Titulo = _Titulo;
             Descricao = _Descricao;
             DataInicio = _DataInicio;
             DataTermino = _DataTermino;
+            NivelImportancia = _NivelImportancia;
+            Estado = _Estado;
+            DiaInteiro = diaInteiro;
             Periodicidade = _Periodicidade;
             ListaAlertaAnt = _AlertaAntecipacao;
             ListaAlertaNaoExec = _AlertaExecucao;
