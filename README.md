@@ -1,12 +1,12 @@
-# To-Do List App
+# Lucky Numbers Game
 
-Made using the C# programming language and .NET framework during the 2nd semester of the 2nd year.
+Made using the Python programming language during the 2nd semester of the 1nd year.
 
 #### Final Grade: 18/20 🏆
 
 ## About
 
-A To-do list app for organizing tasks, setting alerts, and managing priorities, designed to support multiple user accounts on a single machine. The application leverages Syncfusion elements for an enhanced user interface.
+A console-based game where players guess lucky numbers. Despite its simplicity, the game offers a colorful interface using the Colorama library, making it enjoyable on even the most basic systems.
 
 ## Table of Contents
 
@@ -14,26 +14,37 @@ A To-do list app for organizing tasks, setting alerts, and managing priorities, 
 - [Installation](#installation)
 - [Usage](#usage)
 
-
 ## Features
 
-- **User account system** that allows multiple users to use the app on one machine
-- **Task management** with the ability to create, update, and delete tasks
-- **Repeatable tasks** with customizable repetition intervals
-- **Alerts and notifications** for upcoming tasks and deadlines
-- **Priority levels** to categorize tasks based on importance
-
-
+- **Simple gameplay**: Easy to understand and play.
+- **Colorful interface**: Enhanced user experience with Colorama.
+- **Single or Two-player mode**: Play alone or with a friend.
+- **Cross-platform**: Runs on any system with Python and basic terminal support.
 
 ## Installation
 
 Clone the repository:
    ```bash
-   git clone https://github.com/T-silva15/To-do-List.git
-  ```
+   git clone https://github.com/yourusername/lucky-numbers-game.git
+   ```
+Navigate to the project directory:
+
+
+```bash
+cd LuckyNumbers
+```
+Install the required dependencies:
+
+
+```bash
+pip install colorama
+```
+
 ## Usage
 
-Run the executable:
-######
-  ![image](https://github.com/T-silva15/To-do-List/assets/128994723/8fbf89bd-b927-46f8-8359-18d2c9206d59)
+Run the game:
+
+```bash
+python main.py
+```
 
