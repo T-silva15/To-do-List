@@ -8,7 +8,7 @@
         xmlns:syncfusionskin ="clr-namespace:Syncfusion.SfSkinManager;assembly=Syncfusion.SfSkinManager.WPF"
         mc:Ignorable="d"
         Title="Dashboard" ResizeMode="CanResizeWithGrip" Height="768" Width="1024" MinHeight="768" syncfusion:SfSkinManager.Theme="{syncfusionskin:SkinManagerExtension ThemeName=MaterialDark}" MinWidth="1024" Icon="Images/todo.ico" Background="#050214" WindowState="Maximized" WindowStartupLocation="CenterScreen" Closing="Window_Closing" Loaded="Window_Loaded">
-
+    
     <Window.Resources>
         <DataTemplate
             x:Key="dayCellTemplate">
