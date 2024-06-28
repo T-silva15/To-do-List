@@ -1,0 +1,14 @@
+﻿<Application x:Class="UTAD.ToDoList.WPF.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:UTAD.ToDoList.WPF"
+             StartupUri="ViewLogin.xaml">
+    <Application.Resources>
+        <Style x:Key="Custom Font" >
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Poppins-Regular"/>
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Poppins-Italic"/>
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Poppins-Light"/>
+            <Setter Property="TextElement.FontFamily" Value="/Fonts/#Poppins-Bold"/>
+        </Style>
+    </Application.Resources>
+</Application>
