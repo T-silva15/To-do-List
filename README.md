@@ -8,6 +8,14 @@ Made using the C# programming language and .NET framework during the 2nd semeste
 
 A To-do list app for organizing tasks, setting alerts, and managing priorities, designed to support multiple user accounts on a single machine. The application leverages Syncfusion elements for an enhanced user interface.
 
+## Technologies Used
+
+**Frontend**: Syncfusion
+
+**Backend**: C#, .NET Core
+
+**Tools**: Visual Studio, Git
+
 ## Table of Contents
 
 - [Features](#features)
